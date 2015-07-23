@@ -1,0 +1,5 @@
+#!/bin/bash
+
+phpunit --coverage-clover build/logs/clover.xml;
+
+CODECLIMATE_REPO_TOKEN= ./vendor/bin/test-reporter
