@@ -22,4 +22,21 @@ class ClientTest extends TestCaseAbstract
     {
         $this->assertInstanceOf('\Gpupo\SteloSdk\Client\Client', $this->factoryClient());
     }
+
+    public function testSucessoAoDefinirOptions()
+    {
+        $client = $this->factoryClient();
+        $this->assertInstanceOf('\Gpupo\CommonSdk\Client\ClientInterface', $client);
+
+        return $client;
+    }
+
+    /**
+     * @depends testSucessoAoDefinirOptions
+     */
+    public function testGerenciaUriDeRecurso($client)
+    {
+        $this->assertEquals('http://sandbox.stelo.com.br/ec/V1/wallet/transactions',
+            $client->getResourceUri('/wallet/transactions'));
+    }
 }
