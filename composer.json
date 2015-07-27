@@ -1,6 +1,13 @@
 {
     "name": "gpupo/stelo-sdk",
     "description": "SDK Não Oficial para integração a partir de aplicações PHP com as APIs da Stelo.com.br",
+    "homepage": "http://www.g1mr.com/stelo-sdk/",
+    "authors": [
+        {
+            "name": "Gilmar Pupo",
+            "email": "g@g1mr.com"
+        }
+    ],
     "keywords": ["stelo", "sdk", "api"],
     "license": "MIT",
     "require": {
@@ -25,6 +32,12 @@
         "psr-4": {
             "Gpupo\\Tests\\SteloSdk\\": "tests"
         }
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "mkdir -p Resources/logs",
+            "touch Resources/logs/tests.log"
+        ]
     },
     "config": {
         "preferred-install": "dist"
