@@ -12,14 +12,14 @@
  * <http://www.g1mr.com/stelo-sdk/>.
  */
 
-namespace Gpupo\SteloSdk\Transactions;
+namespace Gpupo\SteloSdk\Transaction;
 
+use Gpupo\CommonSdk\Entity\EntityAbstract;
 use Gpupo\CommonSdk\Entity\EntityInterface;
-use Gpupo\CommonSdk\Entity\ManagerAbstract;
 
-class Manager extends ManagerAbstract
+class Transaction extends EntityAbstract implements EntityInterface
 {
-    public function update(EntityInterface $entity, EntityInterface $existent)
+    public function getSchema()
     {
     }
 }
