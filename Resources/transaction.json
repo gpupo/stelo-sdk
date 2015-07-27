@@ -1,0 +1,22 @@
+{
+    "link": [
+        {
+            "@title": "confirmar",
+            "@rel": "confirm",
+            "@href": "http://integracao.stelo.com.br/ec/V1/orders/transactions/143800700149312/confirm"
+        },
+        {
+            "@title": "cancelar",
+            "@rel": "cancel",
+            "@href": "http://integracao.stelo.com.br/ec/V1/orders/transactions/143800700149312/cancel"
+        },
+        {
+            "@title": "checkout wallet",
+            "@rel": "urlWallet",
+            "@href": "https://carteira.hml.stelo.com.br/comprador/checkout?orderId=7K4PRkBxOdzx_9WZ8vioZQ"
+        }
+    ],
+    "orderData": {
+        "orderId": 143800700149312
+    }
+}

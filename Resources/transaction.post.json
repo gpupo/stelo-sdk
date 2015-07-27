@@ -1,0 +1,57 @@
+{
+   "orderData":{
+      "orderId":"111",
+      "transactionType":"w",
+     "shippingBehavior":"default",
+      "country":"BR"
+   },
+   "paymentData":{
+      "amount":134.9,
+      "freight":30.0,
+      "currency":"BRL",
+      "maxInstallment":"4",
+      "cartData":[
+         {
+            "productName":"Produto Teste",
+            "productQuantity":"1",
+            "productPrice":134.9,
+            "productSku":"Produto Teste"
+         }
+      ]
+   },
+   "customerData":{
+      "customerIdentity":"39488996811",
+      "customerName":"teste Teste",
+      "customerEmail":"teste@teste.com.br",
+      "birthDay":"1991-01-14",
+      "gender":"M",
+      "phoneData":[
+         {
+            "phoneType":"LANDLINE",
+            "number":"1124242424"
+         }
+      ],
+      "billingAddress":{
+         "street":"endereco teste",
+         "number":"123",
+         "complement":"ap",
+         "neighborhood":"centro",
+         "zipCode":"07114000",
+         "city":"Franca",
+         "state":"SP",
+         "country":"BR"
+      },
+      "shippingAddress":{
+         "street":"endereco teste",
+         "number":"123",
+         "complement":"ap",
+         "neighborhood":"centro",
+         "zipCode":"07114000",
+         "city":"Franca",
+         "state":"SP",
+         "country":"BR"
+      }
+   },
+
+   "changeShipment":false
+}
