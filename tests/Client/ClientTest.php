@@ -19,7 +19,7 @@ use Gpupo\Tests\SteloSdk\TestCaseAbstract;
 class ClientTest extends TestCaseAbstract
 {
     public function testAcessoAoClient()
-    {
-        $this->assertInstanceOf('/Gpupo/SteloSdk/Client/Client', $this->factoryClient());
+    {        
+        $this->assertInstanceOf('\Gpupo\SteloSdk\Client\Client', $this->factoryClient());
     }
 }
