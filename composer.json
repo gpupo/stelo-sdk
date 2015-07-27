@@ -35,8 +35,7 @@
     },
     "scripts": {
         "post-update-cmd": [
-            "mkdir -p Resources/logs",
-            "touch Resources/logs/tests.log"
+            "mkdir -p Resources/logs && touch Resources/logs/tests.log"
         ]
     },
     "config": {
