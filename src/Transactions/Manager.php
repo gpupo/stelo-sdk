@@ -12,14 +12,14 @@
  * <http://www.g1mr.com/stelo-sdk/>.
  */
 
-namespace Gpupo\Tests\SteloSdk\Client;
+namespace Gpupo\SteloSdk\Transactions;
 
-use Gpupo\Tests\SteloSdk\TestCaseAbstract;
+use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\CommonSdk\Entity\ManagerAbstract;
 
-class ClientTest extends TestCaseAbstract
+class Manager extends ManagerAbstract
 {
-    public function testAcessoAoClient()
+    public function update(EntityInterface $entity, EntityInterface $existent)
     {
-        $this->assertInstanceOf('\Gpupo\SteloSdk\Client\Client', $this->factoryClient());
     }
 }

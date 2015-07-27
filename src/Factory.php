@@ -26,12 +26,16 @@ class Factory extends FactoryAbstract
 
     public function getNamespace()
     {
-        return '\Gpupo\SteloSdk\Entity\\';
+        return '\Gpupo\SteloSdk\\';
     }
 
     protected function getSchema($namespace = null)
     {
         return [
+            'transaction' => [
+                'class'     => $namespace.'Transactions\Transaction',
+                'manager'   => $namespace.'Transactions\Manager',
+            ],
         ];
     }
 }
