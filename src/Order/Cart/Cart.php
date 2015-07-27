@@ -12,14 +12,14 @@
  * <http://www.g1mr.com/stelo-sdk/>.
  */
 
-namespace Gpupo\SteloSdk\Transactions;
+namespace Gpupo\SteloSdk\Order\Cart;
 
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\CommonSdk\Entity\CollectionAbstract;
 
-class Transaction extends EntityAbstract implements EntityInterface
+class Cart extends CollectionAbstract
 {
-    public function getSchema()
+    public function factoryElement($data)
     {
+        return new Item($data);
     }
 }

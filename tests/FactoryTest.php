@@ -38,14 +38,14 @@ class FactoryTest extends FactoryTestAbstract
     public function dataProviderObjetos()
     {
         return [
-            [$this->namespace.'Transactions\Transaction', 'transaction', null],
+            [$this->namespace.'Transaction\Transaction', 'transaction', null],
         ];
     }
 
     public function dataProviderManager()
     {
         return [
-            [$this->namespace.'Transactions\Manager', 'transaction'],
+            [$this->namespace.'Transaction\Manager', 'transaction'],
         ];
     }
 }
