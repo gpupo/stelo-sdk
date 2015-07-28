@@ -16,8 +16,9 @@ Adicione o pacote [stelo-sdk](https://packagist.org/packages/gpupo/stelo-sdk) ao
 
 ---
 
-### Uso
+## Uso
 
+O exemplo abaixo considera que ``$data`` possui [esta estrutura](https://github.com/gpupo/stelo-sdk/blob/master/Resources/fixtures/order.input.json);
 
     <?php
     ///...
@@ -97,4 +98,3 @@ phpunit --testdox | grep -vi php |  sed "s/.*\[*]/-/" | sed 's/.*Gpupo.*/&\'$'\n
 - Cada pedido possui objeto billing
 - Cada pedido possui objeto contendo endereco de entrega
 - Cada pedido possui colecao de produtos
-
