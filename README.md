@@ -26,10 +26,10 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
     //...
     use Gpupo\SteloSdk\Factory;
 
-    $factory = Factory::getInstance()
+    $steloSdk = Factory::getInstance()
         ->setup(['clientId' => 'foo','clientSecret' => 'bar', 'version' => 'sandbox']);
 
-    $order = $factory->createOrder($data);
+    $order = $steloSdk->createOrder($data);
     $transaction = $order->sent();
 
     $checkoutUrl = $transaction->getCheckoutUrl();
@@ -37,18 +37,12 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
 
 ### Redireciona Cliente para a Url de checkout
 
-    <?php
-    //...
-
-    $lightbox = $factory->createLightbox($checkoutUrl);
+    $lightbox = $steloSdk->createLightbox($checkoutUrl);
     echo $lightbox;
 
 ### Consulta de transação
 
-    <?php
-    //...
-
-    $manager = $factory->factoryManager('transaction');
+    $manager = $steloSdk->factoryManager('transaction');
     $transaction = $manager->findById('143800246128360');
 
     echo $transaction->getSatusCode(); // N
