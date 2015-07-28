@@ -1,0 +1,9 @@
+{
+    "amount": 134.9,
+    "freight": 30,
+    "steloId": 143800246128360,
+    "steloStatus": {
+        "statusCode": "N",
+        "statusMessage": "Cancelada"
+    }
+}

@@ -18,22 +18,42 @@ Adicione o pacote [stelo-sdk](https://packagist.org/packages/gpupo/stelo-sdk) ao
 
 ## Uso
 
-O exemplo abaixo considera que ``$data`` possui [esta estrutura](https://github.com/gpupo/stelo-sdk/blob/master/Resources/fixtures/order.input.json);
+Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://github.com/gpupo/stelo-sdk/blob/master/Resources/fixtures/order.input.json);
+
+### Criação de uma nova transação
 
     <?php
-    ///...
+    //...
     use Gpupo\SteloSdk\Factory;
 
-    $factory = Factory::getInstance()->setup(['clientId' => 'foo','clientSecret' => 'bar', 'version' => 'sandbox']);
+    $factory = Factory::getInstance()
+        ->setup(['clientId' => 'foo','clientSecret' => 'bar', 'version' => 'sandbox']);
 
     $order = $factory->createOrder($data);
     $transaction = $order->sent();
 
     $checkoutUrl = $transaction->getCheckoutUrl();
-    $transaction->getId();
+    echo $transaction->getId(); //143800246128360
+
+### Redireciona Cliente para a Url de checkout
+
+    <?php
+    //...
 
     $lightbox = $factory->createLightbox($checkoutUrl);
     echo $lightbox;
+
+### Consulta de transação
+
+    <?php
+    //...
+
+    $manager = $factory->factoryManager('transaction');
+    $transaction = $manager->findById('143800246128360');
+
+    echo $transaction->getSatusCode(); // N
+    echo $transaction->getStatusMessage(); // Cancelada
+    echo $transaction->getAmount(); // 134.9
 
 ---
 
