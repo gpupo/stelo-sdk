@@ -22,8 +22,11 @@ class ManagerTest extends TestCaseAbstract
     public function testÉUsadoParaCriarUmaNovaTransação()
     {
         $manager = $this->getFactory()->factoryManager('transaction');
+        $manager->setDryRun($this->factoryResponseFromFixture('fixtures/transaction.json'));
         $order = $this->factoryOrder();
         $transaction = $manager->createFromOrder($order);
         $this->assertInstanceOf('\Gpupo\SteloSdk\Transaction\Transaction', $transaction);
+        $this->assertEquals('143800700149312', $transaction->getId());
+        $this->assertEquals('https://carteira.hml.stelo.com.br/comprador/checkout?orderId=7K4PRkBxOdzx_9WZ8vioZQ', $transaction->getCheckoutUrl());
     }
 }

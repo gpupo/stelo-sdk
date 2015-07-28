@@ -44,11 +44,20 @@ class TransactionTest extends TestCaseAbstract
             'statusMessage' => 'Cancelada',
             'freight'       => 9,
             'amount'        => 134.9,
+            'checkoutUrl'   => 'https://www.example.com',
         ]);
 
         $this->assertEquals(1, $transaction->getId());
 
         return $transaction;
+    }
+
+    /**
+     * @depends testPossuiId
+     */
+    public function testPossuiUrlDeCheckout(Transaction $transaction)
+    {
+        $this->assertEquals('https://www.example.com', $transaction->getCheckoutUrl());
     }
 
     /**
