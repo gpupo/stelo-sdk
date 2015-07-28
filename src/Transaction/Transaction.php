@@ -17,6 +17,18 @@ namespace Gpupo\SteloSdk\Transaction;
 use Gpupo\CommonSdk\Entity\EntityAbstract;
 use Gpupo\CommonSdk\Entity\EntityInterface;
 
+/**
+ * @method string getId()
+ * @method setId(string $id)
+ * @method string getStatusCode()
+ * @method setStatusCode(string $statusCode)
+ * @method string getStatusMessage()
+ * @method setStatusMessage(string $statusMessage)
+ * @method string getFreight()
+ * @method setFreight(string $freight)
+ * @method string getAmount()
+ * @method setAmount(string $amount)
+ */
 class Transaction extends EntityAbstract implements EntityInterface
 {
     public function getSchema()

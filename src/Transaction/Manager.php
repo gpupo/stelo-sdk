@@ -16,10 +16,25 @@ namespace Gpupo\SteloSdk\Transaction;
 
 use Gpupo\CommonSdk\Entity\EntityInterface;
 use Gpupo\CommonSdk\Entity\ManagerAbstract;
+use Gpupo\SteloSdk\Order\Order;
 
 class Manager extends ManagerAbstract
 {
+    protected $entity = 'Transaction';
+
+    protected $maps = [
+        'createFromOrder'   => ['POST', '/wallet/transactions'],
+        'findById'          => ['GET', '/orders/transactions/{itemId}'],
+    ];
+
+    public function createFromOrder(Order $order)
+    {
+        return $this->execute($this->factoryMap('createFromOrder',
+            ['itemId' => $order->getId()], $order->toJson()));
+    }
+
     public function update(EntityInterface $entity, EntityInterface $existent)
     {
+        
     }
 }

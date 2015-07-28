@@ -31,6 +31,13 @@ abstract class TestCaseAbstract extends CommonSdkTestCaseAbstract
         return $this->getFactory()->getClient();
     }
 
+    protected function factoryOrder()
+    {
+        $data = $this->getResourceJson('fixtures/order.input.json');
+
+        return $this->getFactory()->createOrder($data);
+    }
+
     protected function getOptions()
     {
         return [

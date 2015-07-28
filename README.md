@@ -29,7 +29,8 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
         ->setup(['client_id' => 'foo','client_secret' => 'bar', 'version' => 'sandbox']);
 
     $order = $steloSdk->createOrder($data);
-    $transaction = $order->sent();
+    $manager = $steloSdk->factoryManager('transaction');
+    $transaction = $manager->createFromOrder($order);
 
     $checkoutUrl = $transaction->getCheckoutUrl();
     echo $transaction->getId(); //143800246128360
