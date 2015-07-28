@@ -38,6 +38,8 @@ class FactoryTest extends FactoryTestAbstract
     public function dataProviderObjetos()
     {
         return [
+            [$this->namespace.'Order\Order', 'order', null],
+            [$this->namespace.'View\Lightbox', 'lightbox', null],
             [$this->namespace.'Transaction\Transaction', 'transaction', null],
         ];
     }
