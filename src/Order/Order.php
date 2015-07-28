@@ -18,8 +18,6 @@ use Gpupo\CommonSdk\Entity\EntityAbstract;
 use Gpupo\CommonSdk\Entity\EntityInterface;
 
 /**
- * Magic methods on Gpupo\SteloSdk\Order\Order:
- *
  * @method string getId()
  * @method setId(string $id)
  * @method string getTransactionType()
@@ -28,6 +26,8 @@ use Gpupo\CommonSdk\Entity\EntityInterface;
  * @method setShippingBehavior(string $shippingBehavior)
  * @method string getCountry()
  * @method setCountry(string $country)
+ * @method Gpupo\SteloSdk\Order\Cart\Cart getCart()
+ * @method setCart(Gpupo\SteloSdk\Order\Cart\Cart $cart)
  * @method Gpupo\SteloSdk\Order\Payment getPayment()
  * @method setPayment(Gpupo\SteloSdk\Order\Payment $payment)
  * @method Gpupo\SteloSdk\Order\Customer\Customer getCustomer()
@@ -44,6 +44,7 @@ class Order extends EntityAbstract implements EntityInterface
             'transactionType'       => 'string',
             'shippingBehavior'      => 'string',
             'country'               => 'string',
+            'cart'                  => 'object',
             'payment'               => 'object',
             'customer'              => 'object',
             'changeShipment'        => 'bool',
