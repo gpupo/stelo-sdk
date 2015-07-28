@@ -21,5 +21,12 @@ class Transaction extends EntityAbstract implements EntityInterface
 {
     public function getSchema()
     {
+        return [
+            'id'            => 'string',
+            'statusCode'    => 'string',
+            'statusMessage' => 'string',
+            'freight'       => 'string',
+            'amount'        => 'string'
+        ];
     }
 }
