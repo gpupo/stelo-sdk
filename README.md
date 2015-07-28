@@ -45,7 +45,7 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
     $manager = $steloSdk->factoryManager('transaction');
     $transaction = $manager->findById('143800246128360');
 
-    echo $transaction->getSatusCode(); // N
+    echo $transaction->getStatusCode(); // N
     echo $transaction->getStatusMessage(); // Cancelada
     echo $transaction->getAmount(); // 134.9
 

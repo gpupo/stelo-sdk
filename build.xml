@@ -21,11 +21,4 @@
    <arg value="install"/>
   </exec>
  </target>
- <target name="phpdoc" description="Generate documentation directly from your PHP source code">
-  <get src="http://phpdoc.org/phpDocumentor.phar" dest="${basedir}/phpDocumentor.phar" skipexisting="true"/>
-  <exec executable="php">
-   <arg value="phpDocumentor.phar"/>
-   <arg value="-d ${basedir}/src/ -t ${basedir}/Resources/doc/api --template=responsive-twig --cache-folder=/tmp"/>
-  </exec>
- </target>
 </project>
