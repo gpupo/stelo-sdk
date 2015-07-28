@@ -3,6 +3,7 @@
       "orderId":"111",
       "transactionType":"w",
      "shippingBehavior":"default",
+     "changeShipment":false,
       "country":"BR"
    },
    "paymentData":{
@@ -51,7 +52,5 @@
          "state":"SP",
          "country":"BR"
       }
-   },
-
-   "changeShipment":false
+   }
 }
