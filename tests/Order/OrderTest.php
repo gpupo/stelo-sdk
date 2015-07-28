@@ -25,19 +25,20 @@ class OrderTest extends TestCaseAbstract
         self::displayClassDocumentation(new Order());
     }
 
-    protected function factory()
-    {
-        $data = $this->getResourceJson('fixtures/order.input.json');
-
-        return $this->getFactory()->createOrder($data);
-    }
-
     public function testPossuiSchema()
     {
-        $order = $this->factory();
+        $order = $this->factoryOrder();
         $this->assertInstanceOf('\Gpupo\SteloSdk\Order\Order', $order);
 
         return $order;
+    }
+
+    /**
+     * @depends testPossuiSchema
+     */
+    public function testCadaPedidoPossuiId(Order $order)
+    {
+        $this->assertEquals(111 ,$order->getId());
     }
 
     /**
