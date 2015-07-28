@@ -34,7 +34,9 @@ class Factory extends FactoryAbstract
         return [
             'order' => [
                 'class'     => $namespace.'Order\Order',
-                'manager'   => null,
+            ],
+            'lightbox' => [
+                'class'     => $namespace.'View\Lightbox',
             ],
             'transaction' => [
                 'class'     => $namespace.'Transaction\Transaction',

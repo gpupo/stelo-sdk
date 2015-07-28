@@ -1,7 +1,6 @@
 [![Build Status](https://secure.travis-ci.org/gpupo/stelo-sdk.png?branch=master)](http://travis-ci.org/gpupo/stelo-sdk)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gpupo/stelo-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gpupo/stelo-sdk/?branch=master)
 
-
 # stelo-sdk
 
 SDK Não Oficial para integração a partir de aplicações PHP com as APIs da Stelo.com.br
@@ -27,7 +26,7 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
     use Gpupo\SteloSdk\Factory;
 
     $steloSdk = Factory::getInstance()
-        ->setup(['clientId' => 'foo','clientSecret' => 'bar', 'version' => 'sandbox']);
+        ->setup(['client_id' => 'foo','client_secret' => 'bar', 'version' => 'sandbox']);
 
     $order = $steloSdk->createOrder($data);
     $transaction = $order->sent();
@@ -84,7 +83,7 @@ Rode os testes localmente:
 
 
 * [Documentação dos objetos](http://www.g1mr.com/stelo-sdk/doc/)
-* [Documentação oficial](https://github.com/gpupo/stelo-sdk/blob/master/Resources/doc/manual_stelo_api.pdf)
+* [Documentação de integração Stelo](https://github.com/gpupo/stelo-sdk/blob/master/Resources/doc/manual_stelo_api.pdf)
 
 ---
 
