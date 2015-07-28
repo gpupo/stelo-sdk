@@ -42,7 +42,7 @@ abstract class TestCaseAbstract extends CommonSdkTestCaseAbstract
     {
         return [
             'client_id'         => $this->getConstant('CLIENT_ID'),
-            'access_token'      => $this->getConstant('ACCESS_TOKEN'),
+            'client_secret'     => $this->getConstant('CLIENT_SECRET'),
             'verbose'           => $this->getConstant('VERBOSE'),
             'dryrun'            => $this->getConstant('DRYRUN'),
             'registerPath'      => $this->getConstant('REGISTER_PATH'),
