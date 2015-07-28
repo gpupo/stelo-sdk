@@ -70,7 +70,6 @@ class OrderTest extends TestCaseAbstract
      */
     public function testCadaPedidoPossuiColecaoDeProdutos(Order $order)
     {
-        return $this->markTestIncomplete();
         $collection = $order->getCart();
 
         $this->assertInstanceOf('\Gpupo\SteloSdk\Order\Cart\Cart', $collection);

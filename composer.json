@@ -34,7 +34,7 @@
         }
     },
     "scripts": {
-        "post-update-cmd": [
+        "post-install-cmd": [
             "mkdir -p Resources/logs && touch Resources/logs/tests.log"
         ]
     },
