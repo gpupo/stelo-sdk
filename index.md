@@ -40,8 +40,11 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
 
 ### Redireciona Cliente para a Url de checkout
 
-    $lightbox = $steloSdk->createLightbox($checkoutUrl);
-    echo $lightbox;
+    <html>
+        <body>
+            <?php echo $steloSdk->createLightbox($checkoutUrl); ?>
+        </body>
+    </html>
 
 ### Consulta de transação
 
