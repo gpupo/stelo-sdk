@@ -4,7 +4,6 @@ layout: default
 [![Build Status](https://secure.travis-ci.org/gpupo/stelo-sdk.png?branch=master)](http://travis-ci.org/gpupo/stelo-sdk)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gpupo/stelo-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gpupo/stelo-sdk/?branch=master)
 
-
 # stelo-sdk
 
 SDK Não Oficial para integração a partir de aplicações PHP com as APIs da Stelo.com.br
@@ -19,23 +18,39 @@ Adicione o pacote [stelo-sdk](https://packagist.org/packages/gpupo/stelo-sdk) ao
 
 ---
 
-### Uso
+## Uso
 
+Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://github.com/gpupo/stelo-sdk/blob/master/Resources/fixtures/order.input.json);
+
+### Criação de uma nova transação
 
     <?php
-    ///...
+    //...
     use Gpupo\SteloSdk\Factory;
 
-    $factory = Factory::getInstance()->setup(['clientId' => 'foo','clientSecret' => 'bar', 'version' => 'sandbox']);
+    $steloSdk = Factory::getInstance()
+        ->setup(['client_id' => 'foo','client_secret' => 'bar', 'version' => 'sandbox']);
 
-    $order = $factory->createOrder($data);
-    $transaction = $order->sent();
+    $order = $steloSdk->createOrder($data);
+    $manager = $steloSdk->factoryManager('transaction');
+    $transaction = $manager->createFromOrder($order);
 
     $checkoutUrl = $transaction->getCheckoutUrl();
-    $transaction->getId();
+    echo $transaction->getId(); //143800246128360
 
-    $lightbox = $factory->createLightbox($checkoutUrl);
+### Redireciona Cliente para a Url de checkout
+
+    $lightbox = $steloSdk->createLightbox($checkoutUrl);
     echo $lightbox;
+
+### Consulta de transação
+
+    $manager = $steloSdk->factoryManager('transaction');
+    $transaction = $manager->findById('143800246128360');
+
+    echo $transaction->getStatusCode(); // N
+    echo $transaction->getStatusMessage(); // Cancelada
+    echo $transaction->getAmount(); // 134.9
 
 ---
 
@@ -63,7 +78,9 @@ Insira sua Token de Sandbox em ``phpunit.xml``:
 
     <!-- Customize your parameters ! -->
     <php>
-        <const name="VERBOSE" value="false"/>
+        <const name="CLIENT_ID" value="foo"/>
+        <const name="CLIENT_SECRET" value="bar"/>
+        <const name="VERBOSE" value="true"/>
     </php>
 
 Rode os testes localmente:
@@ -72,7 +89,7 @@ Rode os testes localmente:
 
 
 * [Documentação dos objetos](http://www.g1mr.com/stelo-sdk/doc/)
-* [Documentação oficial](https://github.com/gpupo/stelo-sdk/blob/master/Resources/doc/manual_stelo_api.pdf)
+* [Documentação de integração Stelo](https://github.com/gpupo/stelo-sdk/blob/master/Resources/doc/manual_stelo_api.pdf)
 
 ---
 
@@ -82,6 +99,7 @@ A lista abaixo é gerada a partir da saída da execução dos testes unitários:
 <!--
 phpunit --testdox | grep -vi php |  sed "s/.*\[*]/-/" | sed 's/.*Gpupo.*/&\'$'\n/g' | sed 's/.*Gpupo.*/&\'$'\n/g' | sed 's/Gpupo\\Tests\\SteloSdk\\/### /g' | sed '/./,/^$/!d' >> README.md
 -->
+
 ### Client\Client
 
 - Acesso ao client
@@ -96,8 +114,27 @@ phpunit --testdox | grep -vi php |  sed "s/.*\[*]/-/" | sed 's/.*Gpupo.*/&\'$'\n
 ### Order\Order
 
 - Possui schema
+- Cada pedido possui id
 - Cada pedido possui objeto cliente
 - Cada pedido possui objeto billing
 - Cada pedido possui objeto contendo endereco de entrega
 - Cada pedido possui colecao de produtos
 
+### Transaction\Manager
+
+- É usado para criar uma nova transação
+- Permite consulta a uma transação específica
+
+### Transaction\Transaction
+
+- Possui id
+- Possui url de checkout
+- Possui status code
+- Possui identificação de situação atual
+- Possui valor da transação
+- Possui valor de frete
+
+### View\Lightbox
+
+- Possui url para redirecionamento do comprador
+- Imprime javascript que redireciona o navegador do comprador
