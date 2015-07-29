@@ -26,7 +26,6 @@ class Payment extends EntityAbstract implements EntityInterface
             'freight'           => 'number',
             'currency'          => 'string',
             'maxInstallment'    => 'string',
-            'cart'              => 'object',
         ];
     }
 }
