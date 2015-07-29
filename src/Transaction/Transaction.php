@@ -39,7 +39,7 @@ class Transaction extends EntityAbstract implements EntityInterface
             'statusMessage' => 'string',
             'freight'       => 'string',
             'amount'        => 'string',
-            'checkoutUrl'   => 'string'
+            'checkoutUrl'   => 'string',
         ];
     }
 }
