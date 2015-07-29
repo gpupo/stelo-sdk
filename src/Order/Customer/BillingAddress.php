@@ -26,6 +26,7 @@ class BillingAddress extends EntityAbstract implements EntityInterface
             'number'        => 'string',
             'complement'    => 'string',
             'neighborhood'  => 'string',
+            'zipCode'       => 'string',
             'city'          => 'string',
             'state'         => 'string',
             'country'       => 'string',
