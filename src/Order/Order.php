@@ -50,4 +50,23 @@ class Order extends EntityAbstract implements EntityInterface
             'changeShipment'        => 'bool',
         ];
     }
+
+    public function toArray()
+    {
+        $list = [
+            'orderData' => [
+                'orderId'   => $this->getId(),
+                'transactionType'   => $this->getTransactionType(),
+                "shippingBehavior" => "default",
+                "changeShipment" => false,
+                "country" => "BR",
+            ],
+            'paymentData'   => $this->getPayment()->toArray(),
+            'customerData'   => $this->getCustomer()->toArray(),
+        ];
+
+        $list['paymentData']['cartData'] = $this->getCart()->toArray();
+
+        return $list;
+    }
 }
