@@ -84,6 +84,7 @@ class OrderTest extends TestCaseAbstract
     public function testProduzJsonEmFormatoEsperadoPelaApiDeDestino(Order $order)
     {
         $expected = $this->getResourceJson('fixtures/transaction.post.json');
+
         $array = $order->toArray();
 
         foreach(['order', 'payment', 'customer'] as $key) {

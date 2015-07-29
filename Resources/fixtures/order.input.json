@@ -8,16 +8,16 @@
       "amount":134.9,
       "freight":30.0,
       "currency":"BRL",
-      "maxInstallment":"4",
-      "cart":[
-         {
-            "productName":"Produto Teste",
-            "productQuantity":"1",
-            "productPrice":134.9,
-            "productSku":"Produto Teste"
-         }
-      ]
+      "maxInstallment":"4"
    },
+   "cart":[
+      {
+         "productName":"Produto Teste",
+         "productQuantity":"1",
+         "productPrice":134.9,
+         "productSku":"Produto Teste"
+      }
+  ],
    "customer":{
       "customerIdentity":"39488996811",
       "customerName":"teste Teste",
