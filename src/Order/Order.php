@@ -66,6 +66,8 @@ class Order extends EntityAbstract implements EntityInterface
         ];
 
         $list['paymentData']['cartData'] = $this->getCart()->toArray();
+        $list['customerData']['phoneData'] = $list['customerData']['phone'];
+        unset($list['customerData']['phone']);
 
         return $list;
     }
