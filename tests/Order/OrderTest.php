@@ -15,7 +15,6 @@
 namespace Gpupo\Tests\SteloSdk\Order;
 
 use Gpupo\SteloSdk\Order\Order;
-
 use Gpupo\Tests\SteloSdk\TestCaseAbstract;
 
 class OrderTest extends TestCaseAbstract
@@ -38,7 +37,7 @@ class OrderTest extends TestCaseAbstract
      */
     public function testCadaPedidoPossuiId(Order $order)
     {
-        $this->assertEquals(111 ,$order->getId());
+        $this->assertEquals(111, $order->getId());
     }
 
     /**
@@ -63,7 +62,6 @@ class OrderTest extends TestCaseAbstract
     public function testCadaPedidoPossuiObjetoContendoEnderecoDeEntrega(Order $order)
     {
         $this->assertInstanceOf('\Gpupo\SteloSdk\Order\Customer\ShippingAddress', $order->getCustomer()->getShippingAddress());
-
     }
 
     /**

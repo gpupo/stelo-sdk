@@ -29,4 +29,13 @@ class ManagerTest extends TestCaseAbstract
         $this->assertEquals('143800700149312', $transaction->getId());
         $this->assertEquals('https://carteira.hml.stelo.com.br/comprador/checkout?orderId=7K4PRkBxOdzx_9WZ8vioZQ', $transaction->getCheckoutUrl());
     }
+
+    public function testPermiteConsultaAUmaTransaçãoEspecífica()
+    {
+        $manager = $this->getFactory()->factoryManager('transaction');
+        $manager->setDryRun($this->factoryResponseFromFixture('fixtures/transaction.status.json'));
+        $transaction = $manager->findById(143800246128360);
+        $this->assertInstanceOf('\Gpupo\SteloSdk\Transaction\Transaction', $transaction);
+        $this->assertEquals('143800246128360', $transaction->getId());
+    }
 }

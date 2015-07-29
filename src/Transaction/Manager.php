@@ -16,13 +16,11 @@ namespace Gpupo\SteloSdk\Transaction;
 
 use Gpupo\CommonSdk\Entity\EntityInterface;
 use Gpupo\CommonSdk\Entity\ManagerAbstract;
-use Gpupo\SteloSdk\Order\Order;
 use Gpupo\CommonSdk\Response;
+use Gpupo\SteloSdk\Order\Order;
 
 class Manager extends ManagerAbstract
 {
-    //protected $entity = 'Transaction';
-
     protected $maps = [
         'createFromOrder'   => ['POST', '/wallet/transactions'],
         'findById'          => ['GET', '/orders/transactions/{itemId}'],
@@ -34,16 +32,35 @@ class Manager extends ManagerAbstract
             ['itemId' => $order->getId()], $order->toJson()));
 
         if ($response->getHttpStatusCode() === 200) {
-            return $this->factoryFromResponse($response);
+            return $this->factoryFromCreateResponse($response);
         }
     }
+    public function findById($itemId)
+    {
+        $response = parent::findById($itemId);
 
-    protected function factoryFromResponse(Response $response)
+        return $this->factoryFromStatusResponse($response);
+    }
+
+    protected function factoryFromStatusResponse( $response)
+    {
+        $data = [
+            'id'            => $response->getSteloId(),
+            'statusCode'    => $response->getsteloStatus()['statusCode'],
+            'statusMessage' => $response->getsteloStatus()['statusMessage'],
+            'freight'       => $response->getFreight(),
+            'amount'        => $response->getAmount(),
+        ];
+
+        return new Transaction($data);
+    }
+
+    protected function factoryFromCreateResponse(Response $response)
     {
         $dataRaw = $response->getData();
         $linkList = [];
 
-        foreach($dataRaw->getLink() as $link) {
+        foreach ($dataRaw->getLink() as $link) {
             $linkList[$link['@rel']] = $link['@href'];
         }
 

@@ -75,7 +75,9 @@ Insira sua Token de Sandbox em ``phpunit.xml``:
 
     <!-- Customize your parameters ! -->
     <php>
-        <const name="VERBOSE" value="false"/>
+        <const name="CLIENT_ID" value="foo"/>
+        <const name="CLIENT_SECRET" value="bar"/>
+        <const name="VERBOSE" value="true"/>
     </php>
 
 Rode os testes localmente:
@@ -94,6 +96,7 @@ A lista abaixo é gerada a partir da saída da execução dos testes unitários:
 <!--
 phpunit --testdox | grep -vi php |  sed "s/.*\[*]/-/" | sed 's/.*Gpupo.*/&\'$'\n/g' | sed 's/.*Gpupo.*/&\'$'\n/g' | sed 's/Gpupo\\Tests\\SteloSdk\\/### /g' | sed '/./,/^$/!d' >> README.md
 -->
+
 ### Client\Client
 
 - Acesso ao client
@@ -108,7 +111,27 @@ phpunit --testdox | grep -vi php |  sed "s/.*\[*]/-/" | sed 's/.*Gpupo.*/&\'$'\n
 ### Order\Order
 
 - Possui schema
+- Cada pedido possui id
 - Cada pedido possui objeto cliente
 - Cada pedido possui objeto billing
 - Cada pedido possui objeto contendo endereco de entrega
 - Cada pedido possui colecao de produtos
+
+### Transaction\Manager
+
+- É usado para criar uma nova transação
+- Permite consulta a uma transação específica
+
+### Transaction\Transaction
+
+- Possui id
+- Possui url de checkout
+- Possui status code
+- Possui identificação de situação atual
+- Possui valor da transação
+- Possui valor de frete
+
+### View\Lightbox
+
+- Possui url para redirecionamento do comprador
+- Imprime javascript que redireciona o navegador do comprador
