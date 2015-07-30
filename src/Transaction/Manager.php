@@ -37,17 +37,17 @@ class Manager extends ManagerAbstract
     }
     public function findById($itemId)
     {
-        $response = parent::findById($itemId);
-
-        return $this->factoryFromStatusResponse($response);
+        if ($response = parent::findById($itemId)) {
+            return $this->factoryFromStatusResponse($response);
+        }
     }
 
-    protected function factoryFromStatusResponse($response)
+    protected function factoryFromStatusResponse(Response $response)
     {
         $data = [
             'id'            => $response->getSteloId(),
-            'statusCode'    => $response->getsteloStatus()['statusCode'],
-            'statusMessage' => $response->getsteloStatus()['statusMessage'],
+            'statusCode'    => $response->getSteloStatus()['statusCode'],
+            'statusMessage' => $response->getSteloStatus()['statusMessage'],
             'freight'       => $response->getFreight(),
             'amount'        => $response->getAmount(),
         ];
