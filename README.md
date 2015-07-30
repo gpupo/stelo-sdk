@@ -19,6 +19,8 @@ Adicione o pacote [stelo-sdk](https://packagist.org/packages/gpupo/stelo-sdk) ao
 
 ## Uso
 
+## Transação
+
 Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://github.com/gpupo/stelo-sdk/blob/master/Resources/fixtures/order.input.json);
 
 #### Criação de uma nova transação
@@ -69,6 +71,31 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
     $logger->pushHandler(new StreamHandler('Resources/logs/main.log', Logger::DEBUG));
     $steloSdk->setLogger($logger);
 
+### Login (Em desenvolvimento!!)
+
+A integração com o Login Stelo tem o objetivo de reduzir os passos para o checkout com foco no cadastro do cliente, com ela é possível recuperar os dados do cliente na Stelo e utilizar em sua loja
+
+#### Url para redirecionar o Cliente (passo 1)
+
+    $url = $steloSdk->factoryManager('auth')->getAuthorizeUrl();
+
+### Obtenção de ``$code`` (passo 2)
+
+``$code`` é obtido no passo 2 que deve ser implementado independente da SDK, onde se recebe
+o parâmetro GET ``code`` em um controlador informado no cadastro Stelo;
+
+#### Uso do code para acesso ao token (passo 3)
+
+    $access_token = $steloSdk->factoryManager('auth')->requestToken($code);
+
+#### Acesso aos dados do cliente (passo 4)
+
+    $customer = $steloSdk->factoryManager('auth')->requestCustomer($access_token);
+    echo $customer->getName();
+
+Veja mais detalhes sobre as propriedades de ``$customer`` na documentação do objeto.
+
+
 ## Comandos
 
 Lista de comandos disponíveis:
@@ -111,7 +138,17 @@ MIT, see [LICENSE](https://github.com/gpupo/stelo-sdk/blob/master/LICENSE).
 
 ## Documentação
 
-* [Documentação de integração Stelo](https://github.com/gpupo/stelo-sdk/blob/master/Resources/doc/manual_stelo_api.pdf)
+* [Documentação de integração para transações Stelo](https://github.com/gpupo/stelo-sdk/blob/master/Resources/doc/manual_stelo_api.pdf)
+* [Documentação de integração para login Stelo](https://github.com/gpupo/stelo-sdk/blob/master/Resources/doc/manual-login-stelo.pdf)
+
+### Fluxo de Login
+
+![Fluxo de Login](http://www.g1mr.com/stelo-sdk/images/fluxo-login.png)
+
+### Fluxo de Transação
+
+![Fluxo de Transação](http://www.g1mr.com/stelo-sdk/images/fluxo-transaction.png)
+
 
 ## Propriedades dos objetos
 
