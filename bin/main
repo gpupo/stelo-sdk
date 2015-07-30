@@ -20,6 +20,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Gpupo\SteloSdk\Factory;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 $app = new Application();
 
@@ -90,6 +92,11 @@ $app->register('transaction:find')
         'verbose'       => true,
         'sslVersion'    => $sslVersion,
     ]);
+
+
+    $logger = new Logger('bin');
+    $logger->pushHandler(new StreamHandler('Resources/logs/main.log', Logger::DEBUG));
+    $steloSdk->setLogger($logger);
 
     $manager = $steloSdk->factoryManager('transaction');
     $transaction = $manager->findById('143800246128360');

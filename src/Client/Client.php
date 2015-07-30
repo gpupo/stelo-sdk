@@ -25,7 +25,7 @@ class Client extends ClientAbstract implements ClientInterface
             'client_id'      => false,
             'client_secret'  => false,
             'base_url'       => '{PROTOCOL}://{VERSION}.stelo.com.br/ec/V1',
-            'protocol'       => 'http',
+            'protocol'       => 'https',
             'version'        => 'sandbox',
             'verbose'        => false,
             'sslVersion'     => 'SecureTransport',
