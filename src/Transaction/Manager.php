@@ -18,6 +18,7 @@ use Gpupo\CommonSdk\Entity\EntityInterface;
 use Gpupo\CommonSdk\Entity\ManagerAbstract;
 use Gpupo\CommonSdk\Response;
 use Gpupo\SteloSdk\Order\Order;
+use Gpupo\Common\Entity\Collection;
 
 class Manager extends ManagerAbstract
 {
@@ -37,12 +38,12 @@ class Manager extends ManagerAbstract
     }
     public function findById($itemId)
     {
-        if ($response = parent::findById($itemId)) {
-            return $this->factoryFromStatusResponse($response);
+        if ($collection = parent::findById($itemId)) {
+            return $this->factoryFromStatusResponse($collection);
         }
     }
 
-    protected function factoryFromStatusResponse(Response $response)
+    protected function factoryFromStatusResponse(Collection $response)
     {
         $data = [
             'id'            => $response->getSteloId(),
