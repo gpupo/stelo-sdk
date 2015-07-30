@@ -21,7 +21,7 @@ Adicione o pacote [stelo-sdk](https://packagist.org/packages/gpupo/stelo-sdk) ao
 
 Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://github.com/gpupo/stelo-sdk/blob/master/Resources/fixtures/order.input.json);
 
-### Criação de uma nova transação
+#### Criação de uma nova transação
 
     <?php
     //...
@@ -37,7 +37,7 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
     $checkoutUrl = $transaction->getCheckoutUrl();
     echo $transaction->getId(); //143800246128360
 
-### Redireciona Cliente para a Url de checkout
+#### Redireciona Cliente para a Url de checkout
 
     <html>
         <body>
@@ -45,14 +45,21 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
         </body>
     </html>
 
-### Consulta de transação
+#### Consulta de transação
 
-    $transaction = $steloSdk->factoryManager('transaction')->findById('143800246128360');
+    $transaction = $steloSdk->factoryManager('transaction')
+        ->findById('143800246128360');
     echo $transaction->getStatusCode(); // N
     echo $transaction->getStatusMessage(); // Cancelada
     echo $transaction->getAmount(); // 134.9
 
-### Registro (log)
+
+#### Cancelar uma  transação
+
+    $transaction = $steloSdk->factoryManager('transaction')
+        ->deleteById('143800246128360');
+
+#### Registro (log)
 
     //...
     use Monolog\Logger;
@@ -100,15 +107,6 @@ Instalação:
 Personalize a configuração do ``phpunit``:
 
     cp phpunit.xml.dist phpunit.xml;
-
-Insira sua Token de Sandbox em ``phpunit.xml``:
-
-    <!-- Customize your parameters ! -->
-    <php>
-        <const name="CLIENT_ID" value="foo"/>
-        <const name="CLIENT_SECRET" value="bar"/>
-        <const name="VERBOSE" value="true"/>
-    </php>
 
 Rode os testes localmente:
 
