@@ -25,6 +25,7 @@ class Manager extends ManagerAbstract
     protected $maps = [
         'createFromOrder'   => ['POST', '/wallet/transactions'],
         'findById'          => ['GET', '/orders/transactions/{itemId}'],
+        'delete'            => ['DELETE', '/orders/transactions/{itemId}'],
     ];
 
     public function createFromOrder(Order $order)
@@ -36,6 +37,17 @@ class Manager extends ManagerAbstract
             return $this->factoryFromCreateResponse($response);
         }
     }
+
+    public function deleteById($itemId)
+    {
+        $response = $this->execute($this->factoryMap('delete', ['itemId' => $itemId]));
+        if (($response->getHttpStatusCode() === 200) && $response->getData()->containsKey('steloId')) {
+            return true;
+        }
+
+        return false;
+    }
+
     public function findById($itemId)
     {
         if ($collection = parent::findById($itemId)) {

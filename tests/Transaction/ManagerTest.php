@@ -38,4 +38,18 @@ class ManagerTest extends TestCaseAbstract
         $this->assertInstanceOf('\Gpupo\SteloSdk\Transaction\Transaction', $transaction);
         $this->assertEquals('143800246128360', $transaction->getId());
     }
+
+    public function testPermiteOCancelamentoDeUmaTransaçãoEspecífica()
+    {
+        $manager = $this->getFactory()->factoryManager('transaction');
+        $manager->setDryRun($this->factoryResponseFromFixture('fixtures/transaction.delete.json'));
+        $this->assertTrue($manager->deleteById(143285031080465));
+    }
+
+    public function testFalhaAoTentarCancelarUmaTransaçãoInexistenteOuEmSituaçãoQueNãoPermitaTalOperação()
+    {
+        $manager = $this->getFactory()->factoryManager('transaction');
+        $manager->setDryRun($this->factoryResponseFromFixture('fixtures/transaction.delete-error.json'));
+        $this->assertFalse($manager->deleteById(143285031080465));
+    }
 }
