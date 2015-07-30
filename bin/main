@@ -70,9 +70,7 @@ $app->register('transaction:find')
             'name'      => 'SSL Version',
         ],
     ] as $parameter) {
-        if ($input->getOption($parameter['key'])) {
-            ${$parameter['key']} = $input->getOption('apiVersion');
-        } else {
+        if (!${$parameter['key']} = $input->getOption($parameter['key'])) {
             $text = $parameter['name'] . ' ('.implode($parameter['options'], ',').') [default:'.$parameter['default'].']: ';
             ${$parameter['key']} = $dialog->askAndValidate($output, $text, function ($version) use ($parameter) {
                if (!in_array($version, array_values($parameter['options']))) {
@@ -83,23 +81,19 @@ $app->register('transaction:find')
            }, false, $parameter['default']);
         }
     }
+    $logger = new Logger('bin');
+    $logger->pushHandler(new StreamHandler('Resources/logs/main.log', Logger::DEBUG));
 
     $steloSdk = Factory::getInstance()->setup([
         'client_id'     => $client_id,
-        'access_token'  => $access_token,
+        'client_secret'  => $access_token,
         'version'       => $apiVersion,
         'protocol'      => $protocol,
         'verbose'       => true,
         'sslVersion'    => $sslVersion,
-    ]);
+    ], $logger);
 
-
-    $logger = new Logger('bin');
-    $logger->pushHandler(new StreamHandler('Resources/logs/main.log', Logger::DEBUG));
-    $steloSdk->setLogger($logger);
-
-    $manager = $steloSdk->factoryManager('transaction');
-    $transaction = $manager->findById('143800246128360');
+    $transaction = $steloSdk->factoryManager('transaction')->findById($transaction_id);
 
     if ($transaction) {
         $output->writeln('<info>Success!</info>');
