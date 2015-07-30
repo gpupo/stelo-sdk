@@ -3,6 +3,8 @@ layout: default
 ---
 [![Build Status](https://secure.travis-ci.org/gpupo/stelo-sdk.png?branch=master)](http://travis-ci.org/gpupo/stelo-sdk)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gpupo/stelo-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gpupo/stelo-sdk/?branch=master)
+[![Code Climate](https://codeclimate.com/github/gpupo/stelo-sdk/badges/gpa.svg)](https://codeclimate.com/github/gpupo/stelo-sdk)
+[![Test Coverage](https://codeclimate.com/github/gpupo/stelo-sdk/badges/coverage.svg)](https://codeclimate.com/github/gpupo/stelo-sdk/coverage)
 
 # stelo-sdk
 
@@ -54,6 +56,33 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
     echo $transaction->getStatusCode(); // N
     echo $transaction->getStatusMessage(); // Cancelada
     echo $transaction->getAmount(); // 134.9
+
+### Registro (log)
+
+    //...
+    use Monolog\Logger;
+    use Monolog\Handler\StreamHandler;
+    //..
+    $logger = new Logger('foo');
+    $logger->pushHandler(new StreamHandler('Resources/logs/main.log', Logger::DEBUG));
+    $steloSdk->setLogger($logger);
+
+## Comandos
+
+Lista de comandos disponíveis:
+
+    ./bin/main
+
+Verificar a situação de uma transação:
+
+    ./bin/main transaction:find
+
+ou ainda executar o mesmo comando de forma não interativa:
+
+    ./bin/main transaction:find -c foo -t bar -s SecureTransport -p http -a sandbox  -i 8888133556
+
+
+*Dica*: Verifique os logs gerados em ``Resources/logs/main.log``
 
 ---
 
