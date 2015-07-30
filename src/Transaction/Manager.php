@@ -42,7 +42,7 @@ class Manager extends ManagerAbstract
         return $this->factoryFromStatusResponse($response);
     }
 
-    protected function factoryFromStatusResponse( $response)
+    protected function factoryFromStatusResponse($response)
     {
         $data = [
             'id'            => $response->getSteloId(),

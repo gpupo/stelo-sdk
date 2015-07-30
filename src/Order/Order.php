@@ -47,28 +47,26 @@ class Order extends EntityAbstract implements EntityInterface
             'cart'                  => 'object',
             'payment'               => 'object',
             'customer'              => 'object',
-            'changeShipment'        => 'bool',
+            'changeShipment'        => 'boolean',
         ];
     }
 
     public function toArray()
     {
-        $list = [
+        $customer =  $this->getCustomer()->toArray();
+        $customer['phoneData'] = $customer['phone'];
+        unset($customer['phone']);
+
+        return [
             'orderData' => [
-                'orderId'   => $this->getId(),
+                'orderId'           => $this->getId(),
                 'transactionType'   => $this->getTransactionType(),
-                "shippingBehavior" => "default",
-                "changeShipment" => false,
-                "country" => "BR",
+                'shippingBehavior'  => $this->getShippingBehavior(),
+                'changeShipment'    => $this->getChangeShipment(),
+                'country'           => $this->getCountry(),
             ],
-            'paymentData'   => $this->getPayment()->toArray(),
-            'customerData'   => $this->getCustomer()->toArray(),
+            'paymentData'   => array_merge($this->getPayment()->toArray(), ['cartData' => $this->getCart()->toArray()]),
+            'customerData'  => $customer,
         ];
-
-        $list['paymentData']['cartData'] = $this->getCart()->toArray();
-        $list['customerData']['phoneData'] = $list['customerData']['phone'];
-        unset($list['customerData']['phone']);
-
-        return $list;
     }
 }

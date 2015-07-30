@@ -86,8 +86,8 @@ class OrderTest extends TestCaseAbstract
         $expected = $this->getResourceJson('fixtures/transaction.post.json');
 
         $array = $order->toArray();
-        foreach(['order', 'payment', 'customer'] as $key) {
-            $this->assertEquals($expected[$key.'Data'], $array[$key.'Data'], '#' . ucfirst($key));
+        foreach (['order', 'payment', 'customer'] as $key) {
+            $this->assertEquals($expected[$key.'Data'], $array[$key.'Data'], '#'.ucfirst($key));
         }
     }
 }
