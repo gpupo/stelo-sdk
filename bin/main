@@ -1,0 +1,107 @@
+#!/usr/bin/env php
+<?php
+
+/*
+ * This file is part of gpupo/stelo-sdk
+ *
+ * (c) Gilmar Pupo <g@g1mr.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * For more information, see
+ * <http://www.g1mr.com/stelo-sdk/>.
+ */
+
+require __DIR__.'/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
+use Gpupo\SteloSdk\Factory;
+
+$app = new Application();
+
+$app->register('transaction:find')
+->setDescription('Consulta de transação')
+->setDefinition([
+       new InputOption('client_id', 'c', InputOption::VALUE_REQUIRED),
+       new InputOption('access_token', 't', InputOption::VALUE_REQUIRED),
+       new InputOption('transaction', 'i', InputOption::VALUE_REQUIRED),
+       new InputOption('sslVersion', 's', InputOption::VALUE_REQUIRED),
+       new InputOption('apiVersion', 'a', InputOption::VALUE_REQUIRED),
+       new InputOption('protocol', 'p', InputOption::VALUE_REQUIRED),
+   ])
+->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
+    $dialog = $app->getHelperSet()->get('dialog');
+
+    $getParameter = function ($key, $extra = '') use ($input, $dialog, $output) {
+        if ($input->getOption($key)) {
+            return $input->getOption($key);
+        } else {
+            return  $dialog->ask($output, $key.$extra.': ');
+        }
+    };
+
+    $client_id = $getParameter('client_id');
+    $access_token = $getParameter('access_token');
+    $transaction_id = $getParameter('transaction', ' id');
+
+    foreach([
+        [
+            'key'       => 'apiVersion',
+            'options'   => ['sandbox', 'api'],
+            'default'   => 'sandbox',
+            'name'      => 'Version',
+        ],
+        [
+            'key'       => 'protocol',
+            'options'   => ['http', 'https'],
+            'default'   => 'https',
+            'name'      => 'Protocol',
+        ],
+        [
+            'key'       => 'sslVersion',
+            'options'   => ['SecureTransport', 'TLS'],
+            'default'   => 'SecureTransport',
+            'name'      => 'SSL Version',
+        ],
+    ] as $parameter) {
+        if ($input->getOption($parameter['key'])) {
+            ${$parameter['key']} = $input->getOption('apiVersion');
+        } else {
+            $text = $parameter['name'] . ' ('.implode($parameter['options'], ',').') [default:'.$parameter['default'].']: ';
+            ${$parameter['key']} = $dialog->askAndValidate($output, $text, function ($version) use ($parameter) {
+               if (!in_array($version, array_values($parameter['options']))) {
+                   throw new \InvalidArgumentException(sprintf($parameter['name'].' "%s" is invalid.', $version));
+               }
+
+               return $version;
+           }, false, $parameter['default']);
+        }
+    }
+
+    $steloSdk = Factory::getInstance()->setup([
+        'client_id'     => $client_id,
+        'access_token'  => $access_token,
+        'version'       => $apiVersion,
+        'protocol'      => $protocol,
+        'verbose'       => true,
+        'sslVersion'    => $sslVersion,
+    ]);
+
+    $manager = $steloSdk->factoryManager('transaction');
+    $transaction = $manager->findById('143800246128360');
+
+    if ($transaction) {
+        $output->writeln('<info>Success!</info>');
+        $output->writeln($transaction->getStatusCode());
+        $output->writeln($transaction->getStatusMessage());
+        $output->writeln($transaction->getAmount());
+    } else {
+        $output->writeln('<error>Not Found</error>');
+    }
+});
+
+$app->run();

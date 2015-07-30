@@ -54,6 +54,21 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
     echo $transaction->getStatusMessage(); // Cancelada
     echo $transaction->getAmount(); // 134.9
 
+
+## Comandos
+
+Lista de comandos disponíveis:
+
+    ./bin/main
+
+Verificar a situação de uma transação:
+
+    ./bin/main transaction:find
+
+ou ainda executar o mesmo comando de forma não interativa:
+
+    ./bin/main transaction:find -c foo -t bar -s SecureTransport -p http -a sandbox  -i 8888133556
+
 ---
 
 ## Licença
