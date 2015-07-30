@@ -96,7 +96,7 @@ MIT, see [LICENSE](https://github.com/gpupo/stelo-sdk/blob/master/LICENSE).
 
 ## Desenvolvimento
 
-Instalação:
+#### Instalação:
 
     git clone --depth=1  git@github.com:gpupo/stelo-sdk.git
 
@@ -104,19 +104,14 @@ Instalação:
 
     ant composer;
 
-Personalize a configuração do ``phpunit``:
-
-    cp phpunit.xml.dist phpunit.xml;
-
-Rode os testes localmente:
+#### Rode os testes localmente:
 
     $ phpunit
 
 
-* [Documentação dos objetos](http://www.g1mr.com/stelo-sdk/doc/)
-* [Documentação de integração Stelo](https://github.com/gpupo/stelo-sdk/blob/master/Resources/doc/manual_stelo_api.pdf)
+## Documentação
 
----
+* [Documentação de integração Stelo](https://github.com/gpupo/stelo-sdk/blob/master/Resources/doc/manual_stelo_api.pdf)
 
 ## Propriedades dos objetos
 
@@ -144,11 +139,14 @@ phpunit --testdox | grep -vi php |  sed "s/.*\[*]/-/" | sed 's/.*Gpupo.*/&\'$'\n
 - Cada pedido possui objeto billing
 - Cada pedido possui objeto contendo endereco de entrega
 - Cada pedido possui colecao de produtos
+- Produz json em formato esperado pela api de destino
 
 ### Transaction\Manager
 
 - É usado para criar uma nova transação
 - Permite consulta a uma transação específica
+- Permite o cancelamento de uma transação específica
+- Falha ao tentar cancelar uma transação inexistente ou em situação que não permita tal operação
 
 ### Transaction\Transaction
 
