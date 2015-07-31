@@ -2,155 +2,146 @@
 
 ## Gpupo\SteloSdk\Order\Cart\Cart
 
-* Class name: Cart
-* Namespace: Gpupo\SteloSdk\Order\Cart
 * Parent class: Gpupo\CommonSdk\Entity\CollectionAbstract
 
-Methods
--------
+### Methods
 
-### factoryElement
+#### factoryElement
 
     mixed Gpupo\SteloSdk\Order\Cart\Cart::factoryElement($data)
 
 * Visibility: **public**
 
-#### Arguments
+##### Arguments
 * $data **mixed**
 
 ---
 
 ## Gpupo\SteloSdk\Order\Customer\ShippingAddress
 
-* Class name: ShippingAddress
-* Namespace: Gpupo\SteloSdk\Order\Customer
-* Parent class: [Gpupo\SteloSdk\Order\Customer\BillingAddress](#)
+* Parent class: [Gpupo\SteloSdk\Order\Customer\BillingAddress](#gpupostelosdkordercustomerbillingaddress)
 
-Methods
--------
+### Methods
 
-### getSchema
+#### getSchema
 
     mixed Gpupo\SteloSdk\Order\Customer\BillingAddress::getSchema()
 
 * Visibility: **public**
-* This method is defined by [Gpupo\SteloSdk\Order\Customer\BillingAddress](#)
+* This method is defined by [Gpupo\SteloSdk\Order\Customer\BillingAddress](#gpupostelosdkordercustomerbillingaddress)
 
 ---
 
 ## Gpupo\SteloSdk\Order\Order
 
-* Class name: Order
-* Namespace: Gpupo\SteloSdk\Order
 * Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
 * This class implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-Methods
--------
+### Methods
 
-### getSchema
+#### getSchema
 
     mixed Gpupo\SteloSdk\Order\Order::getSchema()
 
 * Visibility: **public**
 
-### toArray
+#### toArray
 
     mixed Gpupo\SteloSdk\Order\Order::toArray()
 
 * Visibility: **public**
 
-### getId
+#### getId
 
      Gpupo\SteloSdk\Order\Order::getId()
 
 * Visibility: **public**
 
-### setId
+#### setId
 
      Gpupo\SteloSdk\Order\Order::setId()
 
 * Visibility: **public**
 
-### getTransactionType
+#### getTransactionType
 
      Gpupo\SteloSdk\Order\Order::getTransactionType()
 
 * Visibility: **public**
 
-### setTransactionType
+#### setTransactionType
 
      Gpupo\SteloSdk\Order\Order::setTransactionType()
 
 * Visibility: **public**
 
-### getShippingBehavior
+#### getShippingBehavior
 
      Gpupo\SteloSdk\Order\Order::getShippingBehavior()
 
 * Visibility: **public**
 
-### setShippingBehavior
+#### setShippingBehavior
 
      Gpupo\SteloSdk\Order\Order::setShippingBehavior()
 
 * Visibility: **public**
 
-### getCountry
+#### getCountry
 
      Gpupo\SteloSdk\Order\Order::getCountry()
 
 * Visibility: **public**
 
-### setCountry
+#### setCountry
 
      Gpupo\SteloSdk\Order\Order::setCountry()
 
 * Visibility: **public**
 
-### getCart
+#### getCart
 
      Gpupo\SteloSdk\Order\Order::getCart()
 
 * Visibility: **public**
 
-### setCart
+#### setCart
 
      Gpupo\SteloSdk\Order\Order::setCart()
 
 * Visibility: **public**
 
-### getPayment
+#### getPayment
 
      Gpupo\SteloSdk\Order\Order::getPayment()
 
 * Visibility: **public**
 
-### setPayment
+#### setPayment
 
      Gpupo\SteloSdk\Order\Order::setPayment()
 
 * Visibility: **public**
 
-### getCustomer
+#### getCustomer
 
      Gpupo\SteloSdk\Order\Order::getCustomer()
 
 * Visibility: **public**
 
-### setCustomer
+#### setCustomer
 
      Gpupo\SteloSdk\Order\Order::setCustomer()
 
 * Visibility: **public**
 
-### getChangeShipment
+#### getChangeShipment
 
      Gpupo\SteloSdk\Order\Order::getChangeShipment()
 
 * Visibility: **public**
 
-### setChangeShipment
+#### setChangeShipment
 
      Gpupo\SteloSdk\Order\Order::setChangeShipment()
 
@@ -160,75 +151,72 @@ Methods
 
 ## Gpupo\SteloSdk\Transaction\Transaction
 
-* Class name: Transaction
-* Namespace: Gpupo\SteloSdk\Transaction
 * Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
 * This class implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-Methods
--------
+### Methods
 
-### getSchema
+#### getSchema
 
     mixed Gpupo\SteloSdk\Transaction\Transaction::getSchema()
 
 * Visibility: **public**
 
-### getId
+#### getId
 
      Gpupo\SteloSdk\Transaction\Transaction::getId()
 
 * Visibility: **public**
 
-### setId
+#### setId
 
      Gpupo\SteloSdk\Transaction\Transaction::setId()
 
 * Visibility: **public**
 
-### getStatusCode
+#### getStatusCode
 
      Gpupo\SteloSdk\Transaction\Transaction::getStatusCode()
 
 * Visibility: **public**
 
-### setStatusCode
+#### setStatusCode
 
      Gpupo\SteloSdk\Transaction\Transaction::setStatusCode()
 
 * Visibility: **public**
 
-### getStatusMessage
+#### getStatusMessage
 
      Gpupo\SteloSdk\Transaction\Transaction::getStatusMessage()
 
 * Visibility: **public**
 
-### setStatusMessage
+#### setStatusMessage
 
      Gpupo\SteloSdk\Transaction\Transaction::setStatusMessage()
 
 * Visibility: **public**
 
-### getFreight
+#### getFreight
 
      Gpupo\SteloSdk\Transaction\Transaction::getFreight()
 
 * Visibility: **public**
 
-### setFreight
+#### setFreight
 
      Gpupo\SteloSdk\Transaction\Transaction::setFreight()
 
 * Visibility: **public**
 
-### getAmount
+#### getAmount
 
      Gpupo\SteloSdk\Transaction\Transaction::getAmount()
 
 * Visibility: **public**
 
-### setAmount
+#### setAmount
 
      Gpupo\SteloSdk\Transaction\Transaction::setAmount()
 
@@ -238,15 +226,12 @@ Methods
 
 ## Gpupo\SteloSdk\Order\Customer\Phone\Item
 
-* Class name: Item
-* Namespace: Gpupo\SteloSdk\Order\Customer\Phone
 * Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
 * This class implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-Methods
--------
+### Methods
 
-### getSchema
+#### getSchema
 
     mixed Gpupo\SteloSdk\Order\Customer\Phone\Item::getSchema()
 
@@ -256,15 +241,12 @@ Methods
 
 ## Gpupo\SteloSdk\Order\Payment
 
-* Class name: Payment
-* Namespace: Gpupo\SteloSdk\Order
 * Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
 * This class implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-Methods
--------
+### Methods
 
-### getSchema
+#### getSchema
 
     mixed Gpupo\SteloSdk\Order\Payment::getSchema()
 
@@ -274,15 +256,12 @@ Methods
 
 ## Gpupo\SteloSdk\Order\Cart\Item
 
-* Class name: Item
-* Namespace: Gpupo\SteloSdk\Order\Cart
 * Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
 * This class implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-Methods
--------
+### Methods
 
-### getSchema
+#### getSchema
 
     mixed Gpupo\SteloSdk\Order\Cart\Item::getSchema()
 
@@ -292,74 +271,71 @@ Methods
 
 ## Gpupo\SteloSdk\Transaction\Manager
 
-* Class name: Manager
-* Namespace: Gpupo\SteloSdk\Transaction
 * Parent class: Gpupo\CommonSdk\Entity\ManagerAbstract
 
 Properties
 ----------
 
-### $maps
+#### $maps
 
     protected mixed $maps = array('createFromOrder' => array('POST', '/wallet/transactions'), 'findById' => array('GET', '/orders/transactions/{itemId}'), 'delete' => array('DELETE', '/orders/transactions/{itemId}'))
 
 * Visibility: **protected**
 
-Methods
--------
+### Methods
 
-### createFromOrder
+#### createFromOrder
 
     mixed Gpupo\SteloSdk\Transaction\Manager::createFromOrder(\Gpupo\SteloSdk\Order\Order $order)
 
 * Visibility: **public**
 
-#### Arguments
-* $order **[Gpupo\SteloSdk\Order\Order](#)**
+##### Arguments
+* $order **[Gpupo\SteloSdk\Order\Order](#gpupostelosdkorderorder)**
 
-### deleteById
+#### deleteById
 
     mixed Gpupo\SteloSdk\Transaction\Manager::deleteById($itemId)
 
 * Visibility: **public**
 
-#### Arguments
+##### Arguments
 * $itemId **mixed**
 
-### findById
+#### findById
 
     mixed Gpupo\SteloSdk\Transaction\Manager::findById($itemId)
 
 * Visibility: **public**
 
-#### Arguments
+##### Arguments
 * $itemId **mixed**
 
-### factoryFromStatusResponse
+#### factoryFromStatusResponse
 
     mixed Gpupo\SteloSdk\Transaction\Manager::factoryFromStatusResponse(\Gpupo\Common\Entity\Collection $response)
 
 * Visibility: **protected**
 
-#### Arguments
+##### Arguments
 * $response **Gpupo\Common\Entity\Collection**
 
-### factoryFromCreateResponse
+#### factoryFromCreateResponse
 
     mixed Gpupo\SteloSdk\Transaction\Manager::factoryFromCreateResponse(\Gpupo\CommonSdk\Response $response)
 
 * Visibility: **protected**
 
-#### Arguments
+##### Arguments
 * $response **Gpupo\CommonSdk\Response**
 
-### update
+#### update
 
     mixed Gpupo\SteloSdk\Transaction\Manager::update(\Gpupo\CommonSdk\Entity\EntityInterface $entity, \Gpupo\CommonSdk\Entity\EntityInterface $existent)
 
 * Visibility: **public**
 
-#### Arguments
+##### Arguments
 * $entity **Gpupo\CommonSdk\Entity\EntityInterface**
 * $existent **Gpupo\CommonSdk\Entity\EntityInterface**
 
@@ -367,21 +343,18 @@ Methods
 
 ## Gpupo\SteloSdk\Client\Client
 
-* Class name: Client
-* Namespace: Gpupo\SteloSdk\Client
 * Parent class: Gpupo\CommonSdk\Client\ClientAbstract
 * This class implements: Gpupo\CommonSdk\Client\ClientInterface
 
-Methods
--------
+### Methods
 
-### getDefaultOptions
+#### getDefaultOptions
 
     mixed Gpupo\SteloSdk\Client\Client::getDefaultOptions()
 
 * Visibility: **public**
 
-### renderAuthorization
+#### renderAuthorization
 
     mixed Gpupo\SteloSdk\Client\Client::renderAuthorization()
 
@@ -391,15 +364,12 @@ Methods
 
 ## Gpupo\SteloSdk\Order\Customer\Customer
 
-* Class name: Customer
-* Namespace: Gpupo\SteloSdk\Order\Customer
 * Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
 * This class implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-Methods
--------
+### Methods
 
-### getSchema
+#### getSchema
 
     mixed Gpupo\SteloSdk\Order\Customer\Customer::getSchema()
 
@@ -409,15 +379,12 @@ Methods
 
 ## Gpupo\SteloSdk\Order\Customer\BillingAddress
 
-* Class name: BillingAddress
-* Namespace: Gpupo\SteloSdk\Order\Customer
 * Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
 * This class implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-Methods
--------
+### Methods
 
-### getSchema
+#### getSchema
 
     mixed Gpupo\SteloSdk\Order\Customer\BillingAddress::getSchema()
 
@@ -427,42 +394,39 @@ Methods
 
 ## Gpupo\SteloSdk\View\Lightbox
 
-* Class name: Lightbox
-* Namespace: Gpupo\SteloSdk\View
 * Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
 * This class implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-Methods
--------
+### Methods
 
-### getSchema
+#### getSchema
 
     mixed Gpupo\SteloSdk\View\Lightbox::getSchema()
 
 * Visibility: **public**
 
-### __construct
+#### __construct
 
     mixed Gpupo\SteloSdk\View\Lightbox::__construct($checkoutUrl)
 
 * Visibility: **public**
 
-#### Arguments
+##### Arguments
 * $checkoutUrl **mixed**
 
-### __toString
+#### __toString
 
     mixed Gpupo\SteloSdk\View\Lightbox::__toString()
 
 * Visibility: **public**
 
-### getCheckoutUrl
+#### getCheckoutUrl
 
      Gpupo\SteloSdk\View\Lightbox::getCheckoutUrl()
 
 * Visibility: **public**
 
-### setCheckoutUrl
+#### setCheckoutUrl
 
      Gpupo\SteloSdk\View\Lightbox::setCheckoutUrl()
 
@@ -472,54 +436,48 @@ Methods
 
 ## Gpupo\SteloSdk\Factory
 
-* Class name: Factory
-* Namespace: Gpupo\SteloSdk
 * Parent class: Gpupo\CommonSdk\FactoryAbstract
 
-Methods
--------
+### Methods
 
-### setClient
+#### setClient
 
     mixed Gpupo\SteloSdk\Factory::setClient(array $clientOptions)
 
 * Visibility: **public**
 
-#### Arguments
+##### Arguments
 * $clientOptions **array**
 
-### getNamespace
+#### getNamespace
 
     mixed Gpupo\SteloSdk\Factory::getNamespace()
 
 * Visibility: **public**
 
-### getSchema
+#### getSchema
 
     mixed Gpupo\SteloSdk\Factory::getSchema($namespace)
 
 * Visibility: **protected**
 
-#### Arguments
+##### Arguments
 * $namespace **mixed**
 
 ---
 
 ## Gpupo\SteloSdk\Order\Customer\Phone\Phone
 
-* Class name: Phone
-* Namespace: Gpupo\SteloSdk\Order\Customer\Phone
 * Parent class: Gpupo\CommonSdk\Entity\CollectionAbstract
 
-Methods
--------
+### Methods
 
-### factoryElement
+#### factoryElement
 
     mixed Gpupo\SteloSdk\Order\Customer\Phone\Phone::factoryElement($data)
 
 * Visibility: **public**
 
-#### Arguments
+##### Arguments
 * $data **mixed**
 
