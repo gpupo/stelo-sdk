@@ -1,263 +1,353 @@
+#API Docs
+
+* Gpupo
+    * Gpupo\SteloSdk
+        * Gpupo\SteloSdk\Order
+            * Gpupo\SteloSdk\Order\Cart
+                * [Cart](#gpupostelosdkordercartcart)
+                * [Item](#gpupostelosdkordercartitem)
+            * Gpupo\SteloSdk\Order\Customer
+                * [ShippingAddress](#gpupostelosdkordercustomershippingaddress)
+                * Gpupo\SteloSdk\Order\Customer\Phone
+                    * [Item](#gpupostelosdkordercustomerphoneitem)
+                    * [Phone](#gpupostelosdkordercustomerphonephone)
+                * [Customer](#gpupostelosdkordercustomercustomer)
+                * [BillingAddress](#gpupostelosdkordercustomerbillingaddress)
+            * [Order](#gpupostelosdkorderorder)
+            * [Payment](#gpupostelosdkorderpayment)
+        * Gpupo\SteloSdk\Transaction
+            * [Transaction](#gpupostelosdktransactiontransaction)
+            * [Manager](#gpupostelosdktransactionmanager)
+        * Gpupo\SteloSdk\Client
+            * [Client](#gpupostelosdkclientclient)
+        * Gpupo\SteloSdk\View
+            * [Lightbox](#gpupostelosdkviewlightbox)
+        * [Factory](#gpupostelosdkfactory)
+
 ---
- title: API
+
 ---
 
 ## Gpupo\SteloSdk\Order\Cart\Cart
 
-* Parent class: Gpupo\CommonSdk\Entity\CollectionAbstract
+Parent: Gpupo\CommonSdk\Entity\CollectionAbstract
 
-#### Methods
+Methods:
 
-*``public`` factoryElement($data)
+### ``public`` factoryElement($data)
+    
 
-##### Arguments
-$data **mixed**
+ Argument   | Type          | Description
+------------| :-------------| :-------------
+$data | mixed | 
 
 ---
 
 ## Gpupo\SteloSdk\Order\Customer\ShippingAddress
 
-* Parent class: [Gpupo\SteloSdk\Order\Customer\BillingAddress](#gpupostelosdkordercustomerbillingaddress)
+Parent: [Gpupo\SteloSdk\Order\Customer\BillingAddress](#gpupostelosdkordercustomerbillingaddress)
 
-#### Methods
+Methods:
 
-*``public`` getSchema()
+### ``public`` getSchema()
+    
 
 ---
 
 ## Gpupo\SteloSdk\Order\Order
 
-* Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
-* This class implements: Gpupo\CommonSdk\Entity\EntityInterface
+Parent: Gpupo\CommonSdk\Entity\EntityAbstract
+* Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-#### Methods
+Methods:
 
-*``public`` getSchema()
+### ``public`` getSchema()
+    
 
-*``public`` toArray()
+### ``public`` toArray()
+    
 
-*``public`` getId()
+### ``public`` getId()
+    
 
-*``public`` setId()
+### ``public`` setId()
+    
 
-*``public`` getTransactionType()
+### ``public`` getTransactionType()
+    
 
-*``public`` setTransactionType()
+### ``public`` setTransactionType()
+    
 
-*``public`` getShippingBehavior()
+### ``public`` getShippingBehavior()
+    
 
-*``public`` setShippingBehavior()
+### ``public`` setShippingBehavior()
+    
 
-*``public`` getCountry()
+### ``public`` getCountry()
+    
 
-*``public`` setCountry()
+### ``public`` setCountry()
+    
 
-*``public`` getCart()
+### ``public`` getCart()
+    
 
-*``public`` setCart()
+### ``public`` setCart()
+    
 
-*``public`` getPayment()
+### ``public`` getPayment()
+    
 
-*``public`` setPayment()
+### ``public`` setPayment()
+    
 
-*``public`` getCustomer()
+### ``public`` getCustomer()
+    
 
-*``public`` setCustomer()
+### ``public`` setCustomer()
+    
 
-*``public`` getChangeShipment()
+### ``public`` getChangeShipment()
+    
 
-*``public`` setChangeShipment()
+### ``public`` setChangeShipment()
+    
 
 ---
 
 ## Gpupo\SteloSdk\Transaction\Transaction
 
-* Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
-* This class implements: Gpupo\CommonSdk\Entity\EntityInterface
+Parent: Gpupo\CommonSdk\Entity\EntityAbstract
+* Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-#### Methods
+Methods:
 
-*``public`` getSchema()
+### ``public`` getSchema()
+    
 
-*``public`` getId()
+### ``public`` getId()
+    
 
-*``public`` setId()
+### ``public`` setId()
+    
 
-*``public`` getStatusCode()
+### ``public`` getStatusCode()
+    
 
-*``public`` setStatusCode()
+### ``public`` setStatusCode()
+    
 
-*``public`` getStatusMessage()
+### ``public`` getStatusMessage()
+    
 
-*``public`` setStatusMessage()
+### ``public`` setStatusMessage()
+    
 
-*``public`` getFreight()
+### ``public`` getFreight()
+    
 
-*``public`` setFreight()
+### ``public`` setFreight()
+    
 
-*``public`` getAmount()
+### ``public`` getAmount()
+    
 
-*``public`` setAmount()
+### ``public`` setAmount()
+    
 
 ---
 
 ## Gpupo\SteloSdk\Order\Customer\Phone\Item
 
-* Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
-* This class implements: Gpupo\CommonSdk\Entity\EntityInterface
+Parent: Gpupo\CommonSdk\Entity\EntityAbstract
+* Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-#### Methods
+Methods:
 
-*``public`` getSchema()
+### ``public`` getSchema()
+    
 
 ---
 
 ## Gpupo\SteloSdk\Order\Payment
 
-* Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
-* This class implements: Gpupo\CommonSdk\Entity\EntityInterface
+Parent: Gpupo\CommonSdk\Entity\EntityAbstract
+* Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-#### Methods
+Methods:
 
-*``public`` getSchema()
+### ``public`` getSchema()
+    
 
 ---
 
 ## Gpupo\SteloSdk\Order\Cart\Item
 
-* Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
-* This class implements: Gpupo\CommonSdk\Entity\EntityInterface
+Parent: Gpupo\CommonSdk\Entity\EntityAbstract
+* Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-#### Methods
+Methods:
 
-*``public`` getSchema()
+### ``public`` getSchema()
+    
 
 ---
 
 ## Gpupo\SteloSdk\Transaction\Manager
 
-* Parent class: Gpupo\CommonSdk\Entity\ManagerAbstract
+Parent: Gpupo\CommonSdk\Entity\ManagerAbstract
 
-#### Methods
+Methods:
 
-*``public`` createFromOrder(\Gpupo\SteloSdk\Order\Order $order)
+### ``public`` createFromOrder(\Gpupo\SteloSdk\Order\Order $order)
+    
 
-##### Arguments
-$order **[Gpupo\SteloSdk\Order\Order](#gpupostelosdkorderorder)**
+ Argument   | Type          | Description
+------------| :-------------| :-------------
+$order | [Gpupo\SteloSdk\Order\Order](#gpupostelosdkorderorder) | 
 
-*``public`` deleteById($itemId)
+### ``public`` deleteById($itemId)
+    
 
-##### Arguments
-$itemId **mixed**
+ Argument   | Type          | Description
+------------| :-------------| :-------------
+$itemId | mixed | 
 
-*``public`` findById($itemId)
+### ``public`` findById($itemId)
+    
 
-##### Arguments
-$itemId **mixed**
+ Argument   | Type          | Description
+------------| :-------------| :-------------
+$itemId | mixed | 
 
-*``protected`` factoryFromStatusResponse(\Gpupo\Common\Entity\Collection $response)
+### ``protected`` factoryFromStatusResponse(\Gpupo\Common\Entity\Collection $response)
+    
 
-##### Arguments
-$response **Gpupo\Common\Entity\Collection**
+ Argument   | Type          | Description
+------------| :-------------| :-------------
+$response | Gpupo\Common\Entity\Collection | 
 
-*``protected`` factoryFromCreateResponse(\Gpupo\CommonSdk\Response $response)
+### ``protected`` factoryFromCreateResponse(\Gpupo\CommonSdk\Response $response)
+    
 
-##### Arguments
-$response **Gpupo\CommonSdk\Response**
+ Argument   | Type          | Description
+------------| :-------------| :-------------
+$response | Gpupo\CommonSdk\Response | 
 
-*``public`` update(\Gpupo\CommonSdk\Entity\EntityInterface $entity, \Gpupo\CommonSdk\Entity\EntityInterface $existent)
+### ``public`` update(\Gpupo\CommonSdk\Entity\EntityInterface $entity, \Gpupo\CommonSdk\Entity\EntityInterface $existent)
+    
 
-##### Arguments
-$entity **Gpupo\CommonSdk\Entity\EntityInterface**
-$existent **Gpupo\CommonSdk\Entity\EntityInterface**
+ Argument   | Type          | Description
+------------| :-------------| :-------------
+$entity | Gpupo\CommonSdk\Entity\EntityInterface | 
+$existent | Gpupo\CommonSdk\Entity\EntityInterface | 
 
 ---
 
 ## Gpupo\SteloSdk\Client\Client
 
-* Parent class: Gpupo\CommonSdk\Client\ClientAbstract
-* This class implements: Gpupo\CommonSdk\Client\ClientInterface
+Parent: Gpupo\CommonSdk\Client\ClientAbstract
+* Implements: Gpupo\CommonSdk\Client\ClientInterface
 
-#### Methods
+Methods:
 
-*``public`` getDefaultOptions()
+### ``public`` getDefaultOptions()
+    
 
-*``protected`` renderAuthorization()
+### ``protected`` renderAuthorization()
+    
 
 ---
 
 ## Gpupo\SteloSdk\Order\Customer\Customer
 
-* Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
-* This class implements: Gpupo\CommonSdk\Entity\EntityInterface
+Parent: Gpupo\CommonSdk\Entity\EntityAbstract
+* Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-#### Methods
+Methods:
 
-*``public`` getSchema()
+### ``public`` getSchema()
+    
 
 ---
 
 ## Gpupo\SteloSdk\Order\Customer\BillingAddress
 
-* Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
-* This class implements: Gpupo\CommonSdk\Entity\EntityInterface
+Parent: Gpupo\CommonSdk\Entity\EntityAbstract
+* Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-#### Methods
+Methods:
 
-*``public`` getSchema()
+### ``public`` getSchema()
+    
 
 ---
 
 ## Gpupo\SteloSdk\View\Lightbox
 
-* Parent class: Gpupo\CommonSdk\Entity\EntityAbstract
-* This class implements: Gpupo\CommonSdk\Entity\EntityInterface
+Parent: Gpupo\CommonSdk\Entity\EntityAbstract
+* Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
-#### Methods
+Methods:
 
-*``public`` getSchema()
+### ``public`` getSchema()
+    
 
-*``public`` __construct($checkoutUrl)
+### ``public`` __construct($checkoutUrl)
+    
 
-##### Arguments
-$checkoutUrl **mixed**
+ Argument   | Type          | Description
+------------| :-------------| :-------------
+$checkoutUrl | mixed | 
 
-*``public`` __toString()
+### ``public`` __toString()
+    
 
-*``public`` getCheckoutUrl()
+### ``public`` getCheckoutUrl()
+    
 
-*``public`` setCheckoutUrl()
+### ``public`` setCheckoutUrl()
+    
 
 ---
 
 ## Gpupo\SteloSdk\Factory
 
-* Parent class: Gpupo\CommonSdk\FactoryAbstract
+Parent: Gpupo\CommonSdk\FactoryAbstract
 
-#### Methods
+Methods:
 
-*``public`` setClient(array $clientOptions)
+### ``public`` setClient(array $clientOptions)
+    
 
-##### Arguments
-$clientOptions **array**
+ Argument   | Type          | Description
+------------| :-------------| :-------------
+$clientOptions | array | 
 
-*``public`` getNamespace()
+### ``public`` getNamespace()
+    
 
-*``protected`` getSchema($namespace)
+### ``protected`` getSchema($namespace)
+    
 
-##### Arguments
-$namespace **mixed**
+ Argument   | Type          | Description
+------------| :-------------| :-------------
+$namespace | mixed | 
 
 ---
 
 ## Gpupo\SteloSdk\Order\Customer\Phone\Phone
 
-* Parent class: Gpupo\CommonSdk\Entity\CollectionAbstract
+Parent: Gpupo\CommonSdk\Entity\CollectionAbstract
 
-#### Methods
+Methods:
 
-*``public`` factoryElement($data)
+### ``public`` factoryElement($data)
+    
 
-##### Arguments
-$data **mixed**
+ Argument   | Type          | Description
+------------| :-------------| :-------------
+$data | mixed | 
 
