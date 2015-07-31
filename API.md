@@ -28,7 +28,7 @@
 
 ## Gpupo\SteloSdk\Order\Cart\Cart
 
-Parent: Gpupo\CommonSdk\Entity\CollectionAbstract
+``Parent`` Gpupo\CommonSdk\Entity\CollectionAbstract
 
 <!--Methods-->
 
@@ -44,7 +44,7 @@ $data | mixed |
 
 ## Gpupo\SteloSdk\Order\Customer\ShippingAddress
 
-Parent: [Gpupo\SteloSdk\Order\Customer\BillingAddress](#gpupostelosdkordercustomerbillingaddress)
+``Parent`` [Gpupo\SteloSdk\Order\Customer\BillingAddress](#gpupostelosdkordercustomerbillingaddress)
 
 <!--Methods-->
 
@@ -55,8 +55,8 @@ Parent: [Gpupo\SteloSdk\Order\Customer\BillingAddress](#gpupostelosdkordercustom
 
 ## Gpupo\SteloSdk\Order\Order
 
-Parent: Gpupo\CommonSdk\Entity\EntityAbstract
-Implements: Gpupo\CommonSdk\Entity\EntityInterface
+``Parent`` Gpupo\CommonSdk\Entity\EntityAbstract
+``Implements`` Gpupo\CommonSdk\Entity\EntityInterface
 
 <!--Methods-->
 
@@ -118,8 +118,8 @@ Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
 ## Gpupo\SteloSdk\Transaction\Transaction
 
-Parent: Gpupo\CommonSdk\Entity\EntityAbstract
-Implements: Gpupo\CommonSdk\Entity\EntityInterface
+``Parent`` Gpupo\CommonSdk\Entity\EntityAbstract
+``Implements`` Gpupo\CommonSdk\Entity\EntityInterface
 
 <!--Methods-->
 
@@ -160,8 +160,8 @@ Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
 ## Gpupo\SteloSdk\Order\Customer\Phone\Item
 
-Parent: Gpupo\CommonSdk\Entity\EntityAbstract
-Implements: Gpupo\CommonSdk\Entity\EntityInterface
+``Parent`` Gpupo\CommonSdk\Entity\EntityAbstract
+``Implements`` Gpupo\CommonSdk\Entity\EntityInterface
 
 <!--Methods-->
 
@@ -172,8 +172,8 @@ Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
 ## Gpupo\SteloSdk\Order\Payment
 
-Parent: Gpupo\CommonSdk\Entity\EntityAbstract
-Implements: Gpupo\CommonSdk\Entity\EntityInterface
+``Parent`` Gpupo\CommonSdk\Entity\EntityAbstract
+``Implements`` Gpupo\CommonSdk\Entity\EntityInterface
 
 <!--Methods-->
 
@@ -184,8 +184,8 @@ Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
 ## Gpupo\SteloSdk\Order\Cart\Item
 
-Parent: Gpupo\CommonSdk\Entity\EntityAbstract
-Implements: Gpupo\CommonSdk\Entity\EntityInterface
+``Parent`` Gpupo\CommonSdk\Entity\EntityAbstract
+``Implements`` Gpupo\CommonSdk\Entity\EntityInterface
 
 <!--Methods-->
 
@@ -196,17 +196,17 @@ Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
 ## Gpupo\SteloSdk\Transaction\Manager
 
-Parent: Gpupo\CommonSdk\Entity\ManagerAbstract
+``Parent`` Gpupo\CommonSdk\Entity\ManagerAbstract
 
 <!--Methods-->
 
 ##### ``public`` createFromOrder(\Gpupo\SteloSdk\Order\Order $order)
-    
+    Cria uma transação a partir de um objeto Order
 
 <!--arguments-->
  Argument   | Type          | Description
 ------------| :-------------| :-------------
-$order | [Gpupo\SteloSdk\Order\Order](#gpupostelosdkorderorder) | 
+$order | [Gpupo\SteloSdk\Order\Order](#gpupostelosdkorderorder) | &lt;p&gt;Objeto Pedido&lt;/p&gt;
 
 ##### ``public`` deleteById($itemId)
     
@@ -240,21 +240,12 @@ $response | Gpupo\Common\Entity\Collection |
 ------------| :-------------| :-------------
 $response | Gpupo\CommonSdk\Response | 
 
-##### ``public`` update(\Gpupo\CommonSdk\Entity\EntityInterface $entity, \Gpupo\CommonSdk\Entity\EntityInterface $existent)
-    
-
-<!--arguments-->
- Argument   | Type          | Description
-------------| :-------------| :-------------
-$entity | Gpupo\CommonSdk\Entity\EntityInterface | 
-$existent | Gpupo\CommonSdk\Entity\EntityInterface | 
-
 ---
 
 ## Gpupo\SteloSdk\Client\Client
 
-Parent: Gpupo\CommonSdk\Client\ClientAbstract
-Implements: Gpupo\CommonSdk\Client\ClientInterface
+``Parent`` Gpupo\CommonSdk\Client\ClientAbstract
+``Implements`` Gpupo\CommonSdk\Client\ClientInterface
 
 <!--Methods-->
 
@@ -268,8 +259,8 @@ Implements: Gpupo\CommonSdk\Client\ClientInterface
 
 ## Gpupo\SteloSdk\Order\Customer\Customer
 
-Parent: Gpupo\CommonSdk\Entity\EntityAbstract
-Implements: Gpupo\CommonSdk\Entity\EntityInterface
+``Parent`` Gpupo\CommonSdk\Entity\EntityAbstract
+``Implements`` Gpupo\CommonSdk\Entity\EntityInterface
 
 <!--Methods-->
 
@@ -280,8 +271,8 @@ Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
 ## Gpupo\SteloSdk\Order\Customer\BillingAddress
 
-Parent: Gpupo\CommonSdk\Entity\EntityAbstract
-Implements: Gpupo\CommonSdk\Entity\EntityInterface
+``Parent`` Gpupo\CommonSdk\Entity\EntityAbstract
+``Implements`` Gpupo\CommonSdk\Entity\EntityInterface
 
 <!--Methods-->
 
@@ -292,8 +283,8 @@ Implements: Gpupo\CommonSdk\Entity\EntityInterface
 
 ## Gpupo\SteloSdk\View\Lightbox
 
-Parent: Gpupo\CommonSdk\Entity\EntityAbstract
-Implements: Gpupo\CommonSdk\Entity\EntityInterface
+``Parent`` Gpupo\CommonSdk\Entity\EntityAbstract
+``Implements`` Gpupo\CommonSdk\Entity\EntityInterface
 
 <!--Methods-->
 
@@ -321,7 +312,7 @@ $checkoutUrl | mixed |
 
 ## Gpupo\SteloSdk\Factory
 
-Parent: Gpupo\CommonSdk\FactoryAbstract
+``Parent`` Gpupo\CommonSdk\FactoryAbstract
 
 <!--Methods-->
 
@@ -348,7 +339,7 @@ $namespace | mixed |
 
 ## Gpupo\SteloSdk\Order\Customer\Phone\Phone
 
-Parent: Gpupo\CommonSdk\Entity\CollectionAbstract
+``Parent`` Gpupo\CommonSdk\Entity\CollectionAbstract
 
 <!--Methods-->
 
