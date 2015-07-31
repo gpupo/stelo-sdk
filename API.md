@@ -8,11 +8,7 @@
 
 ### Methods
 
-#### factoryElement
-
-    mixed Gpupo\SteloSdk\Order\Cart\Cart::factoryElement($data)
-
-* Visibility: **public**
+* factoryElement($data) ``public``
 
 ##### Arguments
 * $data **mixed**
@@ -25,11 +21,7 @@
 
 ### Methods
 
-#### getSchema
-
-    mixed Gpupo\SteloSdk\Order\Customer\BillingAddress::getSchema()
-
-* Visibility: **public**
+* getSchema() ``public``
 
 ---
 
@@ -40,113 +32,41 @@
 
 ### Methods
 
-#### getSchema
+* getSchema() ``public``
 
-    mixed Gpupo\SteloSdk\Order\Order::getSchema()
+* toArray() ``public``
 
-* Visibility: **public**
+* getId() ``public``
 
-#### toArray
+* setId() ``public``
 
-    mixed Gpupo\SteloSdk\Order\Order::toArray()
+* getTransactionType() ``public``
 
-* Visibility: **public**
+* setTransactionType() ``public``
 
-#### getId
+* getShippingBehavior() ``public``
 
-     Gpupo\SteloSdk\Order\Order::getId()
+* setShippingBehavior() ``public``
 
-* Visibility: **public**
+* getCountry() ``public``
 
-#### setId
+* setCountry() ``public``
 
-     Gpupo\SteloSdk\Order\Order::setId()
+* getCart() ``public``
 
-* Visibility: **public**
+* setCart() ``public``
 
-#### getTransactionType
+* getPayment() ``public``
 
-     Gpupo\SteloSdk\Order\Order::getTransactionType()
+* setPayment() ``public``
 
-* Visibility: **public**
+* getCustomer() ``public``
 
-#### setTransactionType
+* setCustomer() ``public``
 
-     Gpupo\SteloSdk\Order\Order::setTransactionType()
+* getChangeShipment() ``public``
 
-* Visibility: **public**
-
-#### getShippingBehavior
-
-     Gpupo\SteloSdk\Order\Order::getShippingBehavior()
-
-* Visibility: **public**
-
-#### setShippingBehavior
-
-     Gpupo\SteloSdk\Order\Order::setShippingBehavior()
-
-* Visibility: **public**
-
-#### getCountry
-
-     Gpupo\SteloSdk\Order\Order::getCountry()
-
-* Visibility: **public**
-
-#### setCountry
-
-     Gpupo\SteloSdk\Order\Order::setCountry()
-
-* Visibility: **public**
-
-#### getCart
-
-     Gpupo\SteloSdk\Order\Order::getCart()
-
-* Visibility: **public**
-
-#### setCart
-
-     Gpupo\SteloSdk\Order\Order::setCart()
-
-* Visibility: **public**
-
-#### getPayment
-
-     Gpupo\SteloSdk\Order\Order::getPayment()
-
-* Visibility: **public**
-
-#### setPayment
-
-     Gpupo\SteloSdk\Order\Order::setPayment()
-
-* Visibility: **public**
-
-#### getCustomer
-
-     Gpupo\SteloSdk\Order\Order::getCustomer()
-
-* Visibility: **public**
-
-#### setCustomer
-
-     Gpupo\SteloSdk\Order\Order::setCustomer()
-
-* Visibility: **public**
-
-#### getChangeShipment
-
-     Gpupo\SteloSdk\Order\Order::getChangeShipment()
-
-* Visibility: **public**
-
-#### setChangeShipment
-
-     Gpupo\SteloSdk\Order\Order::setChangeShipment()
-
-* Visibility: **public**
+* setChangeShipment() ``public``
 
 ---
 
@@ -157,71 +77,27 @@
 
 ### Methods
 
-#### getSchema
+* getSchema() ``public``
 
-    mixed Gpupo\SteloSdk\Transaction\Transaction::getSchema()
+* getId() ``public``
 
-* Visibility: **public**
+* setId() ``public``
 
-#### getId
+* getStatusCode() ``public``
 
-     Gpupo\SteloSdk\Transaction\Transaction::getId()
+* setStatusCode() ``public``
 
-* Visibility: **public**
+* getStatusMessage() ``public``
 
-#### setId
+* setStatusMessage() ``public``
 
-     Gpupo\SteloSdk\Transaction\Transaction::setId()
+* getFreight() ``public``
 
-* Visibility: **public**
+* setFreight() ``public``
 
-#### getStatusCode
+* getAmount() ``public``
 
-     Gpupo\SteloSdk\Transaction\Transaction::getStatusCode()
-
-* Visibility: **public**
-
-#### setStatusCode
-
-     Gpupo\SteloSdk\Transaction\Transaction::setStatusCode()
-
-* Visibility: **public**
-
-#### getStatusMessage
-
-     Gpupo\SteloSdk\Transaction\Transaction::getStatusMessage()
-
-* Visibility: **public**
-
-#### setStatusMessage
-
-     Gpupo\SteloSdk\Transaction\Transaction::setStatusMessage()
-
-* Visibility: **public**
-
-#### getFreight
-
-     Gpupo\SteloSdk\Transaction\Transaction::getFreight()
-
-* Visibility: **public**
-
-#### setFreight
-
-     Gpupo\SteloSdk\Transaction\Transaction::setFreight()
-
-* Visibility: **public**
-
-#### getAmount
-
-     Gpupo\SteloSdk\Transaction\Transaction::getAmount()
-
-* Visibility: **public**
-
-#### setAmount
-
-     Gpupo\SteloSdk\Transaction\Transaction::setAmount()
-
-* Visibility: **public**
+* setAmount() ``public``
 
 ---
 
@@ -232,11 +108,7 @@
 
 ### Methods
 
-#### getSchema
-
-    mixed Gpupo\SteloSdk\Order\Customer\Phone\Item::getSchema()
-
-* Visibility: **public**
+* getSchema() ``public``
 
 ---
 
@@ -247,11 +119,7 @@
 
 ### Methods
 
-#### getSchema
-
-    mixed Gpupo\SteloSdk\Order\Payment::getSchema()
-
-* Visibility: **public**
+* getSchema() ``public``
 
 ---
 
@@ -262,11 +130,7 @@
 
 ### Methods
 
-#### getSchema
-
-    mixed Gpupo\SteloSdk\Order\Cart\Item::getSchema()
-
-* Visibility: **public**
+* getSchema() ``public``
 
 ---
 
@@ -276,56 +140,32 @@
 
 ### Methods
 
-#### createFromOrder
-
-    mixed Gpupo\SteloSdk\Transaction\Manager::createFromOrder(\Gpupo\SteloSdk\Order\Order $order)
-
-* Visibility: **public**
+* createFromOrder(\Gpupo\SteloSdk\Order\Order $order) ``public``
 
 ##### Arguments
 * $order **[Gpupo\SteloSdk\Order\Order](#gpupostelosdkorderorder)**
 
-#### deleteById
-
-    mixed Gpupo\SteloSdk\Transaction\Manager::deleteById($itemId)
-
-* Visibility: **public**
+* deleteById($itemId) ``public``
 
 ##### Arguments
 * $itemId **mixed**
 
-#### findById
-
-    mixed Gpupo\SteloSdk\Transaction\Manager::findById($itemId)
-
-* Visibility: **public**
+* findById($itemId) ``public``
 
 ##### Arguments
 * $itemId **mixed**
 
-#### factoryFromStatusResponse
-
-    mixed Gpupo\SteloSdk\Transaction\Manager::factoryFromStatusResponse(\Gpupo\Common\Entity\Collection $response)
-
-* Visibility: **protected**
+* factoryFromStatusResponse(\Gpupo\Common\Entity\Collection $response) ``protected``
 
 ##### Arguments
 * $response **Gpupo\Common\Entity\Collection**
 
-#### factoryFromCreateResponse
-
-    mixed Gpupo\SteloSdk\Transaction\Manager::factoryFromCreateResponse(\Gpupo\CommonSdk\Response $response)
-
-* Visibility: **protected**
+* factoryFromCreateResponse(\Gpupo\CommonSdk\Response $response) ``protected``
 
 ##### Arguments
 * $response **Gpupo\CommonSdk\Response**
 
-#### update
-
-    mixed Gpupo\SteloSdk\Transaction\Manager::update(\Gpupo\CommonSdk\Entity\EntityInterface $entity, \Gpupo\CommonSdk\Entity\EntityInterface $existent)
-
-* Visibility: **public**
+* update(\Gpupo\CommonSdk\Entity\EntityInterface $entity, \Gpupo\CommonSdk\Entity\EntityInterface $existent) ``public``
 
 ##### Arguments
 * $entity **Gpupo\CommonSdk\Entity\EntityInterface**
@@ -340,17 +180,9 @@
 
 ### Methods
 
-#### getDefaultOptions
+* getDefaultOptions() ``public``
 
-    mixed Gpupo\SteloSdk\Client\Client::getDefaultOptions()
-
-* Visibility: **public**
-
-#### renderAuthorization
-
-    mixed Gpupo\SteloSdk\Client\Client::renderAuthorization()
-
-* Visibility: **protected**
+* renderAuthorization() ``protected``
 
 ---
 
@@ -361,11 +193,7 @@
 
 ### Methods
 
-#### getSchema
-
-    mixed Gpupo\SteloSdk\Order\Customer\Customer::getSchema()
-
-* Visibility: **public**
+* getSchema() ``public``
 
 ---
 
@@ -376,11 +204,7 @@
 
 ### Methods
 
-#### getSchema
-
-    mixed Gpupo\SteloSdk\Order\Customer\BillingAddress::getSchema()
-
-* Visibility: **public**
+* getSchema() ``public``
 
 ---
 
@@ -391,38 +215,18 @@
 
 ### Methods
 
-#### getSchema
+* getSchema() ``public``
 
-    mixed Gpupo\SteloSdk\View\Lightbox::getSchema()
-
-* Visibility: **public**
-
-#### __construct
-
-    mixed Gpupo\SteloSdk\View\Lightbox::__construct($checkoutUrl)
-
-* Visibility: **public**
+* __construct($checkoutUrl) ``public``
 
 ##### Arguments
 * $checkoutUrl **mixed**
 
-#### __toString
+* __toString() ``public``
 
-    mixed Gpupo\SteloSdk\View\Lightbox::__toString()
+* getCheckoutUrl() ``public``
 
-* Visibility: **public**
-
-#### getCheckoutUrl
-
-     Gpupo\SteloSdk\View\Lightbox::getCheckoutUrl()
-
-* Visibility: **public**
-
-#### setCheckoutUrl
-
-     Gpupo\SteloSdk\View\Lightbox::setCheckoutUrl()
-
-* Visibility: **public**
+* setCheckoutUrl() ``public``
 
 ---
 
@@ -432,26 +236,14 @@
 
 ### Methods
 
-#### setClient
-
-    mixed Gpupo\SteloSdk\Factory::setClient(array $clientOptions)
-
-* Visibility: **public**
+* setClient(array $clientOptions) ``public``
 
 ##### Arguments
 * $clientOptions **array**
 
-#### getNamespace
+* getNamespace() ``public``
 
-    mixed Gpupo\SteloSdk\Factory::getNamespace()
-
-* Visibility: **public**
-
-#### getSchema
-
-    mixed Gpupo\SteloSdk\Factory::getSchema($namespace)
-
-* Visibility: **protected**
+* getSchema($namespace) ``protected``
 
 ##### Arguments
 * $namespace **mixed**
@@ -464,11 +256,7 @@
 
 ### Methods
 
-#### factoryElement
-
-    mixed Gpupo\SteloSdk\Order\Customer\Phone\Phone::factoryElement($data)
-
-* Visibility: **public**
+* factoryElement($data) ``public``
 
 ##### Arguments
 * $data **mixed**
