@@ -10,6 +10,12 @@ layout: default
 
 SDK Não Oficial para integração a partir de aplicações PHP com as APIs da Stelo.com.br
 
+## Requisitos
+
+* PHP >= *5.4*
+* [curl extension](http://php.net/manual/en/intro.curl.php)
+* [Composer Dependency Manager](http://getcomposer.org)
+
 ---
 
 ## Instalação
@@ -22,7 +28,7 @@ Adicione o pacote [stelo-sdk](https://packagist.org/packages/gpupo/stelo-sdk) ao
 
 ## Uso
 
-## Transação
+### Transação
 
 Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://github.com/gpupo/stelo-sdk/blob/master/Resources/fixtures/order.input.json);
 
