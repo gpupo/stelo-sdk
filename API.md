@@ -33,12 +33,12 @@
 <!--Methods-->
 
 ##### ``public`` factoryElement($data)
-    
+
 
 <!--arguments-->
  Argument   | Type          | Description
 ------------| :-------------| :-------------
-$data | mixed | 
+$data | mixed |
 
 ---
 
@@ -49,7 +49,7 @@ $data | mixed |
 <!--Methods-->
 
 ##### ``public`` getSchema()
-    
+
 
 ---
 
@@ -61,58 +61,58 @@ $data | mixed |
 <!--Methods-->
 
 ##### ``public`` getSchema()
-    
+
 
 ##### ``public`` toArray()
-    
+
 
 ##### ``public`` getId()
-    
+
 
 ##### ``public`` setId()
-    
+
 
 ##### ``public`` getTransactionType()
-    
+
 
 ##### ``public`` setTransactionType()
-    
+
 
 ##### ``public`` getShippingBehavior()
-    
+
 
 ##### ``public`` setShippingBehavior()
-    
+
 
 ##### ``public`` getCountry()
-    
+
 
 ##### ``public`` setCountry()
-    
+
 
 ##### ``public`` getCart()
-    
+
 
 ##### ``public`` setCart()
-    
+
 
 ##### ``public`` getPayment()
-    
+
 
 ##### ``public`` setPayment()
-    
+
 
 ##### ``public`` getCustomer()
-    
+
 
 ##### ``public`` setCustomer()
-    
+
 
 ##### ``public`` getChangeShipment()
-    
+
 
 ##### ``public`` setChangeShipment()
-    
+
 
 ---
 
@@ -124,37 +124,37 @@ $data | mixed |
 <!--Methods-->
 
 ##### ``public`` getSchema()
-    
+
 
 ##### ``public`` getId()
-    
+
 
 ##### ``public`` setId()
-    
+
 
 ##### ``public`` getStatusCode()
-    
+
 
 ##### ``public`` setStatusCode()
-    
+
 
 ##### ``public`` getStatusMessage()
-    
+
 
 ##### ``public`` setStatusMessage()
-    
+
 
 ##### ``public`` getFreight()
-    
+
 
 ##### ``public`` setFreight()
-    
+
 
 ##### ``public`` getAmount()
-    
+
 
 ##### ``public`` setAmount()
-    
+
 
 ---
 
@@ -166,7 +166,7 @@ $data | mixed |
 <!--Methods-->
 
 ##### ``public`` getSchema()
-    
+
 
 ---
 
@@ -178,7 +178,7 @@ $data | mixed |
 <!--Methods-->
 
 ##### ``public`` getSchema()
-    
+
 
 ---
 
@@ -190,7 +190,7 @@ $data | mixed |
 <!--Methods-->
 
 ##### ``public`` getSchema()
-    
+
 
 ---
 
@@ -209,36 +209,36 @@ $data | mixed |
 $order | [Gpupo\SteloSdk\Order\Order](#gpupostelosdkorderorder) | &lt;p&gt;Objeto Pedido&lt;/p&gt;
 
 ##### ``public`` deleteById($itemId)
-    
+
 
 <!--arguments-->
  Argument   | Type          | Description
 ------------| :-------------| :-------------
-$itemId | mixed | 
+$itemId | mixed |
 
 ##### ``public`` findById($itemId)
-    
+
 
 <!--arguments-->
  Argument   | Type          | Description
 ------------| :-------------| :-------------
-$itemId | mixed | 
+$itemId | mixed |
 
 ##### ``protected`` factoryFromStatusResponse(\Gpupo\Common\Entity\Collection $response)
-    
+
 
 <!--arguments-->
  Argument   | Type          | Description
 ------------| :-------------| :-------------
-$response | Gpupo\Common\Entity\Collection | 
+$response | Gpupo\Common\Entity\Collection |
 
 ##### ``protected`` factoryFromCreateResponse(\Gpupo\CommonSdk\Response $response)
-    
+
 
 <!--arguments-->
  Argument   | Type          | Description
 ------------| :-------------| :-------------
-$response | Gpupo\CommonSdk\Response | 
+$response | Gpupo\CommonSdk\Response |
 
 ---
 
@@ -250,10 +250,10 @@ $response | Gpupo\CommonSdk\Response |
 <!--Methods-->
 
 ##### ``public`` getDefaultOptions()
-    
+
 
 ##### ``protected`` renderAuthorization()
-    
+
 
 ---
 
@@ -265,7 +265,7 @@ $response | Gpupo\CommonSdk\Response |
 <!--Methods-->
 
 ##### ``public`` getSchema()
-    
+
 
 ---
 
@@ -277,7 +277,7 @@ $response | Gpupo\CommonSdk\Response |
 <!--Methods-->
 
 ##### ``public`` getSchema()
-    
+
 
 ---
 
@@ -289,24 +289,24 @@ $response | Gpupo\CommonSdk\Response |
 <!--Methods-->
 
 ##### ``public`` getSchema()
-    
+
 
 ##### ``public`` __construct($checkoutUrl)
-    
+
 
 <!--arguments-->
  Argument   | Type          | Description
 ------------| :-------------| :-------------
-$checkoutUrl | mixed | 
+$checkoutUrl | mixed |
 
 ##### ``public`` __toString()
-    
+
 
 ##### ``public`` getCheckoutUrl()
-    
+
 
 ##### ``public`` setCheckoutUrl()
-    
+
 
 ---
 
@@ -317,23 +317,23 @@ $checkoutUrl | mixed |
 <!--Methods-->
 
 ##### ``public`` setClient(array $clientOptions)
-    
+
 
 <!--arguments-->
  Argument   | Type          | Description
 ------------| :-------------| :-------------
-$clientOptions | array | 
+$clientOptions | array |
 
 ##### ``public`` getNamespace()
-    
+
 
 ##### ``protected`` getSchema($namespace)
-    
+
 
 <!--arguments-->
  Argument   | Type          | Description
 ------------| :-------------| :-------------
-$namespace | mixed | 
+$namespace | mixed |
 
 ---
 
@@ -344,10 +344,9 @@ $namespace | mixed |
 <!--Methods-->
 
 ##### ``public`` factoryElement($data)
-    
+
 
 <!--arguments-->
  Argument   | Type          | Description
 ------------| :-------------| :-------------
-$data | mixed | 
-
+$data | mixed |
