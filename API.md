@@ -1,4 +1,6 @@
 ---
+ title: API
+---
 
 ## Gpupo\SteloSdk\Order\Cart\Cart
 
@@ -28,7 +30,6 @@
     mixed Gpupo\SteloSdk\Order\Customer\BillingAddress::getSchema()
 
 * Visibility: **public**
-* This method is defined by [Gpupo\SteloSdk\Order\Customer\BillingAddress](#gpupostelosdkordercustomerbillingaddress)
 
 ---
 
@@ -272,15 +273,6 @@
 ## Gpupo\SteloSdk\Transaction\Manager
 
 * Parent class: Gpupo\CommonSdk\Entity\ManagerAbstract
-
-Properties
-----------
-
-#### $maps
-
-    protected mixed $maps = array('createFromOrder' => array('POST', '/wallet/transactions'), 'findById' => array('GET', '/orders/transactions/{itemId}'), 'delete' => array('DELETE', '/orders/transactions/{itemId}'))
-
-* Visibility: **protected**
 
 ### Methods
 
