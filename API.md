@@ -12,7 +12,6 @@
 
 ##### Arguments
 $data **mixed**
----
 
 ---
 
@@ -145,40 +144,32 @@ $data **mixed**
 
 ##### Arguments
 $order **[Gpupo\SteloSdk\Order\Order](#gpupostelosdkorderorder)**
----
 
 *``public`` deleteById($itemId)
 
 ##### Arguments
 $itemId **mixed**
----
 
 *``public`` findById($itemId)
 
 ##### Arguments
 $itemId **mixed**
----
 
 *``protected`` factoryFromStatusResponse(\Gpupo\Common\Entity\Collection $response)
 
 ##### Arguments
 $response **Gpupo\Common\Entity\Collection**
----
 
 *``protected`` factoryFromCreateResponse(\Gpupo\CommonSdk\Response $response)
 
 ##### Arguments
 $response **Gpupo\CommonSdk\Response**
----
 
 *``public`` update(\Gpupo\CommonSdk\Entity\EntityInterface $entity, \Gpupo\CommonSdk\Entity\EntityInterface $existent)
 
 ##### Arguments
 $entity **Gpupo\CommonSdk\Entity\EntityInterface**
----
-
 $existent **Gpupo\CommonSdk\Entity\EntityInterface**
----
 
 ---
 
@@ -230,7 +221,6 @@ $existent **Gpupo\CommonSdk\Entity\EntityInterface**
 
 ##### Arguments
 $checkoutUrl **mixed**
----
 
 *``public`` __toString()
 
@@ -250,7 +240,6 @@ $checkoutUrl **mixed**
 
 ##### Arguments
 $clientOptions **array**
----
 
 *``public`` getNamespace()
 
@@ -258,7 +247,6 @@ $clientOptions **array**
 
 ##### Arguments
 $namespace **mixed**
----
 
 ---
 
@@ -272,5 +260,4 @@ $namespace **mixed**
 
 ##### Arguments
 $data **mixed**
----
 
