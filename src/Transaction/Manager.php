@@ -28,6 +28,11 @@ class Manager extends ManagerAbstract
         'delete'            => ['DELETE', '/orders/transactions/{itemId}'],
     ];
 
+    /**
+     * Cria uma transação a partir de um objeto Order
+     * @param  Order  $order Objeto Pedido
+     * @return Transaction        Transação Stelo
+     */
     public function createFromOrder(Order $order)
     {
         $response = $this->execute($this->factoryMap('createFromOrder',
@@ -85,6 +90,9 @@ class Manager extends ManagerAbstract
         return new Transaction($data);
     }
 
+    /**
+     * @internal
+     */
     public function update(EntityInterface $entity, EntityInterface $existent)
     {
     }
