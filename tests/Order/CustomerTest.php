@@ -12,7 +12,7 @@
  * <http://www.g1mr.com/stelo-sdk/>.
  */
 
-namespace Gpupo\Tests\SteloSdk\Order\Customer;
+namespace Gpupo\Tests\SteloSdk\Order;
 
 use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
 
@@ -20,7 +20,7 @@ class CustomerTest extends EntityTestCaseAbstract
 {
     public static function setUpBeforeClass()
     {
-        parent::$name='\Gpupo\SteloSdk\Order\Customer\Customer';
+        parent::$name='\Gpupo\SteloSdk\Order\Customer';
         parent::setUpBeforeClass();
     }
 }

@@ -12,7 +12,7 @@
  * <http://www.g1mr.com/stelo-sdk/>.
  */
 
-namespace Gpupo\SteloSdk\Order\Customer\Phone;
+namespace Gpupo\SteloSdk\Customer\Phone;
 
 use Gpupo\CommonSdk\Entity\EntityAbstract;
 use Gpupo\CommonSdk\Entity\EntityInterface;

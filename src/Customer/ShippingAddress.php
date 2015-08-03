@@ -12,7 +12,7 @@
  * <http://www.g1mr.com/stelo-sdk/>.
  */
 
-namespace Gpupo\SteloSdk\Order\Customer;
+namespace Gpupo\SteloSdk\Customer;
 
 class ShippingAddress extends BillingAddress
 {
