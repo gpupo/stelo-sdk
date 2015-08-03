@@ -45,7 +45,7 @@ class OrderTest extends TestCaseAbstract
      */
     public function testCadaPedidoPossuiObjetoCliente(Order $order)
     {
-        $this->assertInstanceOf('\Gpupo\SteloSdk\Order\Customer\Customer', $order->getCustomer());
+        $this->assertInstanceOf('\Gpupo\SteloSdk\Order\Customer', $order->getCustomer());
     }
 
     /**
@@ -53,7 +53,7 @@ class OrderTest extends TestCaseAbstract
      */
     public function testCadaPedidoPossuiObjetoBilling(Order $order)
     {
-        $this->assertInstanceOf('\Gpupo\SteloSdk\Order\Customer\BillingAddress', $order->getCustomer()->getBillingAddress());
+        $this->assertInstanceOf('\Gpupo\SteloSdk\Customer\BillingAddress', $order->getCustomer()->getBillingAddress());
     }
 
     /**
@@ -61,7 +61,7 @@ class OrderTest extends TestCaseAbstract
      */
     public function testCadaPedidoPossuiObjetoContendoEnderecoDeEntrega(Order $order)
     {
-        $this->assertInstanceOf('\Gpupo\SteloSdk\Order\Customer\ShippingAddress', $order->getCustomer()->getShippingAddress());
+        $this->assertInstanceOf('\Gpupo\SteloSdk\Customer\ShippingAddress', $order->getCustomer()->getShippingAddress());
     }
 
     /**
