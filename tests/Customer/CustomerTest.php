@@ -12,7 +12,7 @@
  * <http://www.g1mr.com/stelo-sdk/>.
  */
 
-namespace Gpupo\Tests\SteloSdk\Order;
+namespace Gpupo\Tests\SteloSdk\Customer;
 
 use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
 
