@@ -48,6 +48,7 @@ class FactoryTest extends FactoryTestAbstract
     {
         return [
             [$this->namespace.'Transaction\Manager', 'transaction'],
+            [$this->namespace.'Auth\Manager', 'auth'],
         ];
     }
 }

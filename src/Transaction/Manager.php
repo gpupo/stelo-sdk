@@ -14,12 +14,14 @@
 
 namespace Gpupo\SteloSdk\Transaction;
 
-use Gpupo\CommonSdk\Entity\EntityInterface;
-use Gpupo\CommonSdk\Entity\ManagerAbstract;
+use Gpupo\SteloSdk\ManagerAbstract;
 use Gpupo\CommonSdk\Response;
 use Gpupo\SteloSdk\Order\Order;
 use Gpupo\Common\Entity\Collection;
 
+/**
+ * Gerenciamento de Transações Stelo
+ */
 class Manager extends ManagerAbstract
 {
     protected $maps = [
@@ -90,10 +92,4 @@ class Manager extends ManagerAbstract
         return new Transaction($data);
     }
 
-    /**
-     * @internal
-     */
-    public function update(EntityInterface $entity, EntityInterface $existent)
-    {
-    }
 }
