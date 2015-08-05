@@ -110,7 +110,7 @@ Url Para Redirecionamento:
 
 Exemplo de Url:
 
-``https://login.html.stelo.com.br/sso/auth/v1/autorize?client_id=foo&response_type=code&state=889fa52ff915&scope=user_profile.all&redirect_url=https://www.example.com/notify``
+    https://login.html.stelo.com.br/sso/auth/v1/autorize?client_id=foo&response_type=code&state=889fa52ff915&scope=user_profile.all&redirect_url=https://www.example.com/notify
 
 ### Obtenção de ``$code`` (passo 2)
 
@@ -121,7 +121,7 @@ Deve ser comparado o CSRF Token da Session do Cliente com o parâmetro GET ``sta
 
 Exemplo de Url:
 
-``https://www.example.com/notify?code=xxxxxxxxxxxx&state=889fa52ff915``
+    https://www.example.com/notify?code=xxxxxxxxxxxx&state=889fa52ff915
 
 #### Uso do code para acesso ao token (passo 3)
 
@@ -130,7 +130,7 @@ Exemplo de Url:
 #### Acesso aos dados do cliente (passo 4)
 
     $customer = $steloSdk->factoryManager('auth')->requestCustomer($access_token);
-    echo $customer->getName();
+
 
 Veja mais detalhes sobre as propriedades de ``$customer`` na documentação do objeto.
 
