@@ -28,16 +28,48 @@ class Manager extends ManagerAbstract implements OptionsInterface
     use OptionsTrait;
 
     protected $endpoint = 'https://login.html.stelo.com.br/sso/auth/v1';
+    protected $token;
+
+    /**
+     * Token utilizado para proteção contra CSRF
+     *
+     * Deve ser adicionado à Session do Cliente e comparado na avaliação
+     * do Retorno da autenticação
+     *
+     * @return string Token de 12 caracteres
+     */
+    public function getCsrfToken()
+    {
+        if (empty($this->token)) {
+            $this->token = substr(sha1(openssl_random_pseudo_bytes(32)), 0, 12);
+        }
+
+        return $this->token;
+    }
 
     public function getDefaultOptions()
     {
         return  [
-            'redirect_url'  => 'foo',
+            'redirect_url'  => 'https://www.example.com/notify',
+            'response_type' => 'code',
+            'state'         => $this->getCsrfToken(),
+            'scope'         => 'user_profile.all',
         ];
+    }
+
+    protected function appendParamsToUri($uri, Array $params)
+    {
+        foreach($params as $param) {
+            $uri .= $param.'={'.$param.'}&';
+        }
+        return rtrim($uri,'&');
     }
 
     public function getAuthorizeUrl()
     {
-        return $this->fillPlaceholdersWithArray($this->endpoint.'autorize?client_id={client_id}&redirect_url={redirect_url}', $this->getOptions()->toArray());
+        $uri = $this->appendParamsToUri($this->endpoint.'/autorize?',
+            ['client_id', 'response_type', 'state', 'scope', 'redirect_url']);
+
+        return $this->fillPlaceholdersWithArray($uri, $this->getOptions()->toArray());
     }
 }

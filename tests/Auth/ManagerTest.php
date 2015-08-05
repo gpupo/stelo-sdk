@@ -19,8 +19,18 @@ use Gpupo\Tests\SteloSdk\TestCaseAbstract;
 
 class ManagerTest extends TestCaseAbstract
 {
+    protected function getAuth()
+    {
+        return $this->getFactory()->factoryManager('auth');
+    }
+
+    public function testForneceTokenUtilizadoParaProteçãoContraCsrf()
+    {
+        $this->assertEquals(12, strlen($this->getAuth()->getCsrfToken()));
+    }
+
     public function testInformaAUrlParaOndeOClienteSeráDirecionado()
     {
-        $this->assertEquals('foo', $this->getFactory()->factoryManager('auth')->getAuthorizeUrl())  ;
+        $this->assertEquals('foo', $this->getAuth()->getAuthorizeUrl())  ;
     }
 }
