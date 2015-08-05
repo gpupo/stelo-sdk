@@ -27,8 +27,9 @@ class Manager extends ManagerAbstract implements OptionsInterface
     use PlaceholderTrait;
     use OptionsTrait;
 
-    protected $endpoint = 'https://{login_version}.stelo.com.br/sso/auth/v1';
     protected $token;
+
+    protected $endpoint = 'https://{login_version}.stelo.com.br/sso/auth/v1/oauth2';
 
     /**
      * Token utilizado para proteção contra CSRF
@@ -73,4 +74,5 @@ class Manager extends ManagerAbstract implements OptionsInterface
 
         return $this->fillPlaceholdersWithArray($uri, $this->getOptions()->toArray());
     }
+
 }
