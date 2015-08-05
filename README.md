@@ -38,8 +38,18 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
         'client_id'     => 'foo',
         'client_secret' => 'bar',
         'version'       => 'sandbox',
+        'login_version' => 'login',
         'redirect_url'  => 'http://localhost/notify',
     ]);
+
+
+Parâmetro | Descrição | Valores possíveis
+----------|-----------|------------------
+``client_id``|Chave da loja| string
+``client_secret``|Token de autorização da aplicação| string
+``version``|Identificação do Ambiente| sandbox, carteira.html (produção)
+``redirect_url``|Controller para notificação de Login| Url própria
+``login_version``|Ambiente de Login|login, login.html (produção)
 
 #### Criação de uma nova transação
 
