@@ -31,6 +31,6 @@ class ManagerTest extends TestCaseAbstract
 
     public function testInformaAUrlParaOndeOClienteSeráDirecionado()
     {
-        $this->assertEquals('foo', $this->getAuth()->getAuthorizeUrl())  ;
+        $this->assertStringStartsWith('https://login.html.stelo.com.br/sso/auth/v1/autorize?client_id=foo', $this->getAuth()->getAuthorizeUrl());
     }
 }
