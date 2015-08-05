@@ -42,6 +42,10 @@ class Factory extends FactoryAbstract
                 'class'     => $namespace.'Transaction\Transaction',
                 'manager'   => $namespace.'Transaction\Manager',
             ],
+            'auth' => [
+                'manager'   => $namespace.'Auth\Manager',
+            ],
+
         ];
     }
 }

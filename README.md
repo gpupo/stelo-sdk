@@ -11,7 +11,6 @@ SDK Não Oficial para integração a partir de aplicações PHP com as APIs da S
 
 * PHP >= *5.4*
 * [curl extension](http://php.net/manual/en/intro.curl.php)
-* [Composer Dependency Manager](http://getcomposer.org)
 
 ---
 
