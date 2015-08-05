@@ -27,7 +27,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
     use PlaceholderTrait;
     use OptionsTrait;
 
-    protected $endpoint = 'https://login.html.stelo.com.br/sso/auth/v1';
+    protected $endpoint = 'https://{login_version}.stelo.com.br/sso/auth/v1';
     protected $token;
 
     /**
@@ -54,6 +54,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
             'response_type' => 'code',
             'state'         => $this->getCsrfToken(),
             'scope'         => 'user_profile.all',
+            'login_version' => 'login',
         ];
     }
 
