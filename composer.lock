@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f57cb1fcad0f27bc27126b57756512ff",
+    "hash": "ee318f0d0ec89ef2f40ab7a665f4800a",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -456,16 +456,16 @@
         },
         {
             "name": "gpupo/common",
-            "version": "1.4.1",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gpupo/common.git",
-                "reference": "a20b30dc27a426a9001229ecc647ec1d5445af5e"
+                "reference": "36a62fbe634ae0d3ae512ac82578689b1583cac0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gpupo/common/zipball/a20b30dc27a426a9001229ecc647ec1d5445af5e",
-                "reference": "a20b30dc27a426a9001229ecc647ec1d5445af5e",
+                "url": "https://api.github.com/repos/gpupo/common/zipball/36a62fbe634ae0d3ae512ac82578689b1583cac0",
+                "reference": "36a62fbe634ae0d3ae512ac82578689b1583cac0",
                 "shasum": ""
             },
             "require": {
@@ -498,31 +498,32 @@
             "keywords": [
                 "common"
             ],
-            "time": "2015-08-05 13:22:46"
+            "time": "2015-08-06 14:40:40"
         },
         {
             "name": "gpupo/common-sdk",
-            "version": "1.9.3",
+            "version": "1.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gpupo/common-sdk.git",
-                "reference": "abb0836cddd9886eb79e9b1acd372c15bf5c606a"
+                "reference": "375ea55ca2dae62f044a515feeb5bdcb88dac23a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gpupo/common-sdk/zipball/abb0836cddd9886eb79e9b1acd372c15bf5c606a",
-                "reference": "abb0836cddd9886eb79e9b1acd372c15bf5c606a",
+                "url": "https://api.github.com/repos/gpupo/common-sdk/zipball/375ea55ca2dae62f044a515feeb5bdcb88dac23a",
+                "reference": "375ea55ca2dae62f044a515feeb5bdcb88dac23a",
                 "shasum": ""
             },
             "require": {
                 "gpupo/cache": "~1.2",
-                "gpupo/common": "~1.4.1",
+                "gpupo/common": "~1.5",
                 "php": ">=5.4",
                 "psr/log": "~1.0"
             },
             "require-dev": {
                 "codeclimate/php-test-reporter": "dev-master",
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~4.0",
+                "sebastian/peek-and-poke": "1.0.x@dev"
             },
             "type": "library",
             "autoload": {
@@ -541,12 +542,12 @@
                     "email": "g@g1mr.com"
                 }
             ],
-            "description": "Componente de uso comum entre SDKs para integração a partir de aplicações PHP com as APIs de Marketplaces",
+            "description": "Componente de uso comum entre SDKs para integração a partir de aplicações PHP com Restful webservices",
             "homepage": "http://www.g1mr.com/common-sdk/",
             "keywords": [
                 "sdk"
             ],
-            "time": "2015-08-05 13:35:08"
+            "time": "2015-08-06 14:46:46"
         },
         {
             "name": "psr/log",
