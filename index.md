@@ -14,7 +14,6 @@ SDK Não Oficial para integração a partir de aplicações PHP com as APIs da S
 
 * PHP >= *5.4*
 * [curl extension](http://php.net/manual/en/intro.curl.php)
-* [Composer Dependency Manager](http://getcomposer.org)
 
 ---
 
@@ -32,14 +31,30 @@ Adicione o pacote [stelo-sdk](https://packagist.org/packages/gpupo/stelo-sdk) ao
 
 Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://github.com/gpupo/stelo-sdk/blob/master/Resources/fixtures/order.input.json);
 
-#### Criação de uma nova transação
+### Setup Inicial
 
     <?php
     //...
     use Gpupo\SteloSdk\Factory;
 
-    $steloSdk = Factory::getInstance()
-        ->setup(['client_id' => 'foo','client_secret' => 'bar', 'version' => 'sandbox']);
+    $steloSdk = Factory::getInstance()->setup([
+        'client_id'     => 'foo',
+        'client_secret' => 'bar',
+        'version'       => 'sandbox',
+        'login_version' => 'login',
+        'redirect_url'  => 'http://localhost/notify',
+    ]);
+
+
+Parâmetro | Descrição | Valores possíveis
+----------|-----------|------------------
+``client_id``|Chave da loja| string
+``client_secret``|Token de autorização da aplicação| string
+``version``|Identificação do Ambiente| sandbox, carteira.html (produção)
+``redirect_url``|Controller para notificação de Login| Url própria
+``login_version``|Ambiente de Login|login, login.html (produção)
+
+#### Criação de uma nova transação
 
     $order = $steloSdk->createOrder($data);
     $manager = $steloSdk->factoryManager('transaction');
@@ -86,12 +101,30 @@ A integração com o Login Stelo tem o objetivo de reduzir os passos para o ch
 
 #### Url para redirecionar o Cliente (passo 1)
 
-    $url = $steloSdk->factoryManager('auth')->getAuthorizeUrl();
+    $auth = $steloSdk->factoryManager('auth');
+
+Token utilizado para proteção contra CSRF o qual deve ser adicionado à Session do Cliente e comparado na avaliação do Retorno da autenticação:
+
+    $csrfToken = $auth->getCsrfToken();
+
+Url Para Redirecionamento:
+
+    $url = $auth->getAuthorizeUrl();
+
+Exemplo de Url:
+
+    https://login.html.stelo.com.br/sso/auth/v1/autorize?client_id=foo&response_type=code&state=889fa52ff915&scope=user_profile.all&redirect_url=https://www.example.com/notify
 
 ### Obtenção de ``$code`` (passo 2)
 
 ``$code`` é obtido no passo 2 que deve ser implementado independente da SDK, onde se recebe
-o parâmetro GET ``code`` em um controlador informado no cadastro Stelo;
+o parâmetro GET ``code`` no controlador informado da loja (parâmetro ``redirect_url`` informado no Setup Inicial);
+
+Deve ser comparado o CSRF Token da Session do Cliente com o parâmetro GET ``state``
+
+Exemplo de Url:
+
+    https://www.example.com/notify?code=xxxxxxxxxxxx&state=889fa52ff915
 
 #### Uso do code para acesso ao token (passo 3)
 
@@ -100,7 +133,7 @@ o parâmetro GET ``code`` em um controlador informado no cadastro Stelo;
 #### Acesso aos dados do cliente (passo 4)
 
     $customer = $steloSdk->factoryManager('auth')->requestCustomer($access_token);
-    echo $customer->getName();
+
 
 Veja mais detalhes sobre as propriedades de ``$customer`` na documentação do objeto.
 
