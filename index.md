@@ -27,15 +27,10 @@ Adicione o pacote [stelo-sdk](https://packagist.org/packages/gpupo/stelo-sdk) ao
 
 ## Uso
 
-### Transação
-
-Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://github.com/gpupo/stelo-sdk/blob/master/Resources/fixtures/order.input.json);
-
 ### Setup Inicial
 
 ```PHP
 
-<?php
 //...
 use Gpupo\SteloSdk\Factory;
 
@@ -56,6 +51,11 @@ Parâmetro | Descrição | Valores possíveis
 ``version``|Identificação do Ambiente| sandbox, carteira.html (produção)
 ``redirect_url``|Controller para notificação de Login| Url própria
 ``login_version``|Ambiente de Login|login, login.html (produção)
+
+
+### Transação
+
+Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://github.com/gpupo/stelo-sdk/blob/master/Resources/fixtures/order.input.json);
 
 #### Criação de uma nova transação
 
