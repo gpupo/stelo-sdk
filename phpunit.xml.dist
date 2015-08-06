@@ -29,4 +29,8 @@
         <const name="CLIENT_SECRET" value="bar"/>
         <const name="VERBOSE" value="true"/>
     </php>
+    <logging>
+      <log type="coverage-clover" target="build/logs/clover.xml"/>
+      <log type="testdox-text" target="build/logs/testdox.txt"/>
+    </logging>
 </phpunit>

@@ -18,6 +18,8 @@ use Gpupo\SteloSdk\ManagerAbstract;
 use Gpupo\CommonSdk\Traits\PlaceholderTrait;
 use Gpupo\Common\Interfaces\OptionsInterface;
 use Gpupo\Common\Traits\OptionsTrait;
+use Gpupo\CommonSdk\Map;
+use Gpupo\CommonSdk\Response;
 
 /**
  * Gerenciamento da autenticação do Cliente
@@ -75,4 +77,28 @@ class Manager extends ManagerAbstract implements OptionsInterface
         return $this->fillPlaceholdersWithArray($uri, $this->getOptions()->toArray());
     }
 
+    protected function factoryToken(Response $response)
+    {
+        return new Token($response->getData()->toArray());
+    }
+
+    public function requestToken($access_token)
+    {
+        $map = new Map(['post', $this->endpoint.'/token'], $this->getOptions()->toArray());
+
+        $body = [
+            'code'          => $access_token,
+            'grant_type'    => 'authorizaton_code',
+        ];
+
+        foreach(['client_id', 'client_secret', 'redirect_url'] as $key) {
+            $body[$key] = $this->getOptions()->get($key);
+        }
+
+        $response =  $this->execute($map, $body);
+
+        if ($response->getHttpStatusCode() === 200) {
+            return $this->factoryToken($response);
+        }
+    }
 }

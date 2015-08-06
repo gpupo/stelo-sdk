@@ -18,10 +18,4 @@ before_script:
   - composer self-update
   - composer install --prefer-dist
 
-deploy:
-  provider: script
-  script: ./.codeclimate
-  on:
-  	branch: master
-
-script: vendor/bin/phpunit
+script: ant test
