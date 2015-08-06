@@ -33,4 +33,14 @@ class ManagerTest extends TestCaseAbstract
     {
         $this->assertStringStartsWith('https://login.stelo.com.br/sso/auth/v1/oauth2/autorize', $this->getAuth()->getAuthorizeUrl());
     }
+
+    public function testAcessoAoObjetoToken()
+    {
+        $auth = $this->getAuth()->setDryRun($this->factoryResponseFromFixture('fixtures/token.json'));
+        $token = $auth->requestToken('43452');
+        $this->assertEquals('foo', $token->get('access_token'));
+        $this->assertEquals('foo', $token->getAccessToken(), 'Magic method');
+        $this->assertEquals('bar', $token->get('state'));
+
+    }
 }
