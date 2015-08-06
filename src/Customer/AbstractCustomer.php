@@ -37,21 +37,18 @@ use Gpupo\CommonSdk\Entity\EntityInterface;
  * @method setShippingAddress(Gpupo\SteloSdk\Customer\ShippingAddress $shippingAddress) Define ShippingAddress
  * @method Gpupo\SteloSdk\Customer\ShippingAddress getShippingAddress() Acesso a ShippingAddress
  */
-class Customer extends EntityAbstract implements EntityInterface
+abstract class AbstractCustomer extends EntityAbstract implements EntityInterface
 {
     public $description = 'Entidade Cliente';
 
     public function getSchema()
     {
         return [
-            'customerIdentity'  => 'string',
             'customerName'      => 'string',
             'customerEmail'     => 'string',
-            'birthDay'          => 'string',
+            'birthDate'         => 'string',
             'gender'            => 'string',
             'phone'             => 'object',
-            'billingAddress'    => 'object',
-            'shippingAddress'   => 'object',
         ];
     }
 }

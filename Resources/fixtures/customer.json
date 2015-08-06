@@ -1,0 +1,28 @@
+{
+  "name":"Vanilla Ice",
+  "email":"{email}",
+  "cpf":"{cpf}",
+  "rg":"{rg}",
+  "birthDate":"{birth_date}",
+  "gender":"{gender}",
+  "phones":[
+    {
+      "number":"{number}",
+      "type":"{type}"
+    },
+    {
+      "number":"{number}",
+      "type":"{type}"
+    }
+  ],
+  "address":{
+    "alias":"{alias}",
+    "zipCode":"{zip_code}",
+    "street":"{street}",
+    "number":"{number}",
+    "complement":"{complement}",
+    "neighborhood":"{ neighborhood}",
+    "city":"{city}",
+    "state":"{state}"
+  }
+}

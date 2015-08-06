@@ -14,22 +14,6 @@
 
 namespace Gpupo\SteloSdk\Customer;
 
-use Gpupo\CommonSdk\Entity\EntityAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
-
-class BillingAddress extends EntityAbstract implements EntityInterface
+class BillingAddress extends AbstractAddress
 {
-    public function getSchema()
-    {
-        return [
-            'street'        => 'string',
-            'number'        => 'string',
-            'complement'    => 'string',
-            'neighborhood'  => 'string',
-            'zipCode'       => 'string',
-            'city'          => 'string',
-            'state'         => 'string',
-            'country'       => 'string',
-        ];
-    }
 }

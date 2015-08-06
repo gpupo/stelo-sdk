@@ -19,6 +19,20 @@ use Gpupo\CommonSdk\Client\ClientInterface;
 
 class Client extends ClientAbstract implements ClientInterface
 {
+    protected $authorizationMode = 'basic';
+
+    public function setAuthorizationMode($string)
+    {
+        $this->authorizationMode = $string;
+
+        return $this;
+    }
+
+    public function getAuthorizationMode()
+    {
+        return $this->authorizationMode;
+    }
+
     public function getDefaultOptions()
     {
         return [
@@ -36,6 +50,19 @@ class Client extends ClientAbstract implements ClientInterface
 
     protected function renderAuthorization()
     {
+        $mode = $this->getAuthorizationMode();
+        if ($mode !== 'basic') {
+            $this->setAuthorizationMode('basic');
+            $string = $mode;
+        } else {
+            $string = $this->basicAuthorization();
+        }
+
+        return 'Authorization: '. $string;
+    }
+
+    protected function basicAuthorization()
+    {
         foreach (['client_id', 'client_secret'] as $key) {
             $value = $this->getOptions()->get($key);
             if (empty($value)) {
@@ -43,6 +70,6 @@ class Client extends ClientAbstract implements ClientInterface
             }
         }
 
-        return 'Authorization: Basic '.base64_encode($this->getOptions()->get('client_id').':'.$this->getOptions()->get('client_secret'));
+        return 'Basic '.base64_encode($this->getOptions()->get('client_id').':'.$this->getOptions()->get('client_secret'));
     }
 }
