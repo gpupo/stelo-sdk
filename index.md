@@ -33,18 +33,21 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
 
 ### Setup Inicial
 
-    <?php
-    //...
-    use Gpupo\SteloSdk\Factory;
+```PHP
 
-    $steloSdk = Factory::getInstance()->setup([
-        'client_id'     => 'foo',
-        'client_secret' => 'bar',
-        'version'       => 'sandbox',
-        'login_version' => 'login',
-        'redirect_url'  => 'http://localhost/notify',
-    ]);
+<?php
+//...
+use Gpupo\SteloSdk\Factory;
 
+$steloSdk = Factory::getInstance()->setup([
+    'client_id'     => 'foo',
+    'client_secret' => 'bar',
+    'version'       => 'sandbox',
+    'login_version' => 'login',
+    'redirect_url'  => 'http://localhost/notify',
+]);
+
+```
 
 Parâmetro | Descrição | Valores possíveis
 ----------|-----------|------------------
