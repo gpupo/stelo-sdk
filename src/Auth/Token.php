@@ -17,6 +17,13 @@ namespace Gpupo\SteloSdk\Auth;
 use Gpupo\CommonSdk\Entity\EntityAbstract;
 use Gpupo\CommonSdk\Entity\EntityInterface;
 
+/**
+ * @method string getAccess_token() Acesso a Access_token
+ * @method string getToken_type() Acesso a Token_type
+ * @method float getExpires_in() Acesso a Expires_in
+ * @method string getScope() Acesso a Scope
+ * @method string getState() Acesso a State
+ */
 class Token extends EntityAbstract implements EntityInterface
 {
     public function getSchema()
