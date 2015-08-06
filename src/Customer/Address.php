@@ -12,18 +12,12 @@
  * <http://www.g1mr.com/stelo-sdk/>.
  */
 
-namespace Gpupo\SteloSdk\Order;
+namespace Gpupo\SteloSdk\Customer;
 
-use Gpupo\SteloSdk\Customer\AbstractCustomer;
-
-class Customer extends AbstractCustomer
+class Address extends AbstractAddress
 {
     public function getSchema()
     {
-        return array_merge(parent::getSchema(), [
-            'customerIdentity'  => 'string',
-            'billingAddress'    => 'object',
-            'shippingAddress'   => 'object',
-        ]);
+        return array_merge(['alias'=>'string'],parent::getSchema());
     }
 }

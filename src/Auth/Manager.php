@@ -82,10 +82,30 @@ class Manager extends ManagerAbstract implements OptionsInterface
         return new Token($response->getData()->toArray());
     }
 
+    protected function factoryCustomer(Response $response)
+    {
+        $data = $response->getData()->toArray();
+
+        return new Customer($data);
+    }
+
+    protected function requestResponseFromPath($path, $body = null)
+    {
+        $method = empty($body) ? 'get' : 'post';
+
+        $map = new Map([$method, $this->endpoint.$path], $this->getOptions()->toArray());
+        $response =  $this->execute($map, $body);
+
+        if ($response->getHttpStatusCode() !== 200) {
+            //Lidar com erros
+            return;
+        }
+
+        return $response;
+    }
+
     public function requestToken($access_token)
     {
-        $map = new Map(['post', $this->endpoint.'/token'], $this->getOptions()->toArray());
-
         $body = [
             'code'          => $access_token,
             'grant_type'    => 'authorizaton_code',
@@ -95,10 +115,13 @@ class Manager extends ManagerAbstract implements OptionsInterface
             $body[$key] = $this->getOptions()->get($key);
         }
 
-        $response =  $this->execute($map, $body);
+        return $this->factoryToken($this->requestResponseFromPath('/token', $body));
+    }
 
-        if ($response->getHttpStatusCode() === 200) {
-            return $this->factoryToken($response);
-        }
+    public function requestCustomer(Token $token)
+    {
+        $this->getClient()->setAuthorizationMode('bearer '. $token->getAccessToken());
+
+        return $this->factoryCustomer($this->requestResponseFromPath('/customer'));
     }
 }

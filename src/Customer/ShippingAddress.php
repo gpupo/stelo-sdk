@@ -14,6 +14,6 @@
 
 namespace Gpupo\SteloSdk\Customer;
 
-class ShippingAddress extends BillingAddress
+class ShippingAddress extends AbstractAddress
 {
 }
