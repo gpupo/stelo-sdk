@@ -27,4 +27,12 @@ class Item extends EntityAbstract implements EntityInterface
             'type'             => 'number',
         ];
     }
+
+    public function toArray()
+    {
+        $list = parent::toArray();
+        unset($list['type']);
+        
+        return $list;
+    }
 }
