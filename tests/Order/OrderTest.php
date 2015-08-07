@@ -15,21 +15,15 @@
 namespace Gpupo\Tests\SteloSdk\Order;
 
 use Gpupo\SteloSdk\Order\Order;
-use Gpupo\Tests\SteloSdk\TestCaseAbstract;
+use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
 
-class OrderTest extends TestCaseAbstract
+class OrderTest extends EntityTestCaseAbstract
 {
     public static function setUpBeforeClass()
     {
-        self::displayClassDocumentation(new Order());
-    }
-
-    public function testPossuiSchema()
-    {
-        $order = $this->factoryOrder();
-        $this->assertInstanceOf('\Gpupo\SteloSdk\Order\Order', $order);
-
-        return $order;
+        static::setFullyQualifiedObject('\Gpupo\SteloSdk\Order\Order');
+        static::setUpEntityTest();
+        parent::setUpBeforeClass();
     }
 
     /**
