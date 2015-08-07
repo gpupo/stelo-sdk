@@ -23,6 +23,7 @@ class Customer extends AbstractCustomer
         return array_merge(parent::getSchema(), [
             'cpf'      => 'string',
             'rg'       => 'string',
+            'address'  => 'object',
         ]);
     }
     public function __construct($data = null)
