@@ -22,10 +22,11 @@ class TokenTest extends EntityTestCaseAbstract
 {
     public static function setUpBeforeClass()
     {
-        parent::$name='\Gpupo\SteloSdk\Auth\Token';
+        static::setFullyQualifiedObject('\Gpupo\SteloSdk\Auth\Token');
+        static::setUpEntityTest();
         parent::setUpBeforeClass();
     }
-
+    
     public function dataProviderObject()
     {
         $expected = [

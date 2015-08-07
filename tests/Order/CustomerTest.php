@@ -20,7 +20,8 @@ class CustomerTest extends EntityTestCaseAbstract
 {
     public static function setUpBeforeClass()
     {
-        parent::$name='\Gpupo\SteloSdk\Order\Customer';
+        static::setFullyQualifiedObject('\Gpupo\SteloSdk\Order\Customer');
+        static::setUpEntityTest();
         parent::setUpBeforeClass();
     }
 }
