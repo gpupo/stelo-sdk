@@ -14,29 +14,9 @@
 
 namespace Gpupo\Tests\SteloSdk;
 
+use Gpupo\Tests\CommonSdk\Traits\EntityTrait;
+
 abstract class EntityTestCaseAbstract extends TestCaseAbstract
 {
-    protected static $name = '';
-
-    public static function getFullyQualifiedObject()
-    {
-        return self::$name;
-    }
-
-    public static function createObject()
-    {
-        $className = static::getFullyQualifiedObject();;
-
-        return new $className;
-    }
-
-    public static function setUpBeforeClass()
-    {
-        self::displayClassDocumentation(static::createObject());
-    }
-
-    public function testPossuiSchema()
-    {
-        $this->assertInstanceOf(self::getFullyQualifiedObject(), self::createObject());
-    }
+    use EntityTrait;
 }

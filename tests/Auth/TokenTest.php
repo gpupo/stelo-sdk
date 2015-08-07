@@ -14,7 +14,9 @@
 
 namespace Gpupo\Tests\SteloSdk\Auth;
 
+use Gpupo\CommonSdk\Entity\EntityInterface;
 use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
+use \Gpupo\SteloSdk\Auth\Token;
 
 class TokenTest extends EntityTestCaseAbstract
 {
@@ -23,4 +25,61 @@ class TokenTest extends EntityTestCaseAbstract
         parent::$name='\Gpupo\SteloSdk\Auth\Token';
         parent::setUpBeforeClass();
     }
+
+    public function dataProviderObject()
+    {
+        $expected = [
+            'access_token'  => 'foo',
+            'token_type'    => 'bar',
+            'expires_in'    => 1,
+            'scope'         => 'zeta',
+            'state'         => 'jones',
+        ];
+
+        return [[
+            new Token($expected),
+            $expected
+        ]];
+    }
+
+    /**
+     * @dataProvider dataProviderObject
+     */
+    public function testPossuiGetterParaAccessToken(EntityInterface $object, $expected = null)
+    {
+        $this->assertSchemaGetter('access_token', 'string', $object, $expected);
+    }
+
+   /**
+     * @dataProvider dataProviderObject
+     */
+    public function testPossuiGetterParaTokenType(EntityInterface $object, $expected = null)
+    {
+        $this->assertSchemaGetter('token_type', 'string', $object, $expected);
+    }
+
+   /**
+     * @dataProvider dataProviderObject
+     */
+    public function testPossuiGetterParaExpiresIn(EntityInterface $object, $expected = null)
+    {
+        $this->assertSchemaGetter('expires_in', 'number', $object, $expected);
+    }
+
+   /**
+     * @dataProvider dataProviderObject
+     */
+    public function testPossuiGetterParaScope(EntityInterface $object, $expected = null)
+    {
+        $this->assertSchemaGetter('scope', 'string', $object, $expected);
+    }
+
+   /**
+     * @dataProvider dataProviderObject
+     */
+    public function testPossuiGetterParaState(EntityInterface $object, $expected = null)
+    {
+        $this->assertSchemaGetter('state', 'string', $object, $expected);
+    }
+
 }
