@@ -30,7 +30,7 @@ Adicione o pacote [stelo-sdk](https://packagist.org/packages/gpupo/stelo-sdk) ao
 ### Setup Inicial
 
 ```PHP
-
+<?php
 //...
 use Gpupo\SteloSdk\Factory;
 
@@ -243,3 +243,5 @@ phpunit --testdox | grep -vi php |  sed "s/.*\[*]/-/" | sed 's/.*Gpupo.*/&\'$'\n
 
 - Possui url para redirecionamento do comprador
 - Imprime javascript que redireciona o navegador do comprador
+
+- [x] Test
