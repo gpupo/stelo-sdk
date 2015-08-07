@@ -30,7 +30,6 @@ Adicione o pacote [stelo-sdk](https://packagist.org/packages/gpupo/stelo-sdk) ao
 ### Setup Inicial
 
 ```PHP
-<?php
 //...
 use Gpupo\SteloSdk\Factory;
 
