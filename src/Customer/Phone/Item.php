@@ -28,11 +28,29 @@ class Item extends EntityAbstract implements EntityInterface
         ];
     }
 
+    protected function beforeConstruct($data = null)
+    {
+        if (!array_key_exists('phoneType', $data) && array_key_exists('type', $data)) {
+
+            $table = [
+                '0' => 'LANDLINE',
+                '1' => 'LANDLINE',
+                '2' => 'CELL',
+            ];
+
+            if (array_key_exists($data['type'], $table)) {
+                $data['phoneType'] = $table[$data['type']];
+            }
+        }
+
+        return $data;
+    }
+
     public function toArray()
     {
         $list = parent::toArray();
         unset($list['type']);
-        
+
         return $list;
     }
 }

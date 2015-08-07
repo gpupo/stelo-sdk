@@ -22,9 +22,9 @@ Adicione o pacote [stelo-sdk](https://packagist.org/packages/gpupo/stelo-sdk) ao
 
 ---
 
-## Uso
+# Uso
 
-### Setup Inicial
+## Setup Inicial
 
 ```PHP
 
@@ -50,26 +50,30 @@ Parâmetro | Descrição | Valores possíveis
 ``login_version``|Ambiente de Login|login, login.html (produção)
 
 
-### Transação
+## Transações
 
 Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://github.com/gpupo/stelo-sdk/blob/master/Resources/fixtures/order.input.json);
 
 #### Criação de uma nova transação
 
-    $order = $steloSdk->createOrder($data);
-    $manager = $steloSdk->factoryManager('transaction');
-    $transaction = $manager->createFromOrder($order);
+``` PHP
+$order = $steloSdk->createOrder($data);
+$manager = $steloSdk->factoryManager('transaction');
+$transaction = $manager->createFromOrder($order);
 
-    $checkoutUrl = $transaction->getCheckoutUrl();
-    echo $transaction->getId(); //143800246128360
+$checkoutUrl = $transaction->getCheckoutUrl();
+echo $transaction->getId(); //143800246128360
+```
 
 #### Redireciona Cliente para a Url de checkout
 
-    <html>
-        <body>
-            <?php echo $steloSdk->createLightbox($checkoutUrl); ?>
-        </body>
-    </html>
+``` HTML
+<html>
+    <body>
+        <?php echo $steloSdk->createLightbox($checkoutUrl); ?>
+    </body>
+</html>
+```
 
 #### Consulta de transação
 
@@ -95,7 +99,7 @@ Nos exemplos abaixo considere que ``$data`` possui [esta estrutura](https://gith
     $logger->pushHandler(new StreamHandler('Resources/logs/main.log', Logger::DEBUG));
     $steloSdk->setLogger($logger);
 
-### Login (Em desenvolvimento!!)
+## Login com Stelo
 
 A integração com o Login Stelo tem o objetivo de reduzir os passos para o checkout com foco no cadastro do cliente, com ela é possível recuperar os dados do cliente na Stelo e utilizar em sua loja
 
