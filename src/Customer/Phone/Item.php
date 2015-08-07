@@ -24,6 +24,7 @@ class Item extends EntityAbstract implements EntityInterface
         return [
             'phoneType'        => 'string',
             'number'           => 'string',
+            'type'             => 'number',
         ];
     }
 }
