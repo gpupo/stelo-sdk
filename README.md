@@ -198,7 +198,7 @@ MIT, see [LICENSE](https://github.com/gpupo/stelo-sdk/blob/master/LICENSE).
 
 ## Propriedades dos objetos
 
-A lista abaixo é gerada a partir da saída da execução dos testes unitários:
+A lista abaixo é gerada automaticamente a partir da saída da execução dos testes unitários:
 
 <!--
 phpunit --testdox | grep -vi php |  sed "s/.*\[*]/-/" | sed 's/.*Gpupo.*/&\'$'\n/g' | sed 's/.*Gpupo.*/&\'$'\n/g' | sed 's/Gpupo\\Tests\\SteloSdk\\/### /g' | sed '/./,/^$/!d' >> README.md
