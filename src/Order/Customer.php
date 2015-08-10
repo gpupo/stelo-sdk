@@ -17,7 +17,6 @@ namespace Gpupo\SteloSdk\Order;
 use Gpupo\SteloSdk\Customer\AbstractCustomer;
 
 /**
- *
  * @method string getCustomerName()    Acesso a customerName
  * @method setCustomerName(string $customerName)    Define customerName
  * @method string getCustomerEmail()    Acesso a customerEmail
@@ -34,7 +33,6 @@ use Gpupo\SteloSdk\Customer\AbstractCustomer;
  * @method setBillingAddress(Gpupo\SteloSdk\Customer\BillingAddress $billingAddress)    Define billingAddress
  * @method Gpupo\SteloSdk\Customer\ShippingAddress getShippingAddress()    Acesso a shippingAddress
  * @method setShippingAddress(Gpupo\SteloSdk\Customer\ShippingAddress $shippingAddress)    Define shippingAddress
- *
  */
 class Customer extends AbstractCustomer
 {

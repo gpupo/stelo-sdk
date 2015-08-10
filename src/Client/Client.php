@@ -58,7 +58,7 @@ class Client extends ClientAbstract implements ClientInterface
             $string = $this->basicAuthorization();
         }
 
-        return 'Authorization: '. $string;
+        return 'Authorization: '.$string;
     }
 
     protected function basicAuthorization()

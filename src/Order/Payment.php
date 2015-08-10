@@ -18,7 +18,6 @@ use Gpupo\CommonSdk\Entity\EntityAbstract;
 use Gpupo\CommonSdk\Entity\EntityInterface;
 
 /**
- *
  * @method float getAmount()    Acesso a amount
  * @method setAmount(float $amount)    Define amount
  * @method float getFreight()    Acesso a freight
@@ -27,7 +26,6 @@ use Gpupo\CommonSdk\Entity\EntityInterface;
  * @method setCurrency(string $currency)    Define currency
  * @method string getMaxInstallment()    Acesso a maxInstallment
  * @method setMaxInstallment(string $maxInstallment)    Define maxInstallment
- *
  */
 class Payment extends EntityAbstract implements EntityInterface
 {

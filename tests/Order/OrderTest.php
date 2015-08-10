@@ -14,9 +14,9 @@
 
 namespace Gpupo\Tests\SteloSdk\Order;
 
+use Gpupo\CommonSdk\Entity\EntityInterface;
 use Gpupo\SteloSdk\Order\Order;
 use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
 
 class OrderTest extends EntityTestCaseAbstract
 {
@@ -31,19 +31,18 @@ class OrderTest extends EntityTestCaseAbstract
     public function dataProviderObject()
     {
         $expected = [
-            'id' => '1',
-            'transactionType' => 'hello',
+            'id'               => '1',
+            'transactionType'  => 'hello',
             'shippingBehavior' => 'world',
-            'country' => 'BR',
-            'cart' => [],
-            'payment' => [],
-            'customer' => [],
-            'changeShipment' => false,
+            'country'          => 'BR',
+            'cart'             => [],
+            'payment'          => [],
+            'customer'         => [],
+            'changeShipment'   => false,
         ];
 
         return $this->dataProviderEntitySchema(self::QUALIFIED, $expected);
     }
-
 
     /**
      * @depends testPossuiSchema

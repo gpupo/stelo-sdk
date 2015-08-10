@@ -18,7 +18,7 @@ use Gpupo\CommonSdk\Entity\EntityAbstract;
 use Gpupo\CommonSdk\Entity\EntityInterface;
 
 /**
- * Entidade Cliente
+ * Entidade Cliente.
  *
  * @method setCustomerIdentity(string $customerIdentity) Define CustomerIdentity
  * @method string getCustomerIdentity() Acesso a CustomerIdentity
