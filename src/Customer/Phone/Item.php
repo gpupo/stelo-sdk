@@ -30,7 +30,7 @@ class Item extends EntityAbstract implements EntityInterface
 
     protected function beforeConstruct($data = null)
     {
-        if (!array_key_exists('phoneType', $data) && array_key_exists('type', $data)) {
+        if (!empty($data) && !array_key_exists('phoneType', $data) && array_key_exists('type', $data)) {
 
             $table = [
                 '0' => 'LANDLINE',
