@@ -8,3 +8,4 @@ Resources/doc/*
 _layout/*
 _site/*
 doc/*
+Resources/Documentation/*.php
