@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  *
  * For more information, see
- * <http=>//www.g1mr.com/stelo-sdk/>.
+ * <http://www.g1mr.com/stelo-sdk/>.
  */
 
 namespace Gpupo\SteloSdk\Auth;

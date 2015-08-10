@@ -12,14 +12,14 @@
  * <http://www.g1mr.com/stelo-sdk/>.
  */
 
-namespace Gpupo\Tests\SteloSdk\Order;
+namespace Gpupo\Tests\SteloSdk\Auth;
 
 use Gpupo\CommonSdk\Entity\EntityInterface;
 use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
 
 class CustomerTest extends EntityTestCaseAbstract
 {
-    const QUALIFIED = '\Gpupo\SteloSdk\Order\Customer';
+    const QUALIFIED = '\Gpupo\SteloSdk\Auth\Customer';
 
     public static function setUpBeforeClass()
     {
@@ -30,14 +30,14 @@ class CustomerTest extends EntityTestCaseAbstract
     public function dataProviderObject()
     {
         $expected = [
-            'customerName'     => 'Barney',
-            'customerEmail'    => 'barney@dinossauro.com',
-            'birthDate'        => '10/10/1941',
-            'gender'           => 'M',
-            'phone'            => [],
-            'customerIdentity' => '99388477572',
-            'billingAddress'   => [],
-            'shippingAddress'  => [],
+            'customerName'  => 'Jim',
+            'customerEmail' => 'jim@example.com',
+            'birthDate'     => '12/12/1965',
+            'gender'        => 'M',
+            'phone'         => [],
+            'cpf'           => '88328663111',
+            'rg'            => '66666666656',
+            'address'       => [],
         ];
 
         return $this->dataProviderEntitySchema(self::QUALIFIED, $expected);
@@ -144,62 +144,62 @@ class CustomerTest extends EntityTestCaseAbstract
     }
 
     /**
-     * @testdox Possui método getCustomerIdentity() para acessar CustomerIdentity
+     * @testdox Possui método getCpf() para acessar Cpf
      * @dataProvider dataProviderObject
      * @test
      */
-    public function getterCustomerIdentity(EntityInterface $object, $expected = null)
+    public function getterCpf(EntityInterface $object, $expected = null)
     {
-        $this->assertSchemaGetter('customerIdentity', 'string', $object, $expected);
+        $this->assertSchemaGetter('cpf', 'string', $object, $expected);
     }
 
     /**
-     * @testdox Possui método setCustomerIdentity() que define CustomerIdentity
+     * @testdox Possui método setCpf() que define Cpf
      * @dataProvider dataProviderObject
      * @test
      */
-    public function setterCustomerIdentity(EntityInterface $object, $expected = null)
+    public function setterCpf(EntityInterface $object, $expected = null)
     {
-        $this->assertSchemaSetter('customerIdentity', 'string', $object);
+        $this->assertSchemaSetter('cpf', 'string', $object);
     }
 
     /**
-     * @testdox Possui método getBillingAddress() para acessar BillingAddress
+     * @testdox Possui método getRg() para acessar Rg
      * @dataProvider dataProviderObject
      * @test
      */
-    public function getterBillingAddress(EntityInterface $object, $expected = null)
+    public function getterRg(EntityInterface $object, $expected = null)
     {
-        $this->assertSchemaGetter('billingAddress', 'object', $object, $expected);
+        $this->assertSchemaGetter('rg', 'string', $object, $expected);
     }
 
     /**
-     * @testdox Possui método setBillingAddress() que define BillingAddress
+     * @testdox Possui método setRg() que define Rg
      * @dataProvider dataProviderObject
      * @test
      */
-    public function setterBillingAddress(EntityInterface $object, $expected = null)
+    public function setterRg(EntityInterface $object, $expected = null)
     {
-        $this->assertSchemaSetter('billingAddress', 'object', $object);
+        $this->assertSchemaSetter('rg', 'string', $object);
     }
 
     /**
-     * @testdox Possui método getShippingAddress() para acessar ShippingAddress
+     * @testdox Possui método getAddress() para acessar Address
      * @dataProvider dataProviderObject
      * @test
      */
-    public function getterShippingAddress(EntityInterface $object, $expected = null)
+    public function getterAddress(EntityInterface $object, $expected = null)
     {
-        $this->assertSchemaGetter('shippingAddress', 'object', $object, $expected);
+        $this->assertSchemaGetter('address', 'object', $object, $expected);
     }
 
     /**
-     * @testdox Possui método setShippingAddress() que define ShippingAddress
+     * @testdox Possui método setAddress() que define Address
      * @dataProvider dataProviderObject
      * @test
      */
-    public function setterShippingAddress(EntityInterface $object, $expected = null)
+    public function setterAddress(EntityInterface $object, $expected = null)
     {
-        $this->assertSchemaSetter('shippingAddress', 'object', $object);
+        $this->assertSchemaSetter('address', 'object', $object);
     }
 }

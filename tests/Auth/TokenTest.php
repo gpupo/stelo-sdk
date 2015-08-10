@@ -16,7 +16,6 @@ namespace Gpupo\Tests\SteloSdk\Auth;
 
 use Gpupo\CommonSdk\Entity\EntityInterface;
 use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
-use \Gpupo\SteloSdk\Auth\Token;
 
 class TokenTest extends EntityTestCaseAbstract
 {

@@ -17,7 +17,6 @@ namespace Gpupo\SteloSdk\Auth;
 use Gpupo\SteloSdk\Customer\AbstractCustomer;
 
 /**
- *
  * @method string getCustomerName()    Acesso a customerName
  * @method setCustomerName(string $customerName)    Define customerName
  * @method string getCustomerEmail()    Acesso a customerEmail
@@ -34,7 +33,6 @@ use Gpupo\SteloSdk\Customer\AbstractCustomer;
  * @method setRg(string $rg)    Define rg
  * @method Gpupo\SteloSdk\Customer\Address getAddress()    Acesso a address
  * @method setAddress(Gpupo\SteloSdk\Customer\Address $address)    Define address
- *
  */
 class Customer extends AbstractCustomer
 {
@@ -49,7 +47,7 @@ class Customer extends AbstractCustomer
     public function __construct($data = null)
     {
         if ($data) {
-            foreach($this->conversion() as $old => $new) {
+            foreach ($this->conversion() as $old => $new) {
                 if (array_key_exists($old, $data)) {
                     $data[$new] = $data[$old];
                     unset($data[$old]);

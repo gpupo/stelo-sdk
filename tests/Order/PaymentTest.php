@@ -14,12 +14,11 @@
 
 namespace Gpupo\Tests\SteloSdk\Order;
 
-use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
 use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
 
 class PaymentTest extends EntityTestCaseAbstract
 {
-
     const QUALIFIED = '\Gpupo\SteloSdk\Order\Payment';
 
     public static function setUpBeforeClass()
@@ -31,15 +30,14 @@ class PaymentTest extends EntityTestCaseAbstract
     public function dataProviderObject()
     {
         $expected = [
-            'amount' => '23',
-            'freight' => '2',
-            'currency' => 'BRL',
+            'amount'         => '23',
+            'freight'        => '2',
+            'currency'       => 'BRL',
             'maxInstallment' => '3',
         ];
 
         return $this->dataProviderEntitySchema(self::QUALIFIED, $expected);
     }
-
 
     /**
      * @testdox Possui método getAmount() para acessar Amount
@@ -120,5 +118,4 @@ class PaymentTest extends EntityTestCaseAbstract
     {
         $this->assertSchemaSetter('maxInstallment', 'string', $object);
     }
-
 }

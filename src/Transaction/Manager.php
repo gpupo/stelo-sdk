@@ -14,13 +14,13 @@
 
 namespace Gpupo\SteloSdk\Transaction;
 
-use Gpupo\SteloSdk\ManagerAbstract;
-use Gpupo\CommonSdk\Response;
-use Gpupo\SteloSdk\Order\Order;
 use Gpupo\Common\Entity\Collection;
+use Gpupo\CommonSdk\Response;
+use Gpupo\SteloSdk\ManagerAbstract;
+use Gpupo\SteloSdk\Order\Order;
 
 /**
- * Gerenciamento de Transações Stelo
+ * Gerenciamento de Transações Stelo.
  */
 class Manager extends ManagerAbstract
 {
@@ -31,9 +31,11 @@ class Manager extends ManagerAbstract
     ];
 
     /**
-     * Cria uma transação a partir de um objeto Order
-     * @param  Order  $order Objeto Pedido
-     * @return Transaction        Transação Stelo
+     * Cria uma transação a partir de um objeto Order.
+     *
+     * @param Order $order Objeto Pedido
+     *
+     * @return Transaction Transação Stelo
      */
     public function createFromOrder(Order $order)
     {
@@ -91,5 +93,4 @@ class Manager extends ManagerAbstract
 
         return new Transaction($data);
     }
-
 }

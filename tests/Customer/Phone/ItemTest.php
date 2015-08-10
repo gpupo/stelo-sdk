@@ -14,10 +14,10 @@
 
 namespace Gpupo\Tests\SteloSdk\Customer\Phone;
 
-use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
 use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
 
-class CustomerTest extends EntityTestCaseAbstract
+class ItemTest extends EntityTestCaseAbstract
 {
     const QUALIFIED = '\Gpupo\SteloSdk\Customer\Phone\Item';
 
@@ -29,18 +29,14 @@ class CustomerTest extends EntityTestCaseAbstract
 
     public function dataProviderObject()
     {
-
         $expected = [
             'phoneType' => 'LANDLINE',
-            'number' => '41 99872774',
-            'type' => 1,
+            'number'    => '41 99872774',
+            'type'      => 1,
         ];
-
 
         return $this->dataProviderEntitySchema(self::QUALIFIED, $expected);
     }
-
-
 
     /**
      * @testdox Possui método getPhoneType() para acessar PhoneType

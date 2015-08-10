@@ -18,6 +18,6 @@ class Address extends AbstractAddress
 {
     public function getSchema()
     {
-        return array_merge(['alias'=>'string'],parent::getSchema());
+        return array_merge(['alias' => 'string'], parent::getSchema());
     }
 }

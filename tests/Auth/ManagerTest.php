@@ -14,9 +14,7 @@
 
 namespace Gpupo\Tests\SteloSdk\Auth;
 
-use Gpupo\SteloSdk\Auth\Manager;
 use Gpupo\SteloSdk\Auth\Token;
-
 use Gpupo\Tests\SteloSdk\TestCaseAbstract;
 
 class ManagerTest extends TestCaseAbstract
@@ -56,10 +54,9 @@ class ManagerTest extends TestCaseAbstract
         $customer = $this->getAuth()
             ->setDryRun($this->factoryResponseFromFixture('fixtures/customer.json'))
             ->requestCustomer($token);
-            
+
         $this->assertInstanceOf('Gpupo\SteloSdk\Auth\Customer', $customer);
 
         $this->assertEquals('Vanilla Ice', $customer->getCustomerName());
     }
-
 }
