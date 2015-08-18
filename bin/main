@@ -22,6 +22,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Gpupo\SteloSdk\Factory;
 
 $app = new Application();
+$app->findConfig([ __DIR__.'/../']);
 
 $transaction_find_parameters = [[
     'key'   => 'transaction_id',
@@ -44,4 +45,22 @@ $app->register('transaction:find')
     }
 });
 
+$transaction_create_parameters = [[
+    'key'   => 'order_json_file',
+]];
+
+$app->register('transaction:create')
+->setDescription('Cria uma transação')
+->setDefinition($app->factoryDefinition($transaction_create_parameters))
+->setCode(function (InputInterface $input, OutputInterface $output) use ($app, $transaction_create_parameters) {
+    $list = $app->processInputParameters($transaction_create_parameters, $input, $output);
+    $steloSdk = $app->factorySdk($list);
+
+    $order = $steloSdk->createOrder(json_decode(file_get_contents($list['order_json_file']), true));
+    $manager = $steloSdk->factoryManager('transaction');
+    $transaction = $manager->createFromOrder($order);
+
+    var_dump($transaction);
+
+});
 $app->run();

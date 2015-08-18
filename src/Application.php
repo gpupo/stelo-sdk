@@ -24,12 +24,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Application extends Console
 {
+    protected $config = [];
+
     protected $commonParameters = [
         [
             'key'   => 'client_id',
         ],
         [
-            'key'   => 'access_token',
+            'key'   => 'client_secret',
         ],
         [
             'key'       => 'env',
@@ -51,6 +53,25 @@ class Application extends Console
         ],
     ];
 
+    protected function addConfig($string)
+    {
+        $this->config = array_merge($this->config, @json_decode($string, true));
+
+        return $this;
+    }
+
+    public function findConfig(array $paths)
+    {
+        foreach ($paths as $path) {
+            foreach(['app.json.dist', 'app.json', '.app'] as $name) {
+                $filename = $path.$name;
+                if (file_exists($filename)) {
+                    $this->addConfig(file_get_contents($filename));
+                }
+            };
+        }
+    }
+
     public function factoryDefinition(array $definitions = [])
     {
         $list = [];
@@ -64,7 +85,9 @@ class Application extends Console
 
     protected function processInputParameter($parameter, InputInterface $input, OutputInterface $output)
     {
-        if ($input->getOption($parameter['key'])) {
+        if (array_key_exists($parameter['key'], $this->config)) {
+            return $this->config[$parameter['key']];
+        } elseif ($input->getOption($parameter['key'])) {
             return $input->getOption($parameter['key']);
         } elseif (array_key_exists('options', $parameter)) {
             $subject = $parameter['key'].' (['.implode($parameter['options'], ',')

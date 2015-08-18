@@ -9,3 +9,4 @@ _layout/*
 _site/*
 doc/*
 Resources/Documentation/*.php
+app.json

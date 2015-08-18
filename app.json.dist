@@ -1,0 +1,7 @@
+{
+    "client_id": "foo",
+    "client_secret": "bar",
+    "env": "sandbox",
+    "protocol": "http",
+    "sslVersion": "SecureTransport"
+}
