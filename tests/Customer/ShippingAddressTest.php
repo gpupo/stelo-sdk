@@ -14,9 +14,6 @@
 
 namespace Gpupo\Tests\SteloSdk\Customer;
 
-use Gpupo\CommonSdk\Entity\EntityInterface;
-use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
-
 class ShippingAddressTest extends AddressTest
 {
     const QUALIFIED = '\Gpupo\SteloSdk\Customer\ShippingAddress';

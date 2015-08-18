@@ -14,9 +14,9 @@
 
 namespace Gpupo\Tests\SteloSdk\Transaction;
 
+use Gpupo\CommonSdk\Entity\EntityInterface;
 use Gpupo\SteloSdk\Transaction\Transaction;
 use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
-use Gpupo\CommonSdk\Entity\EntityInterface;
 
 /**
  * @method string getId()
