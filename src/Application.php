@@ -60,10 +60,10 @@ class Application extends Console
         return $this;
     }
 
-    public function findConfig(array $paths)
+    public function findConfig(array $paths, $nick = 'app')
     {
         foreach ($paths as $path) {
-            foreach(['app.json.dist', 'app.json', '.app'] as $name) {
+            foreach([$nick.'.json.dist', $nick.'.json', '.'.$nick] as $name) {
                 $filename = $path.$name;
                 if (file_exists($filename)) {
                     $this->addConfig(file_get_contents($filename));
