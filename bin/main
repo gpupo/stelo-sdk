@@ -15,85 +15,24 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-use Symfony\Component\Console\Application;
+use Gpupo\SteloSdk\Application;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Gpupo\SteloSdk\Factory;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
 
 $app = new Application();
 
+$transaction_find_parameters = [[
+    'key'   => 'transaction_id',
+]];
+
 $app->register('transaction:find')
 ->setDescription('Consulta de transação')
-->setDefinition([
-       new InputOption('client_id', 'c', InputOption::VALUE_REQUIRED),
-       new InputOption('access_token', 't', InputOption::VALUE_REQUIRED),
-       new InputOption('transaction', 'i', InputOption::VALUE_REQUIRED),
-       new InputOption('sslVersion', 's', InputOption::VALUE_REQUIRED),
-       new InputOption('apiVersion', 'a', InputOption::VALUE_REQUIRED),
-       new InputOption('protocol', 'p', InputOption::VALUE_REQUIRED),
-   ])
-->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
-    $dialog = $app->getHelperSet()->get('dialog');
-
-    $getParameter = function ($key, $extra = '') use ($input, $dialog, $output) {
-        if ($input->getOption($key)) {
-            return $input->getOption($key);
-        } else {
-            return  $dialog->ask($output, $key.$extra.': ');
-        }
-    };
-
-    $client_id = $getParameter('client_id');
-    $access_token = $getParameter('access_token');
-    $transaction_id = $getParameter('transaction', ' id');
-
-    foreach([
-        [
-            'key'       => 'apiVersion',
-            'options'   => ['sandbox', 'api'],
-            'default'   => 'sandbox',
-            'name'      => 'Version',
-        ],
-        [
-            'key'       => 'protocol',
-            'options'   => ['http', 'https'],
-            'default'   => 'https',
-            'name'      => 'Protocol',
-        ],
-        [
-            'key'       => 'sslVersion',
-            'options'   => ['SecureTransport', 'TLS'],
-            'default'   => 'SecureTransport',
-            'name'      => 'SSL Version',
-        ],
-    ] as $parameter) {
-        if (!${$parameter['key']} = $input->getOption($parameter['key'])) {
-            $text = $parameter['name'] . ' ('.implode($parameter['options'], ',').') [default:'.$parameter['default'].']: ';
-            ${$parameter['key']} = $dialog->askAndValidate($output, $text, function ($version) use ($parameter) {
-               if (!in_array($version, array_values($parameter['options']))) {
-                   throw new \InvalidArgumentException(sprintf($parameter['name'].' "%s" is invalid.', $version));
-               }
-
-               return $version;
-           }, false, $parameter['default']);
-        }
-    }
-    $logger = new Logger('bin');
-    $logger->pushHandler(new StreamHandler('Resources/logs/main.log', Logger::DEBUG));
-
-    $steloSdk = Factory::getInstance()->setup([
-        'client_id'     => $client_id,
-        'client_secret'  => $access_token,
-        'version'       => $apiVersion,
-        'protocol'      => $protocol,
-        'verbose'       => true,
-        'sslVersion'    => $sslVersion,
-    ], $logger);
-
-    $transaction = $steloSdk->factoryManager('transaction')->findById($transaction_id);
+->setDefinition($app->factoryDefinition($transaction_find_parameters))
+->setCode(function (InputInterface $input, OutputInterface $output) use ($app, $transaction_find_parameters) {
+    $list = $app->processInputParameters($transaction_find_parameters, $input, $output);
+    $transaction = $app->factorySdk($list)->factoryManager('transaction')->findById($list['transaction_id']);
 
     if ($transaction) {
         $output->writeln('<info>Success!</info>');
