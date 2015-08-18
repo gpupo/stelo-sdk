@@ -48,6 +48,7 @@ Parâmetro | Descrição | Valores possíveis
 ``version``|Identificação do Ambiente| sandbox, carteira.html (produção)
 ``redirect_url``|Controller para notificação de Login| Url própria
 ``login_version``|Ambiente de Login|login, login.html (produção)
+``registerPath``|Quando informado, registra no diretório informado, os dados de cada requisição executada
 
 
 ## Transações
@@ -77,27 +78,38 @@ echo $transaction->getId(); //143800246128360
 
 #### Consulta de transação
 
-    $transaction = $steloSdk->factoryManager('transaction')
-        ->findById('143800246128360');
-    echo $transaction->getStatusCode(); // N
-    echo $transaction->getStatusMessage(); // Cancelada
-    echo $transaction->getAmount(); // 134.9
+``` PHP
 
+$transaction = $steloSdk->factoryManager('transaction')
+    ->findById('143800246128360');
+echo $transaction->getStatusCode(); // N
+echo $transaction->getStatusMessage(); // Cancelada
+echo $transaction->getAmount(); // 134.9
+
+```
 
 #### Cancelar uma  transação
 
-    $transaction = $steloSdk->factoryManager('transaction')
-        ->deleteById('143800246128360');
+``` PHP
+
+$transaction = $steloSdk->factoryManager('transaction')
+    ->deleteById('143800246128360');
+
+```
 
 #### Registro (log)
 
-    //...
-    use Monolog\Logger;
-    use Monolog\Handler\StreamHandler;
-    //..
-    $logger = new Logger('foo');
-    $logger->pushHandler(new StreamHandler('Resources/logs/main.log', Logger::DEBUG));
-    $steloSdk->setLogger($logger);
+``` PHP
+
+//...
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+//..
+$logger = new Logger('foo');
+$logger->pushHandler(new StreamHandler('Resources/logs/main.log', Logger::DEBUG));
+$steloSdk->setLogger($logger);
+
+```
 
 ## Login com Stelo
 
