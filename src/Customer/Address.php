@@ -15,7 +15,6 @@
 namespace Gpupo\SteloSdk\Customer;
 
 /**
- *
  * @method string getAlias()    Acesso a alias
  * @method setAlias(string $alias)    Define alias
  * @method string getStreet()    Acesso a street
@@ -34,7 +33,6 @@ namespace Gpupo\SteloSdk\Customer;
  * @method setState(string $state)    Define state
  * @method string getCountry()    Acesso a country
  * @method setCountry(string $country)    Define country
- *
  */
 class Address extends AbstractAddress
 {

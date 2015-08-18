@@ -14,15 +14,13 @@
 
 namespace Gpupo\SteloSdk;
 
-
+use InvalidArgumentException;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 use Symfony\Component\Console\Application as Console;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Gpupo\SteloSdk\Factory;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-use \InvalidArgumentException;
 
 class Application extends Console
 {
@@ -68,9 +66,9 @@ class Application extends Console
     {
         if ($input->getOption($parameter['key'])) {
             return $input->getOption($parameter['key']);
-        } elseif(array_key_exists('options',$parameter)) {
-            $subject = $parameter['key'] .' (['.implode($parameter['options'], ',')
-                .((array_key_exists('default',$parameter)) ? '] ENTER for <info>' .$parameter['default'].'</info>': '' ).'): ';
+        } elseif (array_key_exists('options', $parameter)) {
+            $subject = $parameter['key'].' (['.implode($parameter['options'], ',')
+                .((array_key_exists('default', $parameter)) ? '] ENTER for <info>'.$parameter['default'].'</info>' : '').'): ';
 
             return $this->getHelperSet()->get('dialog')->askAndValidate($output, $subject, function ($value) use ($parameter) {
                if (array_search($value, $parameter['options'], true) === false) {
@@ -78,13 +76,12 @@ class Application extends Console
                }
 
                return $value;
-           }, false, (array_key_exists('default',$parameter) ? $parameter['default'] : ''));
-
-        }else {
+           }, false, (array_key_exists('default', $parameter) ? $parameter['default'] : ''));
+        } else {
             return  $this->getHelperSet()->get('dialog')->ask($output, $parameter['key'].': ');
         }
     }
-    
+
     public function processInputParameters(array $definitions, InputInterface $input, OutputInterface $output)
     {
         $list = [];

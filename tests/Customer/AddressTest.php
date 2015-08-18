@@ -30,15 +30,15 @@ class AddressTest extends EntityTestCaseAbstract
     public function dataProviderObject()
     {
         $expected = [
-            'alias' => 'Home',
-            'street' => 'Sesame',
-            'number' => '132',
-            'complement' => 'Red Horse',
+            'alias'        => 'Home',
+            'street'       => 'Sesame',
+            'number'       => '132',
+            'complement'   => 'Red Horse',
             'neighborhood' => 'TV',
-            'zipCode' => '070090-222',
-            'city' => 'Fantasy Island',
-            'state' => 'Triangle',
-            'country' => 'Bermudas',
+            'zipCode'      => '070090-222',
+            'city'         => 'Fantasy Island',
+            'state'        => 'Triangle',
+            'country'      => 'Bermudas',
         ];
 
         return $this->dataProviderEntitySchema(self::QUALIFIED, $expected);
@@ -223,5 +223,4 @@ class AddressTest extends EntityTestCaseAbstract
     {
         $this->assertSchemaSetter('country', 'string', $object);
     }
-
 }
