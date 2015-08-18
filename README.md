@@ -164,9 +164,20 @@ Verificar a situação de uma transação:
 
     ./bin/main transaction:find
 
-ou ainda executar o mesmo comando de forma não interativa:
+Criar uma transação a partir de uma fixture:
 
-    ./bin/main transaction:find -c foo -t bar -s SecureTransport -p http -a sandbox  -i 8888133556
+    ./bin/main transaction:create --order_json_file=Resources/fixtures/order.input.json
+
+Você poder criar um arquivo chamado ``app.json`` com suas configurações personalizadas, as quais serão utilizadas na linha de comando:
+
+``` JSON
+{
+    "client_id": "foo",
+    "client_secret": "bar"
+}
+```
+
+Utilize como modelo o arquivo ``app.json.dist``
 
 
 *Dica*: Verifique os logs gerados em ``Resources/logs/main.log``
