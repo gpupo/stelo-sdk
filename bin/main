@@ -35,12 +35,12 @@ $app->register('transaction:find')
     $transaction = $app->factorySdk($list)->factoryManager('transaction')->findById($list['transaction_id']);
 
     if ($transaction) {
-        $output->writeln('<info>Success!</info>');
+        $output->writeln('<info>Successp!</info>');
         $output->writeln($transaction->getStatusCode());
         $output->writeln($transaction->getStatusMessage());
         $output->writeln($transaction->getAmount());
     } else {
-        $output->writeln('<error>Not Found</error>');
+        $output->writeln('<error>Transação não encontrada.</error>');
     }
 });
 
@@ -59,7 +59,12 @@ $app->register('transaction:create')
     $manager = $steloSdk->factoryManager('transaction');
     $transaction = $manager->createFromOrder($order);
 
-    var_dump($transaction);
-
+    if ($transaction) {
+        $output->writeln('<info>Successo!</info>');
+        $output->writeln('Transação <info>'.$transaction->getId().'</info>');
+        $output->writeln('Checkout Url <info>'.$transaction->getCheckoutUrl().'</info>');
+    } else {
+        $output->writeln('<error>Erro na criação da transação</error>');
+    }
 });
 $app->run();
