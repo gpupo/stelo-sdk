@@ -15,13 +15,12 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-use Gpupo\SteloSdk\Application;
+use Gpupo\SteloSdk\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Gpupo\SteloSdk\Factory;
 
-$app = new Application();
+$app = new Application("stelo-sdk");
 $app->findConfig([ __DIR__.'/../']);
 
 $transaction_find_parameters = [[
@@ -55,8 +54,8 @@ $app->register('transaction:create')
 ->setCode(function (InputInterface $input, OutputInterface $output) use ($app, $transaction_create_parameters) {
     $list = $app->processInputParameters($transaction_create_parameters, $input, $output);
     $steloSdk = $app->factorySdk($list);
-
-    $order = $steloSdk->createOrder(json_decode(file_get_contents($list['order_json_file']), true));
+    $data = json_decode(file_get_contents($list['order_json_file']), true);
+    $order = $steloSdk->createOrder($data);
     $manager = $steloSdk->factoryManager('transaction');
     $transaction = $manager->createFromOrder($order);
 
