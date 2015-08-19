@@ -40,7 +40,7 @@ class Manager extends ManagerAbstract
     public function createFromOrder(Order $order)
     {
         $response = $this->execute($this->factoryMap('createFromOrder',
-            ['itemId' => $order->getId()], $order->toJson()));
+            ['itemId' => $order->getId()]), $order->toJson());
 
         if ($response->getHttpStatusCode() === 200) {
             return $this->factoryFromCreateResponse($response);
