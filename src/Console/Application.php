@@ -47,7 +47,7 @@ class Application extends AbstractApplication
         [
             'key'       => 'registerPath',
             'default'   => false,
-        ]
+        ],
     ];
 
     public function factorySdk(array $options)

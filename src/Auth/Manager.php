@@ -64,7 +64,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
     protected function appendParamsToUri($uri, Array $params)
     {
         foreach ($params as $param) {
-            $uri .= $param.'={'.$param.'}&';
+            $uri .= $param . '={' . $param . '}&';
         }
 
         return rtrim($uri, '&');
@@ -72,7 +72,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
 
     public function getAuthorizeUrl()
     {
-        $uri = $this->appendParamsToUri($this->endpoint.'/autorize?',
+        $uri = $this->appendParamsToUri($this->endpoint . '/autorize?',
             ['client_id', 'response_type', 'state', 'scope', 'redirect_url']);
 
         return $this->fillPlaceholdersWithArray($uri, $this->getOptions()->toArray());
@@ -94,7 +94,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
     {
         $method = empty($body) ? 'get' : 'post';
 
-        $map = new Map([$method, $this->endpoint.$path], $this->getOptions()->toArray());
+        $map = new Map([$method, $this->endpoint . $path], $this->getOptions()->toArray());
         $response =  $this->execute($map, $body);
 
         if ($response->getHttpStatusCode() !== 200) {
@@ -121,7 +121,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
 
     public function requestCustomer(Token $token)
     {
-        $this->getClient()->setAuthorizationMode('bearer '.$token->getAccessToken());
+        $this->getClient()->setAuthorizationMode('bearer ' . $token->getAccessToken());
 
         return $this->factoryCustomer($this->requestResponseFromPath('/customer'));
     }

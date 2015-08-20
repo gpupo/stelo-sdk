@@ -38,17 +38,17 @@ class FactoryTest extends FactoryTestAbstract
     public function dataProviderObjetos()
     {
         return [
-            [$this->namespace.'Order\Order', 'order', null],
-            [$this->namespace.'View\Lightbox', 'lightbox', null],
-            [$this->namespace.'Transaction\Transaction', 'transaction', null],
+            [$this->namespace . 'Order\Order', 'order', null],
+            [$this->namespace . 'View\Lightbox', 'lightbox', null],
+            [$this->namespace . 'Transaction\Transaction', 'transaction', null],
         ];
     }
 
     public function dataProviderManager()
     {
         return [
-            [$this->namespace.'Transaction\Manager', 'transaction'],
-            [$this->namespace.'Auth\Manager', 'auth'],
+            [$this->namespace . 'Transaction\Manager', 'transaction'],
+            [$this->namespace . 'Auth\Manager', 'auth'],
         ];
     }
 }
