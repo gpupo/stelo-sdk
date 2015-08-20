@@ -58,7 +58,7 @@ class Client extends ClientAbstract implements ClientInterface
             $string = $this->basicAuthorization();
         }
 
-        return 'Authorization: '.$string;
+        return 'Authorization: ' . $string;
     }
 
     protected function basicAuthorization()
@@ -66,10 +66,10 @@ class Client extends ClientAbstract implements ClientInterface
         foreach (['client_id', 'client_secret'] as $key) {
             $value = $this->getOptions()->get($key);
             if (empty($value)) {
-                throw new \InvalidArgumentException('['.$key.'] ausente!');
+                throw new \InvalidArgumentException('[' . $key . '] ausente!');
             }
         }
 
-        return 'Basic '.base64_encode($this->getOptions()->get('client_id').':'.$this->getOptions()->get('client_secret'));
+        return 'Basic ' . base64_encode($this->getOptions()->get('client_id') . ':' . $this->getOptions()->get('client_secret'));
     }
 }

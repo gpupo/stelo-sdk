@@ -99,7 +99,7 @@ class OrderTest extends EntityTestCaseAbstract
 
         $array = $order->toArray();
         foreach (['order', 'payment', 'customer'] as $key) {
-            $this->assertEquals($expected[$key.'Data'], $array[$key.'Data'], '#'.ucfirst($key));
+            $this->assertEquals($expected[$key . 'Data'], $array[$key . 'Data'], '#' . ucfirst($key));
         }
     }
 
