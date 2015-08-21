@@ -3,5 +3,6 @@
     "client_secret": "bar",
     "env": "sandbox",
     "protocol": "http",
-    "sslVersion": "SecureTransport"
+    "sslVersion": "SecureTransport",
+    "registerPath": false
 }

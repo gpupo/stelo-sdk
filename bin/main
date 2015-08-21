@@ -18,10 +18,9 @@ require __DIR__.'/../vendor/autoload.php';
 use Gpupo\SteloSdk\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Gpupo\SteloSdk\Factory;
 
-$app = new Application("stelo-sdk");
-$app->findConfig([ __DIR__.'/../']);
+$app = new Application('stelo-sdk');
+$app->findConfig([__DIR__.'/../']);
 
 $transaction_find_parameters = [[
     'key'   => 'transaction_id',
@@ -35,7 +34,7 @@ $app->register('transaction:find')
     $transaction = $app->factorySdk($list)->factoryManager('transaction')->findById($list['transaction_id']);
 
     if ($transaction) {
-        $output->writeln('<info>Successp!</info>');
+        $output->writeln('<info>Successo!</info>');
         $output->writeln($transaction->getStatusCode());
         $output->writeln($transaction->getStatusMessage());
         $output->writeln($transaction->getAmount());
