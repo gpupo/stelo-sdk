@@ -5,6 +5,7 @@ layout: default
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gpupo/stelo-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gpupo/stelo-sdk/?branch=master)
 [![Code Climate](https://codeclimate.com/github/gpupo/stelo-sdk/badges/gpa.svg)](https://codeclimate.com/github/gpupo/stelo-sdk)
 [![Test Coverage](https://codeclimate.com/github/gpupo/stelo-sdk/badges/coverage.svg)](https://codeclimate.com/github/gpupo/stelo-sdk/coverage)
+[![Paypal Donations](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EK6F2WRKG7GNN&item_name=stelo-sdk)
 
 # stelo-sdk
 
@@ -51,6 +52,7 @@ Parâmetro | Descrição | Valores possíveis
 ``version``|Identificação do Ambiente| sandbox, carteira.html (produção)
 ``redirect_url``|Controller para notificação de Login| Url própria
 ``login_version``|Ambiente de Login|login, login.html (produção)
+``registerPath``|Quando informado, registra no diretório informado, os dados de cada requisição executada
 
 
 ## Transações
@@ -80,27 +82,38 @@ echo $transaction->getId(); //143800246128360
 
 #### Consulta de transação
 
-    $transaction = $steloSdk->factoryManager('transaction')
-        ->findById('143800246128360');
-    echo $transaction->getStatusCode(); // N
-    echo $transaction->getStatusMessage(); // Cancelada
-    echo $transaction->getAmount(); // 134.9
+``` PHP
 
+$transaction = $steloSdk->factoryManager('transaction')
+    ->findById('143800246128360');
+echo $transaction->getStatusCode(); // N
+echo $transaction->getStatusMessage(); // Cancelada
+echo $transaction->getAmount(); // 134.9
+
+```
 
 #### Cancelar uma  transação
 
-    $transaction = $steloSdk->factoryManager('transaction')
-        ->deleteById('143800246128360');
+``` PHP
+
+$transaction = $steloSdk->factoryManager('transaction')
+    ->deleteById('143800246128360');
+
+```
 
 #### Registro (log)
 
-    //...
-    use Monolog\Logger;
-    use Monolog\Handler\StreamHandler;
-    //..
-    $logger = new Logger('foo');
-    $logger->pushHandler(new StreamHandler('Resources/logs/main.log', Logger::DEBUG));
-    $steloSdk->setLogger($logger);
+``` PHP
+
+//...
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+//..
+$logger = new Logger('foo');
+$logger->pushHandler(new StreamHandler('Resources/logs/main.log', Logger::DEBUG));
+$steloSdk->setLogger($logger);
+
+```
 
 ## Login com Stelo
 
@@ -155,9 +168,20 @@ Verificar a situação de uma transação:
 
     ./bin/main transaction:find
 
-ou ainda executar o mesmo comando de forma não interativa:
+Criar uma transação a partir de uma fixture:
 
-    ./bin/main transaction:find -c foo -t bar -s SecureTransport -p http -a sandbox  -i 8888133556
+    ./bin/main transaction:create --order_json_file=Resources/fixtures/order.input.json
+
+Você poder criar um arquivo chamado ``app.json`` com suas configurações personalizadas, as quais serão utilizadas na linha de comando:
+
+``` JSON
+{
+    "client_id": "foo",
+    "client_secret": "bar"
+}
+```
+
+Utilize como modelo o arquivo ``app.json.dist``
 
 
 *Dica*: Verifique os logs gerados em ``Resources/logs/main.log``
@@ -166,7 +190,7 @@ ou ainda executar o mesmo comando de forma não interativa:
 
 ## Licença
 
-MIT, see [LICENSE](https://github.com/gpupo/stelo-sdk/blob/master/LICENSE).
+[MIT](https://github.com/gpupo/stelo-sdk/blob/master/LICENSE) © [Gilmar Pupo](https://github.com/gpupo)
 
 ---
 
@@ -201,7 +225,7 @@ MIT, see [LICENSE](https://github.com/gpupo/stelo-sdk/blob/master/LICENSE).
 
 ## Propriedades dos objetos
 
-A lista abaixo é gerada a partir da saída da execução dos testes unitários:
+A lista abaixo é gerada automaticamente a partir da saída da execução dos testes unitários:
 
 <!--
 phpunit --testdox | grep -vi php |  sed "s/.*\[*]/-/" | sed 's/.*Gpupo.*/&\'$'\n/g' | sed 's/.*Gpupo.*/&\'$'\n/g' | sed 's/Gpupo\\Tests\\SteloSdk\\/### /g' | sed '/./,/^$/!d' >> README.md
