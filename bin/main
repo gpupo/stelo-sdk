@@ -66,4 +66,18 @@ $app->register('transaction:create')
         $output->writeln('<error>Erro na criação da transação</error>');
     }
 });
+
+
+
+$app->register('login:init')
+->setDescription('Url para início de login')
+->setDefinition($app->factoryDefinition())
+->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
+    $list = $app->processInputParameters([], $input, $output);
+    $auth = $app->factorySdk($list)->factoryManager('auth');
+    $csrfToken = $auth->getCsrfToken();
+    $url = $auth->getAuthorizeUrl();
+    $output->writeln("URL:$url");
+});
+
 $app->run();
