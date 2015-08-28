@@ -2,6 +2,7 @@
     "client_id": "foo",
     "client_secret": "bar",
     "env": "sandbox",
+    "login_version": "login.hml",
     "protocol": "http",
     "sslVersion": "SecureTransport",
     "registerPath": false

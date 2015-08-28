@@ -27,9 +27,18 @@ class Application extends AbstractApplication
             'key'   => 'client_secret',
         ],
         [
+            'key'   => 'client_secret',
+        ],
+        [
             'key'       => 'env',
             'options'   => ['sandbox', 'api'],
             'default'   => 'sandbox',
+            'name'      => 'Version',
+        ],
+        [
+            'key'       => 'login_version',
+            'options'   => ['login', 'login.hml'],
+            'default'   => 'login.hml',
             'name'      => 'Version',
         ],
         [
