@@ -77,7 +77,7 @@ $app->register('login:init')
     $auth = $app->factorySdk($list)->factoryManager('auth');
     $csrfToken = $auth->getCsrfToken();
     $url = $auth->getAuthorizeUrl();
-    $output->writeln("URL:$url");
+    $output->writeln("URL:\n<info>$url</info>");
 });
 
 $app->run();

@@ -54,6 +54,10 @@ class Application extends AbstractApplication
             'name'      => 'SSL Version',
         ],
         [
+            'key'       => 'redirect_url',
+            'default'   => false,
+        ],
+        [
             'key'       => 'registerPath',
             'default'   => false,
         ],
