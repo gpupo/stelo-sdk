@@ -27,57 +27,55 @@ $transaction_find_parameters = [[
 ]];
 
 $app->register('transaction:find')
-->setDescription('Consulta de transação')
-->setDefinition($app->factoryDefinition($transaction_find_parameters))
-->setCode(function (InputInterface $input, OutputInterface $output) use ($app, $transaction_find_parameters) {
-    $list = $app->processInputParameters($transaction_find_parameters, $input, $output);
-    $transaction = $app->factorySdk($list)->factoryManager('transaction')->findById($list['transaction_id']);
+    ->setDescription('Consulta de transação')
+    ->setDefinition($app->factoryDefinition($transaction_find_parameters))
+    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app, $transaction_find_parameters) {
+        $list = $app->processInputParameters($transaction_find_parameters, $input, $output);
+        $transaction = $app->factorySdk($list)->factoryManager('transaction')->findById($list['transaction_id']);
 
-    if ($transaction) {
-        $output->writeln('<info>Successo!</info>');
-        $output->writeln($transaction->getStatusCode());
-        $output->writeln($transaction->getStatusMessage());
-        $output->writeln($transaction->getAmount());
-    } else {
-        $output->writeln('<error>Transação não encontrada.</error>');
-    }
-});
+        if ($transaction) {
+            $output->writeln('<info>Successo!</info>');
+            $output->writeln($transaction->getStatusCode());
+            $output->writeln($transaction->getStatusMessage());
+            $output->writeln($transaction->getAmount());
+        } else {
+            $output->writeln('<error>Transação não encontrada.</error>');
+        }
+    });
 
 $transaction_create_parameters = [[
     'key'   => 'order_json_file',
 ]];
 
 $app->register('transaction:create')
-->setDescription('Cria uma transação')
-->setDefinition($app->factoryDefinition($transaction_create_parameters))
-->setCode(function (InputInterface $input, OutputInterface $output) use ($app, $transaction_create_parameters) {
-    $list = $app->processInputParameters($transaction_create_parameters, $input, $output);
-    $steloSdk = $app->factorySdk($list);
-    $data = json_decode(file_get_contents($list['order_json_file']), true);
-    $order = $steloSdk->createOrder($data);
-    $manager = $steloSdk->factoryManager('transaction');
-    $transaction = $manager->createFromOrder($order);
+    ->setDescription('Cria uma transação')
+    ->setDefinition($app->factoryDefinition($transaction_create_parameters))
+    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app, $transaction_create_parameters) {
+        $list = $app->processInputParameters($transaction_create_parameters, $input, $output);
+        $steloSdk = $app->factorySdk($list);
+        $data = json_decode(file_get_contents($list['order_json_file']), true);
+        $order = $steloSdk->createOrder($data);
+        $manager = $steloSdk->factoryManager('transaction');
+        $transaction = $manager->createFromOrder($order);
 
-    if ($transaction) {
-        $output->writeln('<info>Successo!</info>');
-        $output->writeln('Transação <info>'.$transaction->getId().'</info>');
-        $output->writeln('Checkout Url <info>'.$transaction->getCheckoutUrl().'</info>');
-    } else {
-        $output->writeln('<error>Erro na criação da transação</error>');
-    }
-});
-
-
+        if ($transaction) {
+            $output->writeln('<info>Successo!</info>');
+            $output->writeln('Transação <info>'.$transaction->getId().'</info>');
+            $output->writeln('Checkout Url <info>'.$transaction->getCheckoutUrl().'</info>');
+        } else {
+            $output->writeln('<error>Erro na criação da transação</error>');
+        }
+    });
 
 $app->register('login:init')
-->setDescription('Url para início de login')
-->setDefinition($app->factoryDefinition())
-->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
-    $list = $app->processInputParameters([], $input, $output);
-    $auth = $app->factorySdk($list)->factoryManager('auth');
-    $csrfToken = $auth->getCsrfToken();
-    $url = $auth->getAuthorizeUrl();
-    $output->writeln("URL:\n<info>$url</info>");
-});
+    ->setDescription('Url para início de login')
+    ->setDefinition($app->factoryDefinition())
+    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
+        $list = $app->processInputParameters([], $input, $output);
+        $auth = $app->factorySdk($list)->factoryManager('auth');
+        $csrfToken = $auth->getCsrfToken();
+        $url = $auth->getAuthorizeUrl();
+        $output->writeln("URL:\n<info>$url</info>");
+    });
 
 $app->run();
