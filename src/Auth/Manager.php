@@ -44,7 +44,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
     public function getCsrfToken()
     {
         if (empty($this->token)) {
-            $this->token = substr(sha1(openssl_random_pseudo_bytes(32)), 0, 12);
+            $this->token = substr(sha1(openssl_random_pseudo_bytes(32)), 0, 9);
         }
 
         return $this->token;
@@ -56,7 +56,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
             'redirect_url'  => 'https://www.example.com/notify',
             'response_type' => 'code',
             'state'         => $this->getCsrfToken(),
-            'scope'         => 'user_profile.all',
+            'scope'         => 'resource.READ',
             'login_version' => 'login',
         ];
     }
@@ -72,8 +72,8 @@ class Manager extends ManagerAbstract implements OptionsInterface
 
     public function getAuthorizeUrl()
     {
-        $uri = $this->appendParamsToUri($this->endpoint . '/autorize?',
-            ['client_id', 'response_type', 'state', 'scope', 'redirect_url']);
+        $uri = $this->appendParamsToUri($this->endpoint . '/authorize?',
+            ['response_type', 'client_id', 'redirect_url', 'scope', 'state']);
 
         return $this->fillPlaceholdersWithArray($uri, $this->getOptions()->toArray());
     }
