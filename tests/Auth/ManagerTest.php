@@ -26,12 +26,12 @@ class ManagerTest extends TestCaseAbstract
 
     public function testForneceTokenUtilizadoParaProteçãoContraCsrf()
     {
-        $this->assertEquals(12, strlen($this->getAuth()->getCsrfToken()));
+        $this->assertEquals(9, strlen($this->getAuth()->getCsrfToken()));
     }
 
     public function testInformaAUrlParaOndeOClienteSeráDirecionado()
     {
-        $this->assertStringStartsWith('https://login.stelo.com.br/sso/auth/v1/oauth2/autorize', $this->getAuth()->getAuthorizeUrl());
+        $this->assertStringStartsWith('https://login.stelo.com.br/sso/auth/v1/oauth2/authorize', $this->getAuth()->getAuthorizeUrl());
     }
 
     public function testAcessoAoObjetoToken()
