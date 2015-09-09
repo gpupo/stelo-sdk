@@ -78,4 +78,20 @@ $app->register('login:init')
         $output->writeln("URL:\n<info>$url</info>");
     });
 
+$token_parameters = [[
+    'key'   => 'code',
+]];
+
+$app->register('login:token')
+    ->setDescription('Solicita token')
+    ->setDefinition($app->factoryDefinition($token_parameters))
+    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app,$token_parameters) {
+        $list = $app->processInputParameters($token_parameters, $input, $output);
+        $token = $app->factorySdk($list)->factoryManager('auth')->requestToken($list['code']);
+        $output->writeln("Token: <info>".$token->getAccessToken()."</info>");
+        $output->writeln("Type: <info>".$token->getTokenType()."</info>");
+    });
+
+
+
 $app->run();
