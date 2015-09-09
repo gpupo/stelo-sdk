@@ -93,8 +93,16 @@ class Manager extends ManagerAbstract implements OptionsInterface
     protected function requestResponseFromPath($path, $body = null)
     {
         $method = empty($body) ? 'get' : 'post';
+        $options = $this->getOptions()->toArray();
+        $point = $this->endpoint . $path;
 
-        $map = new Map([$method, $this->endpoint . $path], $this->getOptions()->toArray());
+        if ($path === '/token' && $this->getOptions()->get('login_version') === 'login.hml') {
+            $point = 'http://200.142.203.223/sso/auth/v1/oauth2' . $path;
+        }
+
+        $endpoint = $this->fillPlaceholdersWithArray($point, $options);
+        $map = new Map([$method, $endpoint], $options);
+
         $response =  $this->execute($map, $body);
 
         if ($response->getHttpStatusCode() !== 200) {
@@ -105,18 +113,24 @@ class Manager extends ManagerAbstract implements OptionsInterface
         return $response;
     }
 
-    public function requestToken($access_token)
+    public function requestToken($code)
     {
         $body = [
-            'code'          => $access_token,
-            'grant_type'    => 'authorizaton_code',
+            'grant_type'    => 'authorization_code',
+            'code'          => $code,
         ];
 
-        foreach (['client_id', 'client_secret', 'redirect_url'] as $key) {
+        foreach (['client_id', 'client_secret'] as $key) {
             $body[$key] = $this->getOptions()->get($key);
         }
 
-        return $this->factoryToken($this->requestResponseFromPath('/token', $body));
+        $body['redirect_uri'] = $this->getOptions()->get('redirect_url');
+
+        $response = $this->requestResponseFromPath('/token', $body);
+
+        if ($response) {
+            return $this->factoryToken($response);
+        }
     }
 
     public function requestCustomer(Token $token)
