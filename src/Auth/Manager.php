@@ -92,7 +92,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
 
     protected function resolvPoint($path)
     {
-        if (in_array($path, ['/token', '/customer']) && $this->getOptions()->get('login_version') === 'login.hml') {
+        if (in_array($path, ['/token', '/customer'], true) && $this->getOptions()->get('login_version') === 'login.hml') {
             return 'http://200.142.203.223/sso/auth/v1/oauth2' . $path;
         }
 
@@ -138,7 +138,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
 
     public function requestCustomer(Token $token)
     {
-        $this->getClient()->setAuthorizationMode('bearer ' . $token->getAccessToken());
+        $this->getClient()->setAuthorizationMode('Bearer ' . $token->getAccessToken());
 
         return $this->factoryCustomer($this->requestResponseFromPath('/customer'));
     }
