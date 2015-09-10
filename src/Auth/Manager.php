@@ -90,17 +90,20 @@ class Manager extends ManagerAbstract implements OptionsInterface
         return new Customer($data);
     }
 
+    protected function resolvPoint($path)
+    {
+        if (in_array($path, ['/token', '/customer']) && $this->getOptions()->get('login_version') === 'login.hml') {
+            return 'http://200.142.203.223/sso/auth/v1/oauth2' . $path;
+        }
+
+        return $this->endpoint . $path;
+    }
+
     protected function requestResponseFromPath($path, $body = null)
     {
         $method = empty($body) ? 'get' : 'post';
         $options = $this->getOptions()->toArray();
-        $point = $this->endpoint . $path;
-
-        if ($path === '/token' && $this->getOptions()->get('login_version') === 'login.hml') {
-            $point = 'http://200.142.203.223/sso/auth/v1/oauth2' . $path;
-        }
-
-        $endpoint = $this->fillPlaceholdersWithArray($point, $options);
+        $endpoint = $this->fillPlaceholdersWithArray($this->resolvPoint($path), $options);
         $map = new Map([$method, $endpoint], $options);
 
         $response =  $this->execute($map, $body);

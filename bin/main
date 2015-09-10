@@ -93,5 +93,26 @@ $app->register('login:token')
     });
 
 
+$request_parameters = [[
+    'key'   => 'token',
+]];
+
+$app->register('login:request')
+    ->setDescription('Solicita dados do Cliente')
+    ->setDefinition($app->factoryDefinition($request_parameters))
+    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app, $request_parameters) {
+        $list = $app->processInputParameters($request_parameters, $input, $output);
+        $steloSdk = $app->factorySdk($list);
+        $auth = $steloSdk->factoryManager('auth');
+        $token = $steloSdk->createToken([
+            'access_token'  => $list['token'],
+            'token_type'    => 'Bearer',
+        ]);
+
+        $customer = $auth->requestCustomer($token);
+        $output->writeln("Nome: <info>".$customer->getCustomerName()."</info>");
+        $output->writeln("Email: <info>".$customer->getCustomerEmail()."</info>");
+        $output->writeln("CPF: <info>".$customer->getCpf()."</info>");
+    });
 
 $app->run();

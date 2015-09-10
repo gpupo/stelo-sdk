@@ -38,6 +38,9 @@ class Factory extends FactoryAbstract
             'lightbox' => [
                 'class'     => $namespace . 'View\Lightbox',
             ],
+            'token' => [
+                'class'     => $namespace . 'Auth\Token',
+            ],
             'transaction' => [
                 'class'     => $namespace . 'Transaction\Transaction',
                 'manager'   => $namespace . 'Transaction\Manager',
