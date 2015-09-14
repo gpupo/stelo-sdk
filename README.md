@@ -46,7 +46,7 @@ Parâmetro | Descrição | Valores possíveis
 ----------|-----------|------------------
 ``client_id``|Chave da loja| string
 ``client_secret``|Token de autorização da aplicação| string
-``version``|Identificação do Ambiente| sandbox, carteira.html (produção)
+``version``|Identificação do Ambiente| sandbox, api (produção)
 ``redirect_url``|Controller para notificação de Login| Url própria
 ``login_version``|Ambiente de Login|*login.hml* (sandbox), *login* (produção)
 ``registerPath``|Quando informado, registra no diretório informado, os dados de cada requisição executada

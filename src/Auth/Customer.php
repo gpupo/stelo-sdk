@@ -47,6 +47,9 @@ class Customer extends AbstractCustomer
     public function __construct($data = null)
     {
         if ($data) {
+            if (! array_key_exists('phone', $data)) {
+                $data = current($data);
+            }
             foreach ($this->conversion() as $old => $new) {
                 if (array_key_exists($old, $data)) {
                     $data[$new] = $data[$old];
