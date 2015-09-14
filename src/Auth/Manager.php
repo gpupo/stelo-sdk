@@ -92,17 +92,22 @@ class Manager extends ManagerAbstract implements OptionsInterface
 
     protected function resolvPoint($path)
     {
-        if (in_array($path, ['/token', '/customer'], true) && $this->getOptions()->get('login_version') === 'login.hml') {
-            return 'http://200.142.203.223/sso/auth/v1/oauth2' . $path;
+        if (in_array($path, ['/token', '/customer'], true)) {
+             if ($this->getOptions()->get('login_version') === 'login.hml') {
+                return 'http://200.142.203.223/sso/auth/v1/oauth2' . $path;
+            } else {
+                return 'https://api.stelo.com.br/sso/auth/v1/oauth2' . $path;
+            }
         }
 
         return $this->endpoint . $path;
     }
 
-    protected function requestResponseFromPath($path, $body = null)
+    protected function requestResponseFromPath($path, $body = null, $mode = 'json')
     {
         $method = empty($body) ? 'get' : 'post';
         $options = $this->getOptions()->toArray();
+        $options['mode'] = $mode;
         $endpoint = $this->fillPlaceholdersWithArray($this->resolvPoint($path), $options);
         $map = new Map([$method, $endpoint], $options);
 
@@ -129,7 +134,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
 
         $body['redirect_uri'] = $this->getOptions()->get('redirect_url');
 
-        $response = $this->requestResponseFromPath('/token', $body);
+        $response = $this->requestResponseFromPath('/token', $body, 'form');
 
         if ($response) {
             return $this->factoryToken($response);
