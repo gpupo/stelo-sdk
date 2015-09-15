@@ -93,7 +93,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
     protected function resolvPoint($path)
     {
         if (in_array($path, ['/token', '/customer'], true)) {
-             if ($this->getOptions()->get('login_version') === 'login.hml') {
+            if ($this->getOptions()->get('login_version') === 'login.hml') {
                 return 'http://200.142.203.223/sso/auth/v1/oauth2' . $path;
             } else {
                 return 'https://api.stelo.com.br/sso/auth/v1/oauth2' . $path;
