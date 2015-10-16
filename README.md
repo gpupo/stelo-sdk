@@ -157,6 +157,8 @@ Veja mais detalhes sobre as propriedades de ``$customer`` na documentação do o
 
 ## Comandos
 
+[![asciicast](https://asciinema.org/a/28052.png)](https://asciinema.org/a/28052)
+
 Lista de comandos disponíveis:
 
     ./bin/main
