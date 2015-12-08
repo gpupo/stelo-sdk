@@ -19,7 +19,7 @@ use Gpupo\SteloSdk\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-$app = new Application('stelo-sdk');
+$app = new Application('stelo-sdk',1);
 $app->findConfig([__DIR__.'/../']);
 
 $transaction_find_parameters = [[

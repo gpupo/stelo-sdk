@@ -30,6 +30,15 @@ class Manager extends ManagerAbstract
         'delete'            => ['DELETE', '/orders/transactions/{itemId}'],
     ];
 
+    protected function isSuccess(Response $response)
+    {
+        if ($response->getHttpStatusCode() === 200 || $response->getHttpStatusCode() === 202) {
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * Cria uma transação a partir de um objeto Order.
      *
@@ -42,7 +51,7 @@ class Manager extends ManagerAbstract
         $response = $this->execute($this->factoryMap('createFromOrder',
             ['itemId' => $order->getId()]), $order->toJson());
 
-        if ($response->getHttpStatusCode() === 200) {
+        if ($this->isSuccess($response)) {
             return $this->factoryFromCreateResponse($response);
         }
     }
@@ -50,7 +59,7 @@ class Manager extends ManagerAbstract
     public function deleteById($itemId)
     {
         $response = $this->execute($this->factoryMap('delete', ['itemId' => $itemId]));
-        if (($response->getHttpStatusCode() === 200) && $response->getData()->containsKey('steloId')) {
+        if ($this->isSuccess($response) && $response->getData()->containsKey('steloId')) {
             return true;
         }
 
