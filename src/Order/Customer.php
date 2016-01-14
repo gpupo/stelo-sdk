@@ -39,9 +39,9 @@ class Customer extends AbstractCustomer
     public function getSchema()
     {
         return array_merge(parent::getSchema(), [
-            'customerIdentity'  => 'string',
-            'billingAddress'    => 'object',
-            'shippingAddress'   => 'object',
+            'customerIdentity' => 'string',
+            'billingAddress'   => 'object',
+            'shippingAddress'  => 'object',
         ]);
     }
 }

@@ -41,19 +41,19 @@ abstract class TestCaseAbstract extends CommonSdkTestCaseAbstract
     protected function getOptions()
     {
         return [
-            'client_id'         => $this->getConstant('CLIENT_ID'),
-            'client_secret'     => $this->getConstant('CLIENT_SECRET'),
-            'client_secret'     => $this->getConstant('CLIENT_SECRET'),
-            'redirect_url'      => 'http://localhost/notify',
-            'verbose'           => $this->getConstant('VERBOSE'),
-            'dryrun'            => $this->getConstant('DRYRUN'),
-            'registerPath'      => $this->getConstant('REGISTER_PATH'),
+            'client_id'     => $this->getConstant('CLIENT_ID'),
+            'client_secret' => $this->getConstant('CLIENT_SECRET'),
+            'client_secret' => $this->getConstant('CLIENT_SECRET'),
+            'redirect_url'  => 'http://localhost/notify',
+            'verbose'       => $this->getConstant('VERBOSE'),
+            'dryrun'        => $this->getConstant('DRYRUN'),
+            'registerPath'  => $this->getConstant('REGISTER_PATH'),
         ];
     }
 
     protected function getFactory()
     {
-        if (!$this->factory) {
+        if ( ! $this->factory) {
             $this->factory = Factory::getInstance()->setup($this->getOptions(), $this->getLogger());
         }
 

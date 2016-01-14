@@ -65,7 +65,7 @@ class TransactionTest extends EntityTestCaseAbstract
             'checkoutUrl'   => 'https://www.example.com',
         ]);
 
-        $this->assertEquals(1, $transaction->getId());
+        $this->assertSame(1, $transaction->getId());
 
         return $transaction;
     }
@@ -75,7 +75,7 @@ class TransactionTest extends EntityTestCaseAbstract
      */
     public function testPossuiUrlDeCheckout(Transaction $transaction)
     {
-        $this->assertEquals('https://www.example.com', $transaction->getCheckoutUrl());
+        $this->assertSame('https://www.example.com', $transaction->getCheckoutUrl());
     }
 
     /**
@@ -83,7 +83,7 @@ class TransactionTest extends EntityTestCaseAbstract
      */
     public function testPossuiStatusCode(Transaction $transaction)
     {
-        $this->assertEquals('N', $transaction->getStatusCode());
+        $this->assertSame('N', $transaction->getStatusCode());
     }
 
     /**
@@ -91,7 +91,7 @@ class TransactionTest extends EntityTestCaseAbstract
      */
     public function testPossuiIdentificaçãoDeSituaçãoAtual(Transaction $transaction)
     {
-        $this->assertEquals('Cancelada', $transaction->getStatusMessage());
+        $this->assertSame('Cancelada', $transaction->getStatusMessage());
     }
 
     /**
@@ -99,7 +99,7 @@ class TransactionTest extends EntityTestCaseAbstract
      */
     public function testPossuiValorDaTransação(Transaction $transaction)
     {
-        $this->assertEquals(134.90, $transaction->getAmount());
+        $this->assertSame(134.90, $transaction->getAmount());
     }
 
     /**
@@ -107,7 +107,7 @@ class TransactionTest extends EntityTestCaseAbstract
      */
     public function testPossuiValorDeFrete(Transaction $transaction)
     {
-        $this->assertEquals(9, $transaction->getFreight());
+        $this->assertSame(9, $transaction->getFreight());
     }
 
     /**

@@ -22,15 +22,15 @@ class Item extends EntityAbstract implements EntityInterface
     public function getSchema()
     {
         return [
-            'phoneType'        => 'string',
-            'number'           => 'string',
-            'type'             => 'number',
+            'phoneType' => 'string',
+            'number'    => 'string',
+            'type'      => 'number',
         ];
     }
 
     protected function beforeConstruct($data = null)
     {
-        if (!empty($data) && !array_key_exists('phoneType', $data) && array_key_exists('type', $data)) {
+        if ( ! empty($data) && ! array_key_exists('phoneType', $data) && array_key_exists('type', $data)) {
             $table = [
                 '0' => 'LANDLINE',
                 '1' => 'LANDLINE',

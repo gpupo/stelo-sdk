@@ -28,7 +28,7 @@ class LightboxTest extends TestCaseAbstract
     {
         $lightbox = new Lightbox('http://www.example.com');
         $this->assertInstanceOf('\Gpupo\SteloSdk\View\Lightbox', $lightbox);
-        $this->assertEquals('http://www.example.com', $lightbox->getCheckoutUrl());
+        $this->assertSame('http://www.example.com', $lightbox->getCheckoutUrl());
 
         return $lightbox;
     }

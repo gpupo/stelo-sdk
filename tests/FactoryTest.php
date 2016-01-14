@@ -19,7 +19,7 @@ use Gpupo\Tests\CommonSdk\FactoryTestAbstract;
 
 class FactoryTest extends FactoryTestAbstract
 {
-    public $namespace =  '\Gpupo\SteloSdk\\';
+    public $namespace = '\Gpupo\SteloSdk\\';
 
     public function getFactory()
     {

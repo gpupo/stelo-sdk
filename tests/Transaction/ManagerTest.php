@@ -26,8 +26,8 @@ class ManagerTest extends TestCaseAbstract
         $order = $this->factoryOrder();
         $transaction = $manager->createFromOrder($order);
         $this->assertInstanceOf('\Gpupo\SteloSdk\Transaction\Transaction', $transaction);
-        $this->assertEquals('143800700149312', $transaction->getId());
-        $this->assertEquals('https://carteira.hml.stelo.com.br/comprador/checkout?orderId=7K4PRkBxOdzx_9WZ8vioZQ', $transaction->getCheckoutUrl());
+        $this->assertSame('143800700149312', $transaction->getId());
+        $this->assertSame('https://carteira.hml.stelo.com.br/comprador/checkout?orderId=7K4PRkBxOdzx_9WZ8vioZQ', $transaction->getCheckoutUrl());
     }
 
     public function testPermiteConsultaAUmaTransaçãoEspecífica()
@@ -36,7 +36,7 @@ class ManagerTest extends TestCaseAbstract
         $manager->setDryRun($this->factoryResponseFromFixture('fixtures/transaction.status.json'));
         $transaction = $manager->findById(143800246128360);
         $this->assertInstanceOf('\Gpupo\SteloSdk\Transaction\Transaction', $transaction);
-        $this->assertEquals('143800246128360', $transaction->getId());
+        $this->assertSame('143800246128360', $transaction->getId());
     }
 
     public function testPermiteOCancelamentoDeUmaTransaçãoEspecífica()

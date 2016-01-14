@@ -26,7 +26,7 @@ class ManagerTest extends TestCaseAbstract
 
     public function testForneceTokenUtilizadoParaProteçãoContraCsrf()
     {
-        $this->assertEquals(9, strlen($this->getAuth()->getCsrfToken()));
+        $this->assertSame(9, strlen($this->getAuth()->getCsrfToken()));
     }
 
     public function testInformaAUrlParaOndeOClienteSeráDirecionado()
@@ -39,9 +39,9 @@ class ManagerTest extends TestCaseAbstract
         $auth = $this->getAuth()->setDryRun($this->factoryResponseFromFixture('fixtures/token.json'));
         $token = $auth->requestToken('43452');
         $this->assertInstanceOf('Gpupo\SteloSdk\Auth\Token', $token);
-        $this->assertEquals('foo', $token->get('access_token'));
-        $this->assertEquals('foo', $token->getAccessToken(), 'Magic method');
-        $this->assertEquals('bar', $token->get('state'));
+        $this->assertSame('foo', $token->get('access_token'));
+        $this->assertSame('foo', $token->getAccessToken(), 'Magic method');
+        $this->assertSame('bar', $token->get('state'));
 
         return $token;
     }
@@ -57,6 +57,6 @@ class ManagerTest extends TestCaseAbstract
 
         $this->assertInstanceOf('Gpupo\SteloSdk\Auth\Customer', $customer);
 
-        $this->assertEquals('Vanilla Ice', $customer->getCustomerName());
+        $this->assertSame('Vanilla Ice', $customer->getCustomerName());
     }
 }

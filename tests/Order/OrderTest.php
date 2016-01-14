@@ -49,7 +49,7 @@ class OrderTest extends EntityTestCaseAbstract
      */
     public function testCadaPedidoPossuiId(Order $order)
     {
-        $this->assertEquals(111, $order->getId());
+        $this->assertSame(111, $order->getId());
     }
 
     /**
@@ -99,7 +99,7 @@ class OrderTest extends EntityTestCaseAbstract
 
         $array = $order->toArray();
         foreach (['order', 'payment', 'customer'] as $key) {
-            $this->assertEquals($expected[$key . 'Data'], $array[$key . 'Data'], '#' . ucfirst($key));
+            $this->assertSame($expected[$key . 'Data'], $array[$key . 'Data'], '#' . ucfirst($key));
         }
     }
 

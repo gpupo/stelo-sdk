@@ -33,20 +33,20 @@ class Factory extends FactoryAbstract
     {
         return [
             'order' => [
-                'class'     => $namespace . 'Order\Order',
+                'class' => $namespace . 'Order\Order',
             ],
             'lightbox' => [
-                'class'     => $namespace . 'View\Lightbox',
+                'class' => $namespace . 'View\Lightbox',
             ],
             'token' => [
-                'class'     => $namespace . 'Auth\Token',
+                'class' => $namespace . 'Auth\Token',
             ],
             'transaction' => [
-                'class'     => $namespace . 'Transaction\Transaction',
-                'manager'   => $namespace . 'Transaction\Manager',
+                'class'   => $namespace . 'Transaction\Transaction',
+                'manager' => $namespace . 'Transaction\Manager',
             ],
             'auth' => [
-                'manager'   => $namespace . 'Auth\Manager',
+                'manager' => $namespace . 'Auth\Manager',
             ],
 
         ];

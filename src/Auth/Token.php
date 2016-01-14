@@ -27,11 +27,11 @@ class Token extends EntityAbstract implements EntityInterface
     public function getSchema()
     {
         return [
-            'access_token'  => 'string',
-            'token_type'    => 'string',
-            'expires_in'    => 'number',
-            'scope'         => 'string',
-            'state'         => 'string',
+            'access_token' => 'string',
+            'token_type'   => 'string',
+            'expires_in'   => 'number',
+            'scope'        => 'string',
+            'state'        => 'string',
         ];
     }
 

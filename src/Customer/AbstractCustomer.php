@@ -44,11 +44,11 @@ abstract class AbstractCustomer extends EntityAbstract implements EntityInterfac
     public function getSchema()
     {
         return [
-            'customerName'      => 'string',
-            'customerEmail'     => 'string',
-            'birthDate'         => 'string',
-            'gender'            => 'string',
-            'phone'             => 'object',
+            'customerName'  => 'string',
+            'customerEmail' => 'string',
+            'birthDate'     => 'string',
+            'gender'        => 'string',
+            'phone'         => 'object',
         ];
     }
 }
