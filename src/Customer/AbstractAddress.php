@@ -22,14 +22,14 @@ abstract class AbstractAddress extends EntityAbstract implements EntityInterface
     public function getSchema()
     {
         return [
-            'street'        => 'string',
-            'number'        => 'string',
-            'complement'    => 'string',
-            'neighborhood'  => 'string',
-            'zipCode'       => 'string',
-            'city'          => 'string',
-            'state'         => 'string',
-            'country'       => 'string',
+            'street'       => 'string',
+            'number'       => 'string',
+            'complement'   => 'string',
+            'neighborhood' => 'string',
+            'zipCode'      => 'string',
+            'city'         => 'string',
+            'state'        => 'string',
+            'country'      => 'string',
         ];
     }
 }

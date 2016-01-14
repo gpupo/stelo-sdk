@@ -39,15 +39,15 @@ class Customer extends AbstractCustomer
     public function getSchema()
     {
         return array_merge(parent::getSchema(), [
-            'cpf'      => 'string',
-            'rg'       => 'string',
-            'address'  => 'object',
+            'cpf'     => 'string',
+            'rg'      => 'string',
+            'address' => 'object',
         ]);
     }
     public function __construct($data = null)
     {
         if ($data) {
-            if (!array_key_exists('alias', $data['address'])) {
+            if ( ! array_key_exists('alias', $data['address'])) {
                 $data['address'] = current($data['address']);
             }
             foreach ($this->conversion() as $old => $new) {
@@ -64,9 +64,9 @@ class Customer extends AbstractCustomer
     protected function conversion()
     {
         return [
-            'name'      => 'customerName',
-            'email'     => 'customerEmail',
-            'phones'    => 'phone',
+            'name'   => 'customerName',
+            'email'  => 'customerEmail',
+            'phones' => 'phone',
         ];
     }
 }

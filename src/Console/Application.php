@@ -21,42 +21,42 @@ class Application extends AbstractApplication
 {
     protected $commonParameters = [
         [
-            'key'   => 'client_id',
+            'key' => 'client_id',
         ],
         [
-            'key'   => 'client_secret',
+            'key' => 'client_secret',
         ],
         [
-            'key'       => 'env',
-            'options'   => ['sandbox', 'api'],
-            'default'   => 'sandbox',
-            'name'      => 'Version',
+            'key'     => 'env',
+            'options' => ['sandbox', 'api'],
+            'default' => 'sandbox',
+            'name'    => 'Version',
         ],
         [
-            'key'       => 'login_version',
-            'options'   => ['login', 'login.hml'],
-            'default'   => 'login.hml',
-            'name'      => 'Version',
+            'key'     => 'login_version',
+            'options' => ['login', 'login.hml'],
+            'default' => 'login.hml',
+            'name'    => 'Version',
         ],
         [
-            'key'       => 'protocol',
-            'options'   => ['http', 'https'],
-            'default'   => 'https',
-            'name'      => 'Protocol',
+            'key'     => 'protocol',
+            'options' => ['http', 'https'],
+            'default' => 'https',
+            'name'    => 'Protocol',
         ],
         [
-            'key'       => 'sslVersion',
-            'options'   => ['SecureTransport', 'TLS'],
-            'default'   => 'SecureTransport',
-            'name'      => 'SSL Version',
+            'key'     => 'sslVersion',
+            'options' => ['SecureTransport', 'TLS'],
+            'default' => 'SecureTransport',
+            'name'    => 'SSL Version',
         ],
         [
-            'key'       => 'redirect_url',
-            'default'   => false,
+            'key'     => 'redirect_url',
+            'default' => false,
         ],
         [
-            'key'       => 'registerPath',
-            'default'   => false,
+            'key'     => 'registerPath',
+            'default' => false,
         ],
     ];
 

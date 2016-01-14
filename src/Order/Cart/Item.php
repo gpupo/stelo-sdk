@@ -22,10 +22,10 @@ class Item extends EntityAbstract implements EntityInterface
     public function getSchema()
     {
         return [
-            'productName'       => 'string',
-            'productQuantity'   => 'number',
-            'productPrice'      => 'number',
-            'productSku'        => 'string',
+            'productName'     => 'string',
+            'productQuantity' => 'number',
+            'productPrice'    => 'number',
+            'productSku'      => 'string',
         ];
     }
 }

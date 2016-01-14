@@ -40,33 +40,33 @@ class Order extends EntityAbstract implements EntityInterface
     public function getSchema()
     {
         return [
-            'id'                    => 'string',
-            'transactionType'       => 'string',
-            'shippingBehavior'      => 'string',
-            'country'               => 'string',
-            'cart'                  => 'object',
-            'payment'               => 'object',
-            'customer'              => 'object',
-            'changeShipment'        => 'boolean',
+            'id'               => 'string',
+            'transactionType'  => 'string',
+            'shippingBehavior' => 'string',
+            'country'          => 'string',
+            'cart'             => 'object',
+            'payment'          => 'object',
+            'customer'         => 'object',
+            'changeShipment'   => 'boolean',
         ];
     }
 
     public function toArray()
     {
-        $customer =  $this->getCustomer()->toArray();
+        $customer = $this->getCustomer()->toArray();
         $customer['phoneData'] = $customer['phone'];
         unset($customer['phone']);
 
         return [
             'orderData' => [
-                'orderId'           => $this->getId(),
-                'transactionType'   => $this->getTransactionType(),
-                'shippingBehavior'  => $this->getShippingBehavior(),
-                'changeShipment'    => $this->getChangeShipment(),
-                'country'           => $this->getCountry(),
+                'orderId'          => $this->getId(),
+                'transactionType'  => $this->getTransactionType(),
+                'shippingBehavior' => $this->getShippingBehavior(),
+                'changeShipment'   => $this->getChangeShipment(),
+                'country'          => $this->getCountry(),
             ],
-            'paymentData'   => array_merge($this->getPayment()->toArray(), ['cartData' => $this->getCart()->toArray()]),
-            'customerData'  => $customer,
+            'paymentData'  => array_merge($this->getPayment()->toArray(), ['cartData' => $this->getCart()->toArray()]),
+            'customerData' => $customer,
         ];
     }
 }

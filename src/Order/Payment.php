@@ -32,10 +32,10 @@ class Payment extends EntityAbstract implements EntityInterface
     public function getSchema()
     {
         return [
-            'amount'            => 'number',
-            'freight'           => 'number',
-            'currency'          => 'string',
-            'maxInstallment'    => 'string',
+            'amount'         => 'number',
+            'freight'        => 'number',
+            'currency'       => 'string',
+            'maxInstallment' => 'string',
         ];
     }
 }

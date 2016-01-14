@@ -30,11 +30,11 @@ class TokenTest extends EntityTestCaseAbstract
     public function dataProviderObject()
     {
         $expected = [
-            'access_token'  => 'foo',
-            'token_type'    => 'bar',
-            'expires_in'    => 1,
-            'scope'         => 'zeta',
-            'state'         => 'jones',
+            'access_token' => 'foo',
+            'token_type'   => 'bar',
+            'expires_in'   => 1,
+            'scope'        => 'zeta',
+            'state'        => 'jones',
         ];
 
         return $this->dataProviderEntitySchema(self::QUALIFIED, $expected);

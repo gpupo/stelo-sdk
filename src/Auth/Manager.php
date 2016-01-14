@@ -61,7 +61,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
         ];
     }
 
-    protected function appendParamsToUri($uri, Array $params)
+    protected function appendParamsToUri($uri, array $params)
     {
         foreach ($params as $param) {
             $uri .= $param . '={' . $param . '}&';
@@ -111,7 +111,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
         $endpoint = $this->fillPlaceholdersWithArray($this->resolvPoint($path), $options);
         $map = new Map([$method, $endpoint], $options);
 
-        $response =  $this->execute($map, $body);
+        $response = $this->execute($map, $body);
 
         if ($response->getHttpStatusCode() !== 200) {
             //Lidar com erros
@@ -124,8 +124,8 @@ class Manager extends ManagerAbstract implements OptionsInterface
     public function requestToken($code)
     {
         $body = [
-            'grant_type'    => 'authorization_code',
-            'code'          => $code,
+            'grant_type' => 'authorization_code',
+            'code'       => $code,
         ];
 
         foreach (['client_id', 'client_secret'] as $key) {

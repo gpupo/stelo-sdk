@@ -36,7 +36,7 @@ class ClientTest extends TestCaseAbstract
      */
     public function testGerenciaUriDeRecurso($client)
     {
-        $this->assertEquals('http://sandbox.stelo.com.br/ec/V1/wallet/transactions',
+        $this->assertSame('http://sandbox.stelo.com.br/ec/V1/wallet/transactions',
             $client->getResourceUri('/wallet/transactions'));
     }
 }

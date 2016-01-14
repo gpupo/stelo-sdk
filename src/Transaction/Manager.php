@@ -25,9 +25,9 @@ use Gpupo\SteloSdk\Order\Order;
 class Manager extends ManagerAbstract
 {
     protected $maps = [
-        'createFromOrder'   => ['POST', '/wallet/transactions'],
-        'findById'          => ['GET', '/orders/transactions/{itemId}'],
-        'delete'            => ['DELETE', '/orders/transactions/{itemId}'],
+        'createFromOrder' => ['POST', '/wallet/transactions'],
+        'findById'        => ['GET', '/orders/transactions/{itemId}'],
+        'delete'          => ['DELETE', '/orders/transactions/{itemId}'],
     ];
 
     protected function isSuccess(Response $response)
@@ -96,8 +96,8 @@ class Manager extends ManagerAbstract
         }
 
         $data = [
-            'id'            => current($dataRaw->getOrderData()),
-            'checkoutUrl'   => $linkList['urlWallet'],
+            'id'          => current($dataRaw->getOrderData()),
+            'checkoutUrl' => $linkList['urlWallet'],
         ];
 
         return new Transaction($data);
