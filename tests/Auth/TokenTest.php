@@ -15,29 +15,14 @@
 namespace Gpupo\Tests\SteloSdk\Auth;
 
 use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\SteloSdk\Auth\Token;
 use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
 
 class TokenTest extends EntityTestCaseAbstract
 {
-    const QUALIFIED = '\Gpupo\SteloSdk\Auth\Token';
-
-    public static function setUpBeforeClass()
-    {
-        static::setFullyQualifiedObject(self::QUALIFIED);
-        parent::setUpBeforeClass();
-    }
-
     public function dataProviderObject()
     {
-        $expected = [
-            'access_token' => 'foo',
-            'token_type'   => 'bar',
-            'expires_in'   => 1,
-            'scope'        => 'zeta',
-            'state'        => 'jones',
-        ];
-
-        return $this->dataProviderEntitySchema(self::QUALIFIED, $expected);
+        return $this->dataProviderEntitySchema(Token::class);
     }
 
     /**
