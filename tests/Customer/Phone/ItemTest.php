@@ -15,27 +15,14 @@
 namespace Gpupo\Tests\SteloSdk\Customer\Phone;
 
 use Gpupo\CommonSdk\Entity\EntityInterface;
+use Gpupo\SteloSdk\Customer\Phone\Item;
 use Gpupo\Tests\SteloSdk\EntityTestCaseAbstract;
 
 class ItemTest extends EntityTestCaseAbstract
 {
-    const QUALIFIED = '\Gpupo\SteloSdk\Customer\Phone\Item';
-
-    public static function setUpBeforeClass()
-    {
-        static::setFullyQualifiedObject(self::QUALIFIED);
-        parent::setUpBeforeClass();
-    }
-
     public function dataProviderObject()
     {
-        $expected = [
-            'phoneType' => 'LANDLINE',
-            'number'    => '41 99872774',
-            'type'      => 1,
-        ];
-
-        return $this->dataProviderEntitySchema(self::QUALIFIED, $expected);
+        return $this->dataProviderEntitySchema(Item::class);
     }
 
     /**
