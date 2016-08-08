@@ -2,14 +2,14 @@
 
 /*
  * This file is part of gpupo/stelo-sdk
- *
- * (c) Gilmar Pupo <g@g1mr.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- *
- * For more information, see
- * <http://www.g1mr.com/stelo-sdk/>.
+ * Created by Gilmar Pupo <g@g1mr.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <http://www.g1mr.com/>.
  */
 
 namespace Gpupo\SteloSdk;
@@ -33,20 +33,20 @@ class Factory extends FactoryAbstract
     {
         return [
             'order' => [
-                'class' => $namespace . 'Order\Order',
+                'class' => $namespace.'Order\Order',
             ],
             'lightbox' => [
-                'class' => $namespace . 'View\Lightbox',
+                'class' => $namespace.'View\Lightbox',
             ],
             'token' => [
-                'class' => $namespace . 'Auth\Token',
+                'class' => $namespace.'Auth\Token',
             ],
             'transaction' => [
-                'class'   => $namespace . 'Transaction\Transaction',
-                'manager' => $namespace . 'Transaction\Manager',
+                'class'   => $namespace.'Transaction\Transaction',
+                'manager' => $namespace.'Transaction\Manager',
             ],
             'auth' => [
-                'manager' => $namespace . 'Auth\Manager',
+                'manager' => $namespace.'Auth\Manager',
             ],
 
         ];
