@@ -2,14 +2,14 @@
 
 /*
  * This file is part of gpupo/stelo-sdk
- *
- * (c) Gilmar Pupo <g@g1mr.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- *
- * For more information, see
- * <http://www.g1mr.com/stelo-sdk/>.
+ * Created by Gilmar Pupo <g@g1mr.com>
+ * For the information of copyright and license you should read the file
+ * LICENSE which is distributed with this source code.
+ * Para a informação dos direitos autorais e de licença você deve ler o arquivo
+ * LICENSE que é distribuído com este código-fonte.
+ * Para obtener la información de los derechos de autor y la licencia debe leer
+ * el archivo LICENSE que se distribuye con el código fuente.
+ * For more information, see <http://www.g1mr.com/>.
  */
 
 namespace Gpupo\SteloSdk\Auth;
@@ -64,7 +64,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
     protected function appendParamsToUri($uri, array $params)
     {
         foreach ($params as $param) {
-            $uri .= $param . '={' . $param . '}&';
+            $uri .= $param.'={'.$param.'}&';
         }
 
         return rtrim($uri, '&');
@@ -72,8 +72,10 @@ class Manager extends ManagerAbstract implements OptionsInterface
 
     public function getAuthorizeUrl()
     {
-        $uri = $this->appendParamsToUri($this->endpoint . '/authorize?',
-            ['response_type', 'client_id', 'redirect_url', 'scope', 'state']);
+        $uri = $this->appendParamsToUri(
+            $this->endpoint.'/authorize?',
+            ['response_type', 'client_id', 'redirect_url', 'scope', 'state']
+        );
 
         return $this->fillPlaceholdersWithArray($uri, $this->getOptions()->toArray());
     }
@@ -94,13 +96,13 @@ class Manager extends ManagerAbstract implements OptionsInterface
     {
         if (in_array($path, ['/token', '/customer'], true)) {
             if ($this->getOptions()->get('login_version') === 'login.hml') {
-                return 'http://200.142.203.223/sso/auth/v1/oauth2' . $path;
+                return 'http://200.142.203.223/sso/auth/v1/oauth2'.$path;
             } else {
-                return 'https://api.stelo.com.br/sso/auth/v1/oauth2' . $path;
+                return 'https://api.stelo.com.br/sso/auth/v1/oauth2'.$path;
             }
         }
 
-        return $this->endpoint . $path;
+        return $this->endpoint.$path;
     }
 
     protected function requestResponseFromPath($path, $body = null, $mode = 'json')
@@ -143,7 +145,7 @@ class Manager extends ManagerAbstract implements OptionsInterface
 
     public function requestCustomer(Token $token)
     {
-        $this->getClient()->setAuthorizationMode('Bearer ' . $token->getAccessToken());
+        $this->getClient()->setAuthorizationMode('Bearer '.$token->getAccessToken());
 
         return $this->factoryCustomer($this->requestResponseFromPath('/customer'));
     }
