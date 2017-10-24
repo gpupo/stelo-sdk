@@ -215,11 +215,11 @@ Utilize como modelo o arquivo ``app.json.dist``
 
 ### Fluxo de Login
 
-![Fluxo de Login](http://www.g1mr.com/stelo-sdk/images/fluxo-login.png)
+![Fluxo de Login](https://opensource.gpupo.com/stelo-sdk/images/fluxo-login.png)
 
 ### Fluxo de Transação
 
-![Fluxo de Transação](http://www.g1mr.com/stelo-sdk/images/fluxo-transaction.png)
+![Fluxo de Transação](https://opensource.gpupo.com/stelo-sdk/images/fluxo-transaction.png)
 
 
 ## Propriedades dos objetos
